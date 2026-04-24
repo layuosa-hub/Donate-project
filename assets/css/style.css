@@ -44,7 +44,8 @@ body {
   z-index: 1;
 }
 
-/* Glassmorphism Navbar */
+
+/* ====navbar===== */
 .navbar-pill {
   background: var(--glass);
   backdrop-filter: blur(10px);
@@ -86,6 +87,46 @@ body {
   color: var(--accent-blue) !important;
   transform: translateY(-1px);
 }
+
+
+
+
+.nav-item.dropdown:hover > .dropdown-menu {
+    display: block;
+    opacity: 1;
+    visibility: visible;
+    transform: translateY(0);
+}
+
+.dropdown-menu {
+    display: block; 
+    opacity: 0;
+    visibility: hidden;
+    transform: translateY(10px);
+    transition: all 0.3s ease;
+    top: 100%;
+}
+
+.dropdown-item {
+    padding: 0.6rem 1.5rem;
+    font-size: 0.95rem;
+    transition: background 0.2s;
+}
+
+.dropdown-item:hover {
+    background-color: rgba(26, 90, 150, 0.1);
+    color: var(--primary-blue);
+}
+
+.dropdown-menu .dropdown-item {
+    color: #333 !important; 
+}
+
+.dropdown-menu .dropdown-item:hover {
+    background-color: #f8f9fa;
+    color: var(--primary-blue) !important;
+}
+
 
 /* Main Donate Button */
 .btn-donate-main {
@@ -274,3 +315,50 @@ h2.display-6 {
   }
 }
 
+
+
+/* =======section1===== */
+/* Gallery Custom Style */
+.gallery-card {
+    border-radius: 20px;
+    background: #fff;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    cursor: pointer;
+}
+
+.gallery-card:hover {
+    transform: translateY(-10px);
+    box-shadow: 0 15px 30px rgba(0,0,0,0.1) !important;
+}
+
+.gallery-img-wrapper {
+    width: 100%;
+    height: 200px; /* កំណត់កម្ពស់រូបភាពឱ្យស្មើគ្នា */
+    overflow: hidden;
+}
+
+.gallery-img-wrapper img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover; /* ធានាថារូបភាពមិនទាញខ្លាំងពេក */
+    transition: transform 0.5s ease;
+}
+
+.gallery-card:hover .gallery-img-wrapper img {
+    transform: scale(1.1); /* រីករូបភាពបន្តិចពេល Hover */
+}
+
+.text-accent-blue {
+    color: var(--accent-blue);
+}
+
+.tracking-widest {
+    letter-spacing: 0.15em;
+}
+
+/* សម្រាប់ទូរស័ព្ទ (រូបភាព ២ ក្នុង ១ ជួរ) */
+@media (max-width: 576px) {
+    .gallery-img-wrapper {
+        height: 150px;
+    }
+}

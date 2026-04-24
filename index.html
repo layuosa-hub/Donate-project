@@ -47,7 +47,7 @@
     <div class="content-wrapper d-flex flex-column vh-100 text-white">
       <header class="container-fluid py-4">
         <div class="row align-items-center px-lg-5">
-          <div class="col-lg-2 col-6">
+         <div class="col-lg-2 col-6">
             <div class="d-flex align-items-center">
               <img
                 src="assets/img/photo_2026-04-02_12-02-02.jpg"
@@ -59,27 +59,32 @@
               />
               <div class="ms-2 lh-1">
                 <span class="fw-bold d-block fs-4" style="color: var(--gold)"
-                  >TOURISM</span
+                  >ស្នាមញញឹមខ្មែរ</span
                 >
                 <small class="text-white-50" style="font-size: 0.7rem"
-                  >It's time to travel</small
+                  >ផ្តល់ក្តីសង្ឃឹមតាមរយៈការបរិច្ចាគ</small
                 >
               </div>
             </div>
           </div>
 
+
           <div class="col-lg-7 d-none d-lg-flex justify-content-center">
             <nav class="navbar-pill">
               <ul class="nav">
                 <li class="nav-item">
-                  <a class="nav-link fw-bold px-3" href="#">ទំព័រដើម</a>
+                  <a class="nav-link fw-bold px-3 text-white" href="#"
+                    >ទំព័រដើម</a
+                  >
                 </li>
                 <li class="nav-item dropdown">
                   <a
-                    class="nav-link fw-bold px-3 dropdown-toggle"
+                    class="nav-link fw-bold px-3 dropdown-toggle text-white"
                     href="#"
                     id="donateDropdown"
                     role="button"
+                    data-bs-toggle="dropdown"
+                    aria-expanded="false"
                   >
                     ការបរិច្ចាគ
                   </a>
@@ -88,52 +93,145 @@
                     aria-labelledby="donateDropdown"
                   >
                     <li><h6 class="dropdown-header">ប្រភេទការបរិច្ចាគ</h6></li>
+
                     <li>
-                      <a class="dropdown-item" href="#blood-donation"
-                        >ការបរិច្ចាគឈាម</a
+                      <a
+                        class="dropdown-item d-flex align-items-center"
+                        href="#blood-donation"
                       >
+                        <i class="fa-solid fa-droplet me-3 text-danger"></i>
+                        ការបរិច្ចាគឈាម
+                      </a>
                     </li>
+
                     <li>
-                      <a class="dropdown-item" href="#material-donation"
-                        >ការបរិច្ចាគសម្ភារះ</a
+                      <a
+                        class="dropdown-item d-flex align-items-center"
+                        href="#material-donation"
                       >
+                        <i class="fa-solid fa-box-open me-3 text-primary"></i>
+                        ការបរិច្ចាគសម្ភារះ
+                      </a>
                     </li>
+
                     <li>
-                      <a class="dropdown-item" href="#cash-donation"
-                        >ការបរិច្ចាគប្រាក់</a
+                      <a
+                        class="dropdown-item d-flex align-items-center"
+                        href="#cash-donation"
                       >
+                        <i
+                          class="fa-solid fa-hand-holding-dollar me-3 text-success"
+                        ></i>
+                        ការបរិច្ចាគប្រាក់
+                      </a>
                     </li>
+
                     <li>
-                      <a class="dropdown-item" href="#food-donation"
-                        >បរិច្ចាគអាហារ</a
+                      <a
+                        class="dropdown-item d-flex align-items-center"
+                        href="#food-donation"
                       >
+                        <i class="fa-solid fa-utensils me-3 text-warning"></i>
+                        បរិច្ចាគអាហារ
+                      </a>
                     </li>
+
                     <li>
-                      <a class="dropdown-item" href="#time-donation"
-                        >បរិច្ចាគពេលវេលា</a
+                      <a
+                        class="dropdown-item d-flex align-items-center"
+                        href="#time-donation"
                       >
+                        <i class="fa-solid fa-clock me-3 text-info"></i>
+                        បរិច្ចាគពេលវេលា
+                      </a>
                     </li>
+
                     <li>
-                      <a class="dropdown-item" href="#rebuild-donation"
-                        >ការសាងសង</a
+                      <a
+                        class="dropdown-item d-flex align-items-center"
+                        href="#rebuild-donation"
                       >
+                        <i
+                          class="fa-solid fa-trowel-bricks me-3 text-secondary"
+                        ></i>
+                        ការសាងសង
+                      </a>
                     </li>
+
                     <li><hr class="dropdown-divider" /></li>
+
                     <li>
                       <div class="dropdown-item-text text-muted small">
-                        ស្វែងរកប្រភេទការបរិច្ចាគដែលសាកសមសម្រាប់អ្នក និងសហគមន៍។
+                        <i class="fa-solid fa-circle-info me-2"></i>
+                        ស្វែងរកប្រភេទការបរិច្ចាគដែលសាកសម។
                       </div>
                     </li>
                   </ul>
                 </li>
-                <li class="nav-item">
-                  <a class="nav-link fw-bold px-3" href="#">ការស្ម័គ្រចិត្ត</a>
+                <li class="nav-item dropdown">
+                  <a
+                    class="nav-link fw-bold px-3 dropdown-toggle text-white"
+                    href="#"
+                    id="volunteerDropdown"
+                    role="button"
+                    data-bs-toggle="dropdown"
+                    aria-expanded="false"
+                  >
+                    ការស្ម័គ្រចិត្ត
+                  </a>
+                  <ul
+                    class="dropdown-menu shadow-sm rounded-4 border-0"
+                    aria-labelledby="volunteerDropdown"
+                  >
+                    <li>
+                      <h6 class="dropdown-header">កម្មវិធីស្ម័គ្រចិត្ត</h6>
+                    </li>
+                    <li>
+                      <a class="dropdown-item" href="#event-volunteer">
+                        <i
+                          class="fa-solid fa-calendar-check me-2 text-primary"
+                        ></i>
+                        ស្ម័គ្រចិត្តតាមព្រឹត្តិការណ៍
+                      </a>
+                    </li>
+                    <li>
+                      <a class="dropdown-item" href="#community-teaching">
+                        <i
+                          class="fa-solid fa-chalkboard-user me-2 text-success"
+                        ></i>
+                        ការបង្រៀនសហគមន៍
+                      </a>
+                    </li>
+                    <li>
+                      <a class="dropdown-item" href="#medical-volunteer">
+                        <i class="fa-solid fa-user-doctor me-2 text-danger"></i>
+                        ក្រុមការងារសុខាភិបាល
+                      </a>
+                    </li>
+                    <li>
+                      <a class="dropdown-item" href="#digital-volunteer">
+                        <i class="fa-solid fa-laptop-code me-2 text-info"></i>
+                        ស្ម័គ្រចិត្តផ្នែកឌីជីថល
+                      </a>
+                    </li>
+                    <li><hr class="dropdown-divider" /></li>
+                    <li>
+                      <a class="dropdown-item" href="#register-volunteer">
+                        <i class="fa-solid fa-pen-to-square me-2"></i>
+                        ចុះឈ្មោះជាអ្នកស្ម័គ្រចិត្ត
+                      </a>
+                    </li>
+                  </ul>
                 </li>
                 <li class="nav-item">
-                  <a class="nav-link fw-bold px-3" href="#">ទំនាក់ទំនង</a>
+                  <a class="nav-link fw-bold px-3 text-white" href="#"
+                    >ទំនាក់ទំនង</a
+                  >
                 </li>
                 <li class="nav-item">
-                  <a class="nav-link fw-bold px-3" href="#">អំពីយើង</a>
+                  <a class="nav-link fw-bold px-3 text-white" href="#"
+                    >អំពីយើង</a
+                  >
                 </li>
               </ul>
             </nav>
@@ -272,6 +370,66 @@
           </button>
         </div>
       </div>
+    </section>
+
+    <!-- ========section1====== -->
+      <section class="py-5 bg-white">
+  <div class="container py-4">
+    <div class="text-center mb-5">
+      <h5 class="text-uppercase tracking-widest text-accent-blue fw-bold mb-2">សកម្មភាពរបស់យើង</h5>
+      <h2 class="display-6 fw-bold" style="color: var(--primary-blue)">រូបភាពនៃឥទ្ធិពល និងការចូលរួម</h2>
+    </div>
+
+    <div class="row g-4">
+      <div class="col-6 col-md-4 col-lg-3">
+        <div class="gallery-card border-0 shadow-sm overflow-hidden h-100">
+          <div class="gallery-img-wrapper">
+            <img src="https://images.unsplash.com/photo-1488521787991-ed7bbaae773c?q=80&w=2070" class="img-fluid" alt="សកម្មភាព">
+          </div>
+          <div class="p-3">
+            <h6 class="fw-bold mb-1" style="color: var(--primary-blue)">គាំទ្រការសិក្សា</h6>
+            <p class="small text-muted mb-0">ការចែកសម្ភារៈសិក្សាដល់កុមារនៅតំបន់ដាច់ស្រយាល។</p>
+          </div>
+        </div>
+      </div>
+
+      <div class="col-6 col-md-4 col-lg-3">
+        <div class="gallery-card border-0 shadow-sm overflow-hidden h-100">
+          <div class="gallery-img-wrapper">
+            <img src="https://images.unsplash.com/photo-1542601906990-b4d3fb778b09?q=80&w=2013" class="img-fluid" alt="សកម្មភាព">
+          </div>
+          <div class="p-3">
+            <h6 class="fw-bold mb-1" style="color: var(--primary-blue)">សម្អាតបរិស្ថាន</h6>
+            <p class="small text-muted mb-0">យុទ្ធនាការសម្អាតឆ្នេរសមុទ្រ និងតំបន់ទេសចរណ៍។</p>
+          </div>
+        </div>
+      </div>
+
+      <div class="col-6 col-md-4 col-lg-3">
+        <div class="gallery-card border-0 shadow-sm overflow-hidden h-100">
+          <div class="gallery-img-wrapper">
+            <img src="https://images.unsplash.com/photo-1593113598332-cd288d649433?q=80&w=2070" class="img-fluid" alt="សកម្មភាព">
+          </div>
+          <div class="p-3">
+            <h6 class="fw-bold mb-1" style="color: var(--primary-blue)">ការដាំដើមឈើ</h6>
+            <p class="small text-muted mb-0">បង្កើនផ្ទៃពណ៌បៃតងនៅតាមសហគមន៍ទេសចរណ៍។</p>
+          </div>
+        </div>
+      </div>
+
+      <div class="col-6 col-md-4 col-lg-3">
+        <div class="gallery-card border-0 shadow-sm overflow-hidden h-100">
+          <div class="gallery-img-wrapper">
+            <img src="https://images.unsplash.com/photo-1532629345422-7515f3d16bb6?q=80&w=2070" class="img-fluid" alt="សកម្មភាព">
+          </div>
+          <div class="p-3">
+            <h6 class="fw-bold mb-1" style="color: var(--primary-blue)">សប្បុរសធម៌</h6>
+            <p class="small text-muted mb-0">ការផ្តល់ជំនួយស្បៀងអាហារដល់គ្រួសារខ្វះខាត។</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
     </section>
 
     <section class="py-5" style="background-color: #f0f7ff">
