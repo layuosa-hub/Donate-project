@@ -1,0 +1,161 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Profile Settings</title>
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.1/font/bootstrap-icons.css">
+
+  <link rel="stylesheet" href="style.css">
+</head>
+<style>
+  body {
+    background: #3498db;
+  }
+
+.profile-img {
+  width: 100px;
+  height: 100px;
+  object-fit: cover;
+}
+
+.list-group-item {
+  border: none;
+  border-radius: 12px;
+  margin-bottom: 10px;
+}
+
+.list-group-item.active {
+  /* background-color: powderblue; */
+  color: powderblue;
+  font-weight: 600;
+}
+
+.form-control,
+.form-select {
+  border-radius: 10px;
+  padding: 10px;
+}
+
+.input-group-text {
+  background: #eafaf1;
+  border: none;
+  font-size: 14px;
+}
+
+.btn-warning {
+  background-color: powderblue;
+  border: none;
+  border-radius: 10px;
+}
+
+.btn-outline-warning {
+  border-radius: 10px;
+  border: 2px solid red
+}
+</style>
+
+<body>
+
+<div class="container py-5">
+  <div class="row shadow rounded-4 overflow-hidden">
+
+    <!-- LEFT SIDEBAR -->
+    <div class="col-md-4 bg-light p-4 text-center">
+      <img src="https://i.pinimg.com/736x/02/cb/7a/02cb7aa173922142abd8eb113356d41a.jpg" class="rounded-circle mb-3 profile-img">
+
+      <h5 class="fw-bold">ចំរើន ខាត់ពីយ៉ា</h5>
+      <div class="list-group mt-4">
+        <a href="#" class="list-group-item active">
+          <i class="bi bi-person"></i> ព័ត៌មានផ្ទាល់ខ្លួន
+        </a>
+        <a href="#" class="list-group-item">
+          <i class="bi bi-lock"></i> ចូលប្រើ & ពាក្យសម្ងាត់
+        </a>
+        <a href="#" class="list-group-item text-danger">
+          <i class="bi bi-box-arrow-right"></i> ចាកចេញ
+        </a>
+      </div>
+    </div>
+
+    <!-- RIGHT CONTENT -->
+    <div class="col-md-8 p-4">
+
+      <h5 class="fw-bold mb-4">ព័ត៌មានផ្ទាល់ខ្លួន</h5>
+
+      <!-- Gender -->
+      <div class="mb-3">
+        <label class="me-3">ប្រុស</label>
+        <input type="radio" name="gender" checked>
+        <label class="ms-3 me-3">ស្រី</label>
+        <input type="radio" name="gender">
+      </div>
+
+      <div class="row">
+        <div class="col-md-6 mb-3">
+          <label>នាមខ្លួន</label>
+          <input type="text" class="form-control" value="ខាត់ពីយ៉ា">
+        </div>
+
+        <div class="col-md-6 mb-3">
+          <label>នាមត្រកូល</label>
+          <input type="text" class="form-control" value="ចំរើន">
+        </div>
+      </div>
+
+      <div class="mb-3">
+        <label>អ៊ីមែល</label>
+        <div class="input-group">
+          <input type="email" class="form-control" value="chomreoun@gmail.com">
+          
+        </div>
+      </div>
+
+      <div class="mb-3">
+        <label>អាសយដ្ឋាន</label>
+        <input type="text" class="form-control" value="ផ្ទះលេខ ១២៣ ផ្លូវលេខ ៤៥៦ សង្កាត់បឹងកេងកង ខណ្ឌចំការមន រាជធានីភ្នំពេញ">
+      </div>
+
+      <div class="row">
+        <div class="col-md-6 mb-3">
+          <label>លេខទូរស័ព្ទ</label>
+          <input type="text" class="form-control" value="(885) 77 837 641">
+        </div>
+
+        <div class="col-md-6 mb-3">
+          <label>ថ្ងៃខែឆ្នាំកំណើត</label>
+          <input type="date" class="form-control">
+        </div>
+      </div>
+
+      <div class="row">
+        <div class="col-md-6 mb-3">
+          <label>ទីតាំង</label>
+          <select class="form-select">
+            <option>ភ្នំពេញ, កម្ពុជា</option>
+          </select>
+        </div>
+
+        <div class="col-md-6 mb-3">
+          <label>លេខប្រៃសណីយ៍</label>
+          <input type="text" class="form-control" value="12000">
+        </div>
+      </div>
+
+      <!-- Buttons -->
+      <div class="d-flex justify-content-end gap-3 mt-4">
+        <button class="btn btn-outline-primary px-4">បោះបង់</button>
+        <button class="btn btn-primary px-4 text-white">រក្សាទុក</button>
+      </div>
+
+    </div>
+
+  </div>
+</div>
+
+</body>
+</html>
+
+</body>
+</html>
