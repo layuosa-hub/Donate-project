@@ -1,0 +1,69 @@
+/* Billing Table Styling */
+.table-light-custom {
+    background: rgba(26, 90, 150, 0.05);
+    color: var(--primary-blue);
+    font-size: 0.85rem;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+}
+
+.table-hover tbody tr:hover {
+    background-color: rgba(0, 173, 239, 0.03);
+}
+
+.table td {
+    padding: 1.2rem 0.75rem;
+    color: #444;
+    border-bottom: 1px solid rgba(0, 0, 0, 0.05);
+}
+
+/* Premium Badges */
+.badge-success-premium {
+    background-color: rgba(40, 167, 69, 0.1);
+    color: #28a745;
+    padding: 6px 12px;
+    border-radius: 50px;
+    font-weight: 600;
+    font-size: 0.75rem;
+}
+
+.badge-pending-premium {
+    background-color: rgba(243, 156, 18, 0.1);
+    color: var(--gold);
+    padding: 6px 12px;
+    border-radius: 50px;
+    font-weight: 600;
+    font-size: 0.75rem;
+}
+
+/* Action Icon Buttons */
+.btn-icon-view, .btn-icon-download {
+    color: var(--primary-blue);
+    background: white;
+    border: 1px solid rgba(26, 90, 150, 0.1);
+    width: 35px;
+    height: 35px;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 10px;
+    transition: all 0.2s ease;
+}
+
+.btn-icon-view:hover {
+    background: var(--primary-blue);
+    color: white;
+}
+
+.btn-icon-download:hover {
+    background: var(--gold);
+    color: white;
+    border-color: var(--gold);
+}
+
+.page-link:focus {
+    box-shadow: none;
+}
+h1{
+    color: red;
+}

@@ -1,0 +1,14 @@
+.btn-outline-orange {
+    background-color: transparent;
+    color: var(--orange);
+    border: 1.5px solid var(--orange);
+    font-weight: 600;
+    transition: 0.3s;
+}
+.btn-outline-orange:hover {
+    background-color: var(--orange);
+    color: white;
+}
+.text-orange {
+    color: var(--orange);
+}
