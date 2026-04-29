@@ -1,0 +1,412 @@
+/* ============================================ */
+/* MATERIAL DONATION PAGE STYLES
+/* ============================================ */
+
+/* Material Header */
+.material-header {
+    background: linear-gradient(135deg, #28a745, #1e7e34);
+    padding: 100px 0 80px;
+    color: #fff;
+    text-align: center;
+}
+
+.material-icon {
+    width: 80px;
+    height: 80px;
+    background: rgba(255,255,255,0.2);
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin: 0 auto 20px;
+}
+
+.material-icon i {
+    font-size: 40px;
+}
+
+.material-header h1 {
+    font-size: 3rem;
+    font-weight: 800;
+    margin-bottom: 15px;
+}
+
+.material-header p {
+    font-size: 1.2rem;
+    opacity: 0.9;
+}
+
+/* Needed Materials Section */
+.needed-materials {
+    padding: 80px 0;
+    background: #f8f9fa;
+}
+
+.material-card {
+    background: #fff;
+    padding: 30px;
+    border-radius: 20px;
+    text-align: center;
+    box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+    transition: all 0.3s ease;
+    height: 100%;
+    position: relative;
+}
+
+.material-card:hover {
+    transform: translateY(-10px);
+}
+
+.material-card .material-icon {
+    width: 70px;
+    height: 70px;
+    background: linear-gradient(135deg, #28a745, #1e7e34);
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin: 0 auto 20px;
+}
+
+.material-card .material-icon i {
+    font-size: 30px;
+    color: #fff;
+}
+
+.material-card h3 {
+    font-size: 1.3rem;
+    margin-bottom: 15px;
+}
+
+.material-card ul {
+    list-style: none;
+    padding: 0;
+    text-align: left;
+}
+
+.material-card ul li {
+    padding: 8px 0;
+    color: #6c757d;
+    font-size: 0.9rem;
+}
+
+.material-card ul li i {
+    color: #28a745;
+    margin-right: 8px;
+}
+
+.urgent-badge {
+    position: absolute;
+    top: 15px;
+    right: 15px;
+    background: #dc3545;
+    color: #fff;
+    padding: 3px 10px;
+    border-radius: 50px;
+    font-size: 0.7rem;
+    font-weight: 600;
+}
+
+/* Donation Form Section */
+.donation-form-section {
+    padding: 80px 0;
+    background: #fff;
+}
+
+.form-card {
+    background: #fff;
+    border-radius: 30px;
+    box-shadow: 0 20px 50px rgba(0,0,0,0.15);
+    overflow: hidden;
+}
+
+.form-header {
+    background: linear-gradient(135deg, #28a745, #1e7e34);
+    color: #fff;
+    padding: 40px;
+    text-align: center;
+}
+
+.form-header i {
+    font-size: 50px;
+    margin-bottom: 15px;
+}
+
+.form-header h3 {
+    font-size: 1.8rem;
+    margin-bottom: 10px;
+}
+
+.form-header p {
+    opacity: 0.9;
+    margin: 0;
+}
+
+.form-card form {
+    padding: 40px;
+}
+
+.form-group {
+    margin-bottom: 20px;
+}
+
+.form-group label {
+    font-weight: 600;
+    margin-bottom: 8px;
+    display: block;
+}
+
+.form-group label i {
+    color: #28a745;
+    margin-right: 8px;
+}
+
+.form-control {
+    border: 2px solid #e9ecef;
+    border-radius: 10px;
+    padding: 12px 15px;
+    transition: all 0.3s ease;
+}
+
+.form-control:focus {
+    border-color: #28a745;
+    box-shadow: 0 0 0 3px rgba(40, 167, 69, 0.1);
+}
+
+.form-check {
+    margin: 20px 0;
+}
+
+.btn-submit {
+    width: 100%;
+    background: linear-gradient(135deg, #28a745, #1e7e34);
+    color: #fff;
+    border: none;
+    padding: 15px;
+    border-radius: 50px;
+    font-size: 1.1rem;
+    font-weight: 600;
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+.btn-submit:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 10px 30px rgba(40, 167, 69, 0.3);
+}
+
+.pickup-address {
+    margin-top: 15px;
+    padding: 15px;
+    background: #f8f9fa;
+    border-radius: 10px;
+}
+
+/* Drop-off Locations */
+.dropoff-locations {
+    padding: 80px 0;
+    background: #f8f9fa;
+}
+
+.location-card {
+    background: #fff;
+    padding: 30px;
+    border-radius: 20px;
+    text-align: center;
+    box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+    transition: all 0.3s ease;
+    height: 100%;
+}
+
+.location-card:hover {
+    transform: translateY(-10px);
+}
+
+.location-icon {
+    width: 70px;
+    height: 70px;
+    background: linear-gradient(135deg, #28a745, #1e7e34);
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin: 0 auto 20px;
+}
+
+.location-icon i {
+    font-size: 30px;
+    color: #fff;
+}
+
+.location-card h3 {
+    font-size: 1.2rem;
+    margin-bottom: 15px;
+}
+
+.location-card p {
+    color: #6c757d;
+    margin-bottom: 8px;
+    font-size: 0.9rem;
+}
+
+.location-card p i {
+    width: 20px;
+    color: #28a745;
+}
+
+/* Impact Section */
+.impact-section {
+    padding: 80px 0;
+    background: #fff;
+}
+
+.impact-section h2 {
+    font-size: 2.5rem;
+    margin-bottom: 20px;
+}
+
+.impact-stats {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 20px;
+    margin-top: 30px;
+}
+
+.impact-item {
+    background: #f8f9fa;
+    padding: 20px;
+    border-radius: 15px;
+    text-align: center;
+    transition: all 0.3s ease;
+}
+
+.impact-item:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 5px 20px rgba(0,0,0,0.1);
+}
+
+.impact-item i {
+    font-size: 35px;
+    color: #28a745;
+    margin-bottom: 10px;
+}
+
+.impact-item span {
+    display: block;
+    font-size: 1.5rem;
+    font-weight: 700;
+    color: #1a1a2e;
+}
+
+.impact-item p {
+    color: #6c757d;
+    margin: 0;
+    font-size: 0.9rem;
+}
+
+.impact-image {
+    position: relative;
+}
+
+.image-caption {
+    position: absolute;
+    bottom: 20px;
+    left: 20px;
+    right: 20px;
+    background: rgba(0,0,0,0.7);
+    color: #fff;
+    padding: 12px;
+    border-radius: 10px;
+    text-align: center;
+    font-size: 0.9rem;
+    backdrop-filter: blur(5px);
+}
+
+/* Material FAQ */
+.material-faq {
+    padding: 80px 0;
+    background: #f8f9fa;
+}
+
+.faq-container {
+    max-width: 800px;
+    margin: 0 auto;
+}
+
+.faq-item {
+    background: #fff;
+    border-radius: 15px;
+    margin-bottom: 15px;
+    overflow: hidden;
+}
+
+.faq-question {
+    padding: 20px;
+    cursor: pointer;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    font-weight: 600;
+    transition: all 0.3s ease;
+}
+
+.faq-question:hover {
+    background: #e9ecef;
+}
+
+.faq-question i {
+    transition: all 0.3s ease;
+}
+
+.faq-question.active i {
+    transform: rotate(180deg);
+}
+
+.faq-answer {
+    padding: 0 20px;
+    max-height: 0;
+    overflow: hidden;
+    transition: all 0.3s ease;
+    color: #6c757d;
+    line-height: 1.8;
+}
+
+.faq-answer.show {
+    padding: 0 20px 20px;
+    max-height: 300px;
+}
+
+/* Responsive */
+@media (max-width: 992px) {
+    .material-header h1 {
+        font-size: 2.5rem;
+    }
+    
+    .impact-section h2 {
+        font-size: 2rem;
+    }
+}
+
+@media (max-width: 768px) {
+    .material-header h1 {
+        font-size: 2rem;
+    }
+    
+    .form-card form {
+        padding: 25px;
+    }
+    
+    .impact-stats {
+        grid-template-columns: 1fr;
+    }
+}
+
+@media (max-width: 576px) {
+    .material-header h1 {
+        font-size: 1.5rem;
+    }
+    
+    .material-card ul li {
+        font-size: 0.8rem;
+    }
+}

@@ -1,0 +1,613 @@
+/* ============================================ */
+/* MONEY DONATION PAGE STYLES
+/* ============================================ */
+
+/* Money Header */
+.money-header {
+    background: linear-gradient(135deg, #007bff, #0056b3);
+    padding: 100px 0 80px;
+    color: #fff;
+    text-align: center;
+}
+
+.money-icon {
+    width: 80px;
+    height: 80px;
+    background: rgba(255,255,255,0.2);
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin: 0 auto 20px;
+}
+
+.money-icon i {
+    font-size: 40px;
+}
+
+.money-header h1 {
+    font-size: 3rem;
+    font-weight: 800;
+    margin-bottom: 15px;
+}
+
+.money-header p {
+    font-size: 1.2rem;
+    opacity: 0.9;
+}
+
+/* Donation Stats */
+.donation-stats {
+    padding: 60px 0;
+    background: #f8f9fa;
+    margin-top: -40px;
+    position: relative;
+    z-index: 10;
+}
+
+.stat-card {
+    background: #fff;
+    padding: 30px;
+    border-radius: 20px;
+    text-align: center;
+    box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+    transition: all 0.3s ease;
+}
+
+.stat-card:hover {
+    transform: translateY(-10px);
+}
+
+.stat-card i {
+    font-size: 45px;
+    color: #007bff;
+    margin-bottom: 15px;
+}
+
+.stat-card h2 {
+    font-size: 2.5rem;
+    font-weight: 700;
+    margin-bottom: 5px;
+    color: #1a1a2e;
+}
+
+.stat-card p {
+    color: #6c757d;
+    margin: 0;
+}
+
+/* Quick Donation */
+.quick-donation {
+    padding: 60px 0;
+    background: #fff;
+}
+
+.quick-card {
+    background: #fff;
+    border-radius: 30px;
+    box-shadow: 0 20px 50px rgba(0,0,0,0.15);
+    padding: 40px;
+    text-align: center;
+}
+
+.quick-header i {
+    font-size: 50px;
+    color: #007bff;
+    margin-bottom: 15px;
+}
+
+.quick-header h3 {
+    font-size: 1.8rem;
+    margin-bottom: 10px;
+}
+
+.quick-header p {
+    color: #6c757d;
+    margin-bottom: 30px;
+}
+
+.amount-buttons {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 15px;
+    justify-content: center;
+    margin-bottom: 20px;
+}
+
+.amount-btn {
+    padding: 12px 25px;
+    border: 2px solid #007bff;
+    background: transparent;
+    color: #007bff;
+    border-radius: 50px;
+    font-weight: 600;
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+.amount-btn:hover,
+.amount-btn.active {
+    background: #007bff;
+    color: #fff;
+}
+
+.amount-btn.custom-amount-btn {
+    background: #28a745;
+    border-color: #28a745;
+    color: #fff;
+}
+
+.amount-btn.custom-amount-btn:hover {
+    background: #1e7e34;
+}
+
+.custom-amount-input {
+    max-width: 300px;
+    margin: 0 auto 20px;
+}
+
+.donation-type {
+    max-width: 300px;
+    margin: 0 auto 20px;
+}
+
+.btn-donate-now {
+    background: linear-gradient(135deg, #007bff, #0056b3);
+    color: #fff;
+    border: none;
+    padding: 15px 40px;
+    border-radius: 50px;
+    font-size: 1.1rem;
+    font-weight: 600;
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+.btn-donate-now:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 10px 30px rgba(0,123,255,0.3);
+}
+
+/* Payment Methods */
+.payment-methods {
+    padding: 80px 0;
+    background: #f8f9fa;
+}
+
+.payment-card {
+    background: #fff;
+    padding: 30px;
+    border-radius: 20px;
+    text-align: center;
+    box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+    transition: all 0.3s ease;
+    height: 100%;
+}
+
+.payment-card:hover {
+    transform: translateY(-5px);
+}
+
+.payment-icon {
+    width: 70px;
+    height: 70px;
+    background: linear-gradient(135deg, #007bff, #0056b3);
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin: 0 auto 20px;
+}
+
+.payment-icon i {
+    font-size: 30px;
+    color: #fff;
+}
+
+.payment-card h3 {
+    font-size: 1.3rem;
+    margin-bottom: 20px;
+}
+
+.qr-row {
+    display: flex;
+    justify-content: center;
+    gap: 30px;
+    flex-wrap: wrap;
+}
+
+.qr-item {
+    text-align: center;
+}
+
+.qr-item img {
+    width: 150px;
+    border: 2px solid #eee;
+    border-radius: 15px;
+    padding: 10px;
+    margin-bottom: 10px;
+}
+
+.account-number {
+    font-weight: 600;
+    color: #007bff;
+}
+
+.btn-copy {
+    background: #f8f9fa;
+    border: none;
+    padding: 8px 15px;
+    border-radius: 50px;
+    margin-top: 10px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+.btn-copy:hover {
+    background: #007bff;
+    color: #fff;
+}
+
+.bank-list {
+    text-align: left;
+}
+
+.bank-item {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+    padding: 15px;
+    background: #f8f9fa;
+    border-radius: 10px;
+    margin-bottom: 10px;
+    position: relative;
+}
+
+.bank-item i {
+    font-size: 24px;
+    color: #007bff;
+}
+
+.bank-item strong {
+    display: block;
+    color: #1a1a2e;
+}
+
+.bank-item p {
+    margin: 0;
+    color: #6c757d;
+    font-size: 0.85rem;
+}
+
+.btn-copy-sm {
+    position: absolute;
+    right: 15px;
+    top: 50%;
+    transform: translateY(-50%);
+    background: transparent;
+    border: none;
+    color: #007bff;
+    cursor: pointer;
+}
+
+.btn-copy-sm:hover {
+    color: #0056b3;
+}
+
+.mobile-payments,
+.international-payments {
+    text-align: left;
+}
+
+.mobile-item,
+.international-item {
+    padding: 12px;
+    background: #f8f9fa;
+    border-radius: 10px;
+    margin-bottom: 10px;
+}
+
+.mobile-item i,
+.international-item i {
+    width: 30px;
+    color: #007bff;
+}
+
+.mobile-item span,
+.international-item span {
+    font-weight: 600;
+}
+
+.mobile-item p,
+.international-item p {
+    margin: 5px 0 0 30px;
+    color: #6c757d;
+    font-size: 0.85rem;
+}
+
+/* Donation Form Section */
+.donation-form-section {
+    padding: 80px 0;
+    background: #fff;
+}
+
+.form-card {
+    background: #fff;
+    border-radius: 30px;
+    box-shadow: 0 20px 50px rgba(0,0,0,0.15);
+    overflow: hidden;
+}
+
+.form-header {
+    background: linear-gradient(135deg, #007bff, #0056b3);
+    color: #fff;
+    padding: 40px;
+    text-align: center;
+}
+
+.form-header i {
+    font-size: 50px;
+    margin-bottom: 15px;
+}
+
+.form-header h3 {
+    font-size: 1.8rem;
+    margin-bottom: 10px;
+}
+
+.form-card form {
+    padding: 40px;
+}
+
+.form-group {
+    margin-bottom: 20px;
+}
+
+.form-group label {
+    font-weight: 600;
+    margin-bottom: 8px;
+    display: block;
+}
+
+.form-group label i {
+    color: #007bff;
+    margin-right: 8px;
+}
+
+.form-control {
+    border: 2px solid #e9ecef;
+    border-radius: 10px;
+    padding: 12px 15px;
+}
+
+.form-control:focus {
+    border-color: #007bff;
+    box-shadow: 0 0 0 3px rgba(0,123,255,0.1);
+}
+
+.form-check {
+    margin: 20px 0;
+}
+
+.btn-submit {
+    width: 100%;
+    background: linear-gradient(135deg, #007bff, #0056b3);
+    color: #fff;
+    border: none;
+    padding: 15px;
+    border-radius: 50px;
+    font-size: 1.1rem;
+    font-weight: 600;
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+.btn-submit:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 10px 30px rgba(0,123,255,0.3);
+}
+
+/* Where Money Goes */
+.where-money-goes {
+    padding: 80px 0;
+    background: #f8f9fa;
+}
+
+.usage-card {
+    background: #fff;
+    padding: 30px;
+    border-radius: 20px;
+    text-align: center;
+    box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+    height: 100%;
+}
+
+.usage-icon {
+    width: 70px;
+    height: 70px;
+    background: linear-gradient(135deg, #007bff, #0056b3);
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin: 0 auto 20px;
+}
+
+.usage-icon i {
+    font-size: 30px;
+    color: #fff;
+}
+
+.usage-card h3 {
+    font-size: 1.2rem;
+    margin-bottom: 15px;
+}
+
+.usage-card .progress {
+    height: 8px;
+    border-radius: 5px;
+    margin: 15px 0;
+}
+
+.usage-card .progress-bar {
+    background: #007bff;
+    border-radius: 5px;
+}
+
+.usage-card span {
+    font-weight: 600;
+    color: #007bff;
+}
+
+.usage-card p {
+    color: #6c757d;
+    margin-top: 10px;
+    font-size: 0.9rem;
+}
+
+.transparency-note {
+    background: #e3f2fd;
+    padding: 20px;
+    border-radius: 15px;
+    display: inline-block;
+}
+
+.transparency-note i {
+    font-size: 30px;
+    color: #007bff;
+    margin-right: 10px;
+}
+
+.transparency-note p {
+    display: inline;
+    color: #1a1a2e;
+}
+
+/* Success Modal */
+.modal-content {
+    border-radius: 20px;
+    border: none;
+}
+
+.modal-body i {
+    font-size: 70px;
+    color: #28a745;
+    margin-bottom: 20px;
+}
+
+.modal-body h3 {
+    font-size: 1.5rem;
+    margin-bottom: 15px;
+}
+
+/* Money FAQ */
+.money-faq {
+    padding: 80px 0;
+    background: #fff;
+}
+
+.faq-container {
+    max-width: 800px;
+    margin: 0 auto;
+}
+
+.faq-item {
+    background: #f8f9fa;
+    border-radius: 15px;
+    margin-bottom: 15px;
+    overflow: hidden;
+}
+
+.faq-question {
+    padding: 20px;
+    cursor: pointer;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    font-weight: 600;
+}
+
+.faq-question:hover {
+    background: #e9ecef;
+}
+
+.faq-question i {
+    transition: all 0.3s ease;
+}
+
+.faq-question.active i {
+    transform: rotate(180deg);
+}
+
+.faq-answer {
+    padding: 0 20px;
+    max-height: 0;
+    overflow: hidden;
+    transition: all 0.3s ease;
+    color: #6c757d;
+    line-height: 1.8;
+}
+
+.faq-answer.show {
+    padding: 0 20px 20px;
+    max-height: 300px;
+}
+
+/* Responsive */
+@media (max-width: 992px) {
+    .money-header h1 {
+        font-size: 2.5rem;
+    }
+    
+    .quick-card {
+        padding: 30px;
+    }
+}
+
+@media (max-width: 768px) {
+    .money-header h1 {
+        font-size: 2rem;
+    }
+    
+    .amount-buttons {
+        gap: 10px;
+    }
+    
+    .amount-btn {
+        padding: 8px 16px;
+        font-size: 0.9rem;
+    }
+    
+    .qr-row {
+        flex-direction: column;
+        align-items: center;
+    }
+    
+    .form-card form {
+        padding: 25px;
+    }
+    
+    .bank-item {
+        flex-wrap: wrap;
+    }
+    
+    .btn-copy-sm {
+        position: static;
+        transform: none;
+        margin-top: 10px;
+    }
+}
+
+@media (max-width: 576px) {
+    .money-header h1 {
+        font-size: 1.5rem;
+    }
+    
+    .stat-card h2 {
+        font-size: 1.5rem;
+    }
+    
+    .quick-header h3 {
+        font-size: 1.3rem;
+    }
+}

@@ -1,0 +1,35 @@
+/* Language Page Styling */
+.language-card {
+    cursor: pointer;
+    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+    border: 2px solid transparent !important;
+}
+
+.language-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 10px 25px rgba(26, 90, 150, 0.1) !important;
+    border-color: rgba(0, 173, 239, 0.2) !important;
+}
+
+.language-card.active {
+    border-color: var(--primary-blue) !important;
+    background: rgba(26, 90, 150, 0.02) !important;
+}
+
+.language-card.active .check-mark {
+    display: block !important;
+}
+
+.language-card .check-mark {
+    position: absolute;
+    top: 15px;
+    right: 15px;
+}
+
+.form-select {
+    appearance: none;
+    background-image: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 16 16'%3e%3cpath fill='none' stroke='%231a5a96' stroke-linecap='round' stroke-linejoin='round' stroke-width='2' d='m2 5 6 6 6-6'/%3e%3c/svg%3e");
+    background-repeat: no-repeat;
+    background-position: right 1rem center;
+    background-size: 16px 12px;
+}

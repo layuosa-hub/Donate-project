@@ -1,0 +1,36 @@
+/* Linked Accounts Styling */
+.account-item {
+    transition: all 0.3s ease;
+}
+
+.account-item:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.08) !important;
+    border-color: var(--accent-blue) !important;
+}
+
+.account-icon i, .account-icon img {
+    transition: transform 0.3s ease;
+}
+
+.account-item:hover .account-icon i {
+    transform: scale(1.1);
+}
+
+/* Button Refinement */
+.btn-outline-danger {
+    font-size: 0.85rem;
+    font-weight: 600;
+    border: 1.5px solid #dc3545;
+}
+
+.btn-outline-danger:hover {
+    background-color: #dc3545;
+    color: white;
+}
+
+.btn-primary.btn-sm {
+    font-size: 0.85rem;
+    font-weight: 600;
+    box-shadow: 0 4px 10px rgba(26, 90, 150, 0.2);
+}

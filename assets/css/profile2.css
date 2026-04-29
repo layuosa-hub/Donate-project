@@ -1,0 +1,150 @@
+/* --- Profile & Settings Variables Integration --- */
+:root {
+  --dark-text: #1a1a1a;
+  --light-text: #64748b;
+  --input-bg: rgba(255, 255, 255, 0.9);
+}
+
+/* 1. Sidebar Styling - Premium Dark Blue */
+.settings-sidebar {
+  background: var(--primary-blue);
+  border-radius: 24px;
+  padding: 30px 20px;
+  box-shadow: 0 10px 30px rgba(26, 90, 150, 0.2);
+  height: 100%;
+}
+
+.profile-img-container {
+  width: 90px;
+  height: 90px;
+  margin: 0 auto;
+  border-radius: 50%;
+  overflow: hidden;
+  border: 3px solid var(--gold);
+  background: white;
+}
+
+.profile-img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.text-light-gray {
+  color: rgba(255, 255, 255, 0.7);
+  font-size: 0.9rem;
+}
+
+/* 2. Menu Items - Sidebar Navigation */
+.menu-item {
+  display: flex;
+  align-items: center;
+  padding: 12px 18px;
+  color: rgba(255, 255, 255, 0.8);
+  text-decoration: none;
+  border-radius: 12px;
+  margin-bottom: 5px;
+  transition: all 0.3s ease;
+  font-weight: 400;
+}
+
+.menu-item i {
+  width: 25px;
+  font-size: 1.1rem;
+}
+
+.menu-item:hover {
+  background: rgba(255, 255, 255, 0.1);
+  color: white;
+  transform: translateX(5px);
+}
+
+.menu-item.active {
+  background: var(--gold);
+  color: white !important;
+  font-weight: 600;
+  box-shadow: 0 4px 15px rgba(243, 156, 18, 0.3);
+}
+
+/* 3. Main Card Styling - Glassmorphism Light */
+.settings-card {
+  background: var(--glass);
+  backdrop-filter: blur(15px);
+  border-radius: 24px;
+  padding: 40px;
+  border: 1px solid rgba(255, 255, 255, 0.3);
+  box-shadow: 0 15px 35px rgba(0, 0, 0, 0.05);
+}
+
+.settings-title {
+  color: var(--primary-blue);
+  font-weight: 700;
+  font-family: "Kantumruy Pro", sans-serif;
+}
+
+.settings-card p.text-light-gray {
+  color: var(--light-text);
+}
+
+/* 4. Form Controls */
+.form-label {
+  color: var(--primary-blue);
+  font-weight: 600;
+  margin-bottom: 8px;
+  font-size: 0.95rem;
+}
+
+.form-control {
+  background: var(--input-bg);
+  border: 1px solid rgba(26, 90, 150, 0.1);
+  border-radius: 12px;
+  padding: 12px 15px;
+  color: var(--dark-text);
+  transition: all 0.3s ease;
+}
+
+.form-control:focus {
+  background: #fff;
+  border-color: var(--accent-blue);
+  box-shadow: 0 0 0 4px rgba(0, 173, 239, 0.1);
+}
+
+/* 5. Action Buttons */
+.btn-save {
+  background: var(--gold);
+  color: white;
+  border: none;
+  padding: 12px 35px;
+  border-radius: 12px;
+  font-weight: 700;
+  transition: all 0.3s ease;
+  box-shadow: 0 4px 15px rgba(243, 156, 18, 0.2);
+}
+
+.btn-save:hover {
+  background: #e67e22; /* Darker gold */
+  transform: translateY(-2px);
+  box-shadow: 0 8px 20px rgba(243, 156, 18, 0.3);
+}
+
+.btn-cancel {
+  background: #f1f5f9;
+  color: var(--light-text);
+  border: none;
+  padding: 12px 35px;
+  border-radius: 12px;
+  font-weight: 600;
+  transition: all 0.3s ease;
+}
+
+.btn-cancel:hover {
+  background: #e2e8f0;
+  color: var(--primary-blue);
+}
+
+/* Responsive Fixes */
+@media (max-width: 991px) {
+  .settings-sidebar {
+    margin-bottom: 20px;
+  }
+}

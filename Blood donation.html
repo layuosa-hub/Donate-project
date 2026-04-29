@@ -1,0 +1,585 @@
+<!DOCTYPE html>
+<html lang="km">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
+    <title>បរិច្ចាគឈាម - ស្នាមញញឹមខ្មែរ</title>
+    
+    <!-- Bootstrap CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Kantumruy+Pro:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    
+    <!-- AOS Animation -->
+    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+    
+    <!-- Custom CSS -->
+    <link rel="stylesheet" href="/Donate-project/assets/css/Blood donation.css">
+</head>
+<body>
+
+<!-- ============================================ -->
+
+<!-- ============================================ -->
+<div id="preloader">
+    <div class="loader"></div>
+</div>
+
+<!-- ============================================ -->
+
+<!-- ============================================ -->
+<nav class="navbar navbar-expand-lg navbar-dark fixed-top" id="mainNav">
+    <div class="container">
+        <a class="navbar-brand" href="index.html">
+            <i class="fas fa-smile-wink"></i>
+            <span>ស្នាមញញឹមខ្មែរ</span>
+        </a>
+        
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        
+        <div class="collapse navbar-collapse" id="navbarNav">
+            <ul class="navbar-nav ms-auto">
+                <li class="nav-item"><a class="nav-link" href="index.html">ទំព័រដើម</a></li>
+                <li class="nav-item"><a class="nav-link" href="about.html">អំពីយើង</a></li>
+                <li class="nav-item"><a class="nav-link" href="donate.html">បរិច្ចាគ</a></li>
+                <li class="nav-item"><a class="nav-link active" href="blood-donation.html">បរិច្ចាគឈាម</a></li>
+                <li class="nav-item"><a class="nav-link" href="volunteer.html">ស្ម័គ្រចិត្ត</a></li>
+                <li class="nav-item"><a class="nav-link" href="impact.html">សមត្ថផល</a></li>
+                <li class="nav-item"><a class="nav-link" href="news.html">ព័ត៌មាន</a></li>
+                <li class="nav-item"><a class="nav-link" href="faq.html">FAQ</a></li>
+                <li class="nav-item dropdown">
+                    <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown">
+                        <i class="fas fa-user"></i> គណនី
+                    </a>
+                    <ul class="dropdown-menu">
+                        <li><a class="dropdown-item" href="login.html">ចូលប្រើប្រាស់</a></li>
+                        <li><a class="dropdown-item" href="register.html">ចុះឈ្មោះ</a></li>
+                        <li><hr class="dropdown-divider"></li>
+                        <li><a class="dropdown-item" href="profile.html">ទម្រង់របស់ខ្ញុំ</a></li>
+                    </ul>
+                </li>
+                <li class="nav-item">
+                    <a href="donate.html" class="btn-donate-nav">
+                        <i class="fas fa-heart"></i> បរិច្ចាគ
+                    </a>
+                </li>
+            </ul>
+        </div>
+    </div>
+</nav>
+
+<!-- ============================================ -->
+
+<!-- ============================================ -->
+<section class="blood-header">
+    <div class="container">
+        <div class="row justify-content-center text-center">
+            <div class="col-lg-8" data-aos="fade-up">
+                <div class="blood-icon">
+                    <i class="fas fa-droplet"></i>
+                </div>
+                <h1>បរិច្ចាគឈាម</h1>
+                <p>មួយដំណក់ឈាមរបស់អ្នកអាចសង្គ្រោះជីវិតមនុស្សបានដល់ទៅ ៣ នាក់</p>
+                <div class="breadcrumb-nav">
+                    <a href="index.html">ទំព័រដើម</a>
+                    <i class="fas fa-chevron-right"></i>
+                    <span>បរិច្ចាគឈាម</span>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- ============================================ -->
+<!-- BLOOD FACTS SECTION
+<!-- ============================================ -->
+<section class="blood-facts">
+    <div class="container">
+        <div class="row g-4">
+            <div class="col-md-3 col-6" data-aos="zoom-in">
+                <div class="fact-card">
+                    <i class="fas fa-heartbeat"></i>
+                    <h2 class="counter-fact" data-target="450">0</h2>
+                    <p>អ្នកត្រូវការឈាម/ថ្ងៃ</p>
+                </div>
+            </div>
+            <div class="col-md-3 col-6" data-aos="zoom-in" data-aos-delay="100">
+                <div class="fact-card">
+                    <i class="fas fa-clock"></i>
+                    <h2 class="counter-fact" data-target="90">0</h2>
+                    <p>វិនាទី/បរិច្ចាគម្តង</p>
+                </div>
+            </div>
+            <div class="col-md-3 col-6" data-aos="zoom-in" data-aos-delay="200">
+                <div class="fact-card">
+                    <i class="fas fa-tint"></i>
+                    <h2 class="counter-fact" data-target="350">0</h2>
+                    <p>មីលីលីត្រ/ម្តង</p>
+                </div>
+            </div>
+            <div class="col-md-3 col-6" data-aos="zoom-in" data-aos-delay="300">
+                <div class="fact-card">
+                    <i class="fas fa-calendar-alt"></i>
+                    <h2 class="counter-fact" data-target="90">0</h2>
+                    <p>ថ្ងៃ/បរិច្ចាគម្តងទៀត</p>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- ============================================ -->
+<!-- BLOOD ELIGIBILITY SECTION
+<!-- ============================================ -->
+<section class="blood-eligibility">
+    <div class="container">
+        <div class="row align-items-center">
+            <div class="col-lg-6" data-aos="fade-right">
+                <div class="section-badge">លក្ខខណ្ឌបរិច្ចាគឈាម</div>
+                <h2>តើអ្នកអាចបរិច្ចាគឈាមបានទេ?</h2>
+                <p>សូមពិនិត្យមើលលក្ខខណ្ឌខាងក្រោម មុនពេលចុះឈ្មោះបរិច្ចាគឈាម</p>
+                
+                <div class="eligibility-list">
+                    <div class="eligibility-item">
+                        <i class="fas fa-check-circle text-success"></i>
+                        <div>
+                            <h4>អាយុចន្លោះពី ១៨-៦០ ឆ្នាំ</h4>
+                            <p>អ្នកបរិច្ចាគឈាមត្រូវមានអាយុចន្លោះពី ១៨ ទៅ ៦០ ឆ្នាំ</p>
+                        </div>
+                    </div>
+                    <div class="eligibility-item">
+                        <i class="fas fa-check-circle text-success"></i>
+                        <div>
+                            <h4>ទម្ងន់យ៉ាងតិច ៤៥ គីឡូក្រាម</h4>
+                            <p>អ្នកបរិច្ចាគឈាមត្រូវមានទម្ងន់យ៉ាងតិច ៤៥ គីឡូក្រាម</p>
+                        </div>
+                    </div>
+                    <div class="eligibility-item">
+                        <i class="fas fa-check-circle text-success"></i>
+                        <div>
+                            <h4>សុខភាពល្អ គ្មានជំងឺឆ្លង</h4>
+                            <p>មិនមានជំងឺឆ្លងដូចជា រលាកថ្លើម អេដស៍ គ្រុនចាញ់</p>
+                        </div>
+                    </div>
+                    <div class="eligibility-item">
+                        <i class="fas fa-check-circle text-success"></i>
+                        <div>
+                            <h4>មិនប្រើប្រាស់គ្រឿងញៀន</h4>
+                            <p>មិនប្រើប្រាស់គ្រឿងញៀន ឬថ្នាំញៀន</p>
+                        </div>
+                    </div>
+                    <div class="eligibility-item">
+                        <i class="fas fa-check-circle text-success"></i>
+                        <div>
+                            <h4>មិនមានគ្រុនក្តៅ ២៤ ម៉ោងចុងក្រោយ</h4>
+                            <p>ត្រូវមានសុខភាពល្អ គ្មានគ្រុនក្តៅក្នុងរយៈពេល ២៤ ម៉ោង</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="col-lg-6" data-aos="fade-left">
+                <div class="eligibility-image">
+                    <img src="https://images.unsplash.com/photo-1615461066841-6116e61058f4?w=600&h=500&fit=crop" 
+                         alt="Blood Donation" 
+                         class="img-fluid rounded-4 shadow-lg">
+                    <div class="image-caption">
+                        <i class="fas fa-quote-left"></i>
+                        បរិច្ចាគឈាម សង្គ្រោះជីវិត
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- ============================================ -->
+<!-- REGISTRATION FORM SECTION
+<!-- ============================================ -->
+<section class="registration-form">
+    <div class="container">
+        <div class="row justify-content-center">
+            <div class="col-lg-10" data-aos="fade-up">
+                <div class="form-card">
+                    <div class="form-header">
+                        <i class="fas fa-droplet"></i>
+                        <h3>ចុះឈ្មោះបរិច្ចាគឈាម</h3>
+                        <p>សូមបំពេញព័ត៌មានខាងក្រោមដើម្បីចុះឈ្មោះ</p>
+                    </div>
+                    
+                    <form id="bloodDonationForm">
+                        <div class="row">
+                            <div class="col-md-6">
+                                <div class="form-group">
+                                    <label><i class="fas fa-user"></i> នាមត្រកូល</label>
+                                    <input type="text" class="form-control" id="lastName" placeholder="ឧទាហរណ៍៖ សុខ" required>
+                                </div>
+                            </div>
+                            <div class="col-md-6">
+                                <div class="form-group">
+                                    <label><i class="fas fa-user"></i> នាមខ្លួន</label>
+                                    <input type="text" class="form-control" id="firstName" placeholder="ឧទាហរណ៍៖ វិបុល" required>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <div class="row">
+                            <div class="col-md-6">
+                                <div class="form-group">
+                                    <label><i class="fas fa-calendar-alt"></i> អាយុ</label>
+                                    <input type="number" class="form-control" id="age" placeholder="ឧទាហរណ៍៖ 25" required>
+                                </div>
+                            </div>
+                            <div class="col-md-6">
+                                <div class="form-group">
+                                    <label><i class="fas fa-weight-scale"></i> ទម្ងន់ (គីឡូក្រាម)</label>
+                                    <input type="number" class="form-control" id="weight" placeholder="ឧទាហរណ៍៖ 55" required>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <div class="row">
+                            <div class="col-md-6">
+                                <div class="form-group">
+                                    <label><i class="fas fa-tint"></i> ក្រុមឈាម</label>
+                                    <select class="form-control" id="bloodType" required>
+                                        <option value="">ជ្រើសរើសក្រុមឈាម</option>
+                                        <option value="A">A</option>
+                                        <option value="B">B</option>
+                                        <option value="AB">AB</option>
+                                        <option value="O">O</option>
+                                    </select>
+                                </div>
+                            </div>
+                            <div class="col-md-6">
+                                <div class="form-group">
+                                    <label><i class="fas fa-phone"></i> លេខទូរស័ព្ទ</label>
+                                    <input type="tel" class="form-control" id="phone" placeholder="ឧទាហរណ៍៖ 012 345 678" required>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <div class="row">
+                            <div class="col-md-6">
+                                <div class="form-group">
+                                    <label><i class="fas fa-envelope"></i> អ៊ីមែល</label>
+                                    <input type="email" class="form-control" id="email" placeholder="ឧទាហរណ៍៖ vipol@email.com" required>
+                                </div>
+                            </div>
+                            <div class="col-md-6">
+                                <div class="form-group">
+                                    <label><i class="fas fa-map-marker-alt"></i> ទីតាំងបរិច្ចាគ</label>
+                                    <select class="form-control" id="location" required>
+                                        <option value="">ជ្រើសរើសទីតាំង</option>
+                                        <option value="pp">មណ្ឌលបរិច្ចាគឈាមភ្នំពេញ</option>
+                                        <option value="bb">មណ្ឌលបរិច្ចាគឈាមបន្ទាយមានជ័យ</option>
+                                        <option value="od">មណ្ឌលបរិច្ចាគឈាមឧត្តរមានជ័យ</option>
+                                    </select>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <div class="row">
+                            <div class="col-md-6">
+                                <div class="form-group">
+                                    <label><i class="fas fa-calendar-day"></i> កាលបរិច្ឆេទដែលចង់បរិច្ចាគ</label>
+                                    <input type="date" class="form-control" id="donationDate" required>
+                                </div>
+                            </div>
+                            <div class="col-md-6">
+                                <div class="form-group">
+                                    <label><i class="fas fa-clock"></i> ម៉ោង</label>
+                                    <select class="form-control" id="time" required>
+                                        <option value="">ជ្រើសរើសម៉ោង</option>
+                                        <option value="08:00">08:00 - 09:00</option>
+                                        <option value="09:00">09:00 - 10:00</option>
+                                        <option value="10:00">10:00 - 11:00</option>
+                                        <option value="14:00">14:00 - 15:00</option>
+                                        <option value="15:00">15:00 - 16:00</option>
+                                    </select>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <div class="form-check">
+                            <input type="checkbox" class="form-check-input" id="termsCheck" required>
+                            <label class="form-check-label" for="termsCheck">
+                                ខ្ញុំបញ្ជាក់ថាព័ត៌មានខាងលើត្រឹមត្រូវ 
+                                ហើយខ្ញុំបានអានលក្ខខណ្ឌបរិច្ចាគឈាមរួចរាល់
+                            </label>
+                        </div>
+                        
+                        <button type="submit" class="btn-submit">
+                            <i class="fas fa-droplet me-2"></i>ចុះឈ្មោះបរិច្ចាគឈាម
+                        </button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- ============================================ -->
+<!-- BLOOD TYPES INFO SECTION
+<!-- ============================================ -->
+<section class="blood-types">
+    <div class="container">
+        <div class="section-header text-center" data-aos="fade-up">
+            <div class="section-badge-center">ប្រភេទឈាម</div>
+            <h2>ស្វែងយល់អំពីប្រភេទឈាម</h2>
+            <p>ក្រុមឈាមនីមួយៗអាចបរិច្ចាគទៅក្រុមឈាមណាខ្លះ?</p>
+        </div>
+        
+        <div class="row g-4">
+            <div class="col-md-3 col-6" data-aos="flip-left" data-aos-delay="100">
+                <div class="blood-type-card type-a">
+                    <div class="blood-type-icon">
+                        <span>A</span>
+                    </div>
+                    <h3>ក្រុមឈាម A</h3>
+                    <p>អាចបរិច្ចាគទៅ: A, AB</p>
+                    <p>អាចទទួលពី: A, O</p>
+                </div>
+            </div>
+            <div class="col-md-3 col-6" data-aos="flip-left" data-aos-delay="200">
+                <div class="blood-type-card type-b">
+                    <div class="blood-type-icon">
+                        <span>B</span>
+                    </div>
+                    <h3>ក្រុមឈាម B</h3>
+                    <p>អាចបរិច្ចាគទៅ: B, AB</p>
+                    <p>អាចទទួលពី: B, O</p>
+                </div>
+            </div>
+            <div class="col-md-3 col-6" data-aos="flip-left" data-aos-delay="300">
+                <div class="blood-type-card type-ab">
+                    <div class="blood-type-icon">
+                        <span>AB</span>
+                    </div>
+                    <h3>ក្រុមឈាម AB</h3>
+                    <p>អាចបរិច្ចាគទៅ: AB</p>
+                    <p>អាចទទួលពី: A, B, AB, O</p>
+                </div>
+            </div>
+            <div class="col-md-3 col-6" data-aos="flip-left" data-aos-delay="400">
+                <div class="blood-type-card type-o">
+                    <div class="blood-type-icon">
+                        <span>O</span>
+                    </div>
+                    <h3>ក្រុមឈាម O</h3>
+                    <p>អាចបរិច្ចាគទៅ: A, B, AB, O</p>
+                    <p>អាចទទួលពី: O</p>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- ============================================ -->
+<!-- BLOOD CENTERS SECTION
+<!-- ============================================ -->
+<section class="blood-centers">
+    <div class="container">
+        <div class="section-header text-center" data-aos="fade-up">
+            <div class="section-badge-center">ទីតាំងបរិច្ចាគឈាម</div>
+            <h2>មណ្ឌលបរិច្ចាគឈាមនៅកម្ពុជា</h2>
+            <p>យើងមានមណ្ឌលបរិច្ចាគឈាមចំនួន ៣ កន្លែង</p>
+        </div>
+        
+        <div class="row g-4">
+            <div class="col-md-4" data-aos="fade-up" data-aos-delay="100">
+                <div class="center-card">
+                    <div class="center-icon">
+                        <i class="fas fa-building"></i>
+                    </div>
+                    <h3>មណ្ឌលបរិច្ចាគឈាមភ្នំពេញ</h3>
+                    <p><i class="fas fa-map-marker-alt"></i> ផ្លូវ ២៧១ រាជធានីភ្នំពេញ</p>
+                    <p><i class="fas fa-phone"></i> 012 345 678</p>
+                    <p><i class="fas fa-clock"></i> ចន្ទ-សុក្រ ៨:០០-១៧:០០</p>
+                </div>
+            </div>
+            <div class="col-md-4" data-aos="fade-up" data-aos-delay="200">
+                <div class="center-card">
+                    <div class="center-icon">
+                        <i class="fas fa-building"></i>
+                    </div>
+                    <h3>មណ្ឌលបរិច្ចាគឈាមបន្ទាយមានជ័យ</h3>
+                    <p><i class="fas fa-map-marker-alt"></i> ក្រុងសិរីសោភ័ណ ខេត្តបន្ទាយមានជ័យ</p>
+                    <p><i class="fas fa-phone"></i> 096 789 0123</p>
+                    <p><i class="fas fa-clock"></i> ចន្ទ-សុក្រ ៨:០០-១៦:០០</p>
+                </div>
+            </div>
+            <div class="col-md-4" data-aos="fade-up" data-aos-delay="300">
+                <div class="center-card">
+                    <div class="center-icon">
+                        <i class="fas fa-building"></i>
+                    </div>
+                    <h3>មណ្ឌលបរិច្ចាគឈាមឧត្តរមានជ័យ</h3>
+                    <p><i class="fas fa-map-marker-alt"></i> ក្រុងសំរោង ខេត្តឧត្តរមានជ័យ</p>
+                    <p><i class="fas fa-phone"></i> 097 890 1234</p>
+                    <p><i class="fas fa-clock"></i> ចន្ទ-សុក្រ ៨:០០-១៦:០០</p>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- ============================================ -->
+<!-- FAQ SECTION
+<!-- ============================================ -->
+<section class="blood-faq">
+    <div class="container">
+        <div class="section-header text-center" data-aos="fade-up">
+            <div class="section-badge-center">សំណួរច្រើនសួរ</div>
+            <h2>សំណួរទូទៅអំពីការបរិច្ចាគឈាម</h2>
+        </div>
+        
+        <div class="row justify-content-center">
+            <div class="col-lg-10">
+                <div class="faq-container">
+                    <div class="faq-item">
+                        <div class="faq-question">
+                            <span>តើការបរិច្ចាគឈាមមានផលប៉ះពាល់ដល់សុខភាពទេ?</span>
+                            <i class="fas fa-chevron-down"></i>
+                        </div>
+                        <div class="faq-answer">
+                            ទេ។ ការបរិច្ចាគឈាមមានសុវត្ថិភាព ១០០% ។ រាងកាយរបស់យើងអាចបង្កើតឈាមថ្មីបានយ៉ាងឆាប់រហ័ស។ ក្រៅពីនេះ ការបរិច្ចាគឈាមក៏ល្អសម្រាប់សុខភាពផងដែរ។
+                        </div>
+                    </div>
+                    <div class="faq-item">
+                        <div class="faq-question">
+                            <span>តើត្រូវរង់ចាំប៉ុន្មានថ្ងៃទើបអាចបរិច្ចាគឈាមបានម្តងទៀត?</span>
+                            <i class="fas fa-chevron-down"></i>
+                        </div>
+                        <div class="faq-answer">
+                            អ្នកអាចបរិច្ចាគឈាមបានរៀងរាល់ ៩០ ថ្ងៃម្តង (៣ ខែ)។
+                        </div>
+                    </div>
+                    <div class="faq-item">
+                        <div class="faq-question">
+                            <span>តើត្រូវរៀបចំខ្លួនយ៉ាងដូចម្តេចមុនបរិច្ចាគឈាម?</span>
+                            <i class="fas fa-chevron-down"></i>
+                        </div>
+                        <div class="faq-answer">
+                            អ្នកគួរតែគេងឱ្យបានគ្រប់គ្រាន់ ញ៉ាំអាហារស្រាលៗ ផឹកទឹកឱ្យបានច្រើន និងជៀសវាងអាហារមានជាតិខ្លាញ់ច្រើនមុនបរិច្ចាគឈាម។
+                        </div>
+                    </div>
+                    <div class="faq-item">
+                        <div class="faq-question">
+                            <span>តើឈាមដែលបានបរិច្ចាគត្រូវបានប្រើប្រាស់ដើម្បីអ្វីខ្លះ?</span>
+                            <i class="fas fa-chevron-down"></i>
+                        </div>
+                        <div class="faq-answer">
+                            ឈាមដែលបានបរិច្ចាគត្រូវបានប្រើប្រាស់សម្រាប់អ្នកជំងឺដែលត្រូវការបន្ទាន់ ដូចជា អ្នករងគ្រោះថ្នាក់ចរាចរណ៍ អ្នកជំងឺកើតមហារីក អ្នកជំងឺគ្រោះថ្នាក់ដោយសារជម្លោះប្រដាប់អាវុធ។
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- ============================================ -->
+<!-- CTA SECTION
+<!-- ============================================ -->
+<section class="cta-section">
+    <div class="container">
+        <div class="cta-content" data-aos="zoom-in">
+            <h2>ចូលរួមបរិច្ចាគឈាមឥឡូវនេះ</h2>
+            <p>មួយដំណក់ឈាមរបស់អ្នកអាចផ្លាស់ប្តូរជីវិតមនុស្សបាន</p>
+            <div class="cta-buttons">
+                <a href="#registration-form" class="btn btn-light btn-lg">
+                    <i class="fas fa-droplet me-2"></i>ចុះឈ្មោះឥឡូវនេះ
+                </a>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- ============================================ -->
+<!-- FOOTER SECTION
+<!-- ============================================ -->
+<footer class="footer">
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-4 col-md-6">
+                <div class="footer-about">
+                    <h3><i class="fas fa-smile-wink"></i> ស្នាមញញឹមខ្មែរ</h3>
+                    <p>យើងជាអង្គការមិនរកប្រាក់ចំណេញ ដែលប្រមូលផ្តុំគ្នាដើម្បីជួយសង្គ្រោះបងប្អូនយើងដែលកំពុងរងគ្រោះនៅតាមព្រំដែន។</p>
+                    <div class="social-links">
+                        <a href="#"><i class="fab fa-facebook-f"></i></a>
+                        <a href="#"><i class="fab fa-telegram"></i></a>
+                        <a href="#"><i class="fab fa-youtube"></i></a>
+                        <a href="#"><i class="fab fa-tiktok"></i></a>
+                    </div>
+                </div>
+            </div>
+            <div class="col-lg-2 col-md-6">
+                <div class="footer-links">
+                    <h4>តំណភ្ជាប់</h4>
+                    <ul>
+                        <li><a href="index.html">ទំព័រដើម</a></li>
+                        <li><a href="about.html">អំពីយើង</a></li>
+                        <li><a href="donate.html">បរិច្ចាគ</a></li>
+                        <li><a href="volunteer.html">ស្ម័គ្រចិត្ត</a></li>
+                        <li><a href="impact.html">សមត្ថផល</a></li>
+                        <li><a href="news.html">ព័ត៌មាន</a></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="col-lg-3 col-md-6">
+                <div class="footer-contact">
+                    <h4>ទំនាក់ទំនង</h4>
+                    <ul>
+                        <li><i class="fas fa-map-marker-alt"></i> ផ្ទះលេខ ១២៣ ផ្លូវ ២៧១ ភ្នំពេញ</li>
+                        <li><i class="fas fa-phone"></i> 012 345 678 / 098 765 432</li>
+                        <li><i class="fas fa-envelope"></i> info@khmersmile.org</li>
+                    </ul>
+                </div>
+            </div>
+            <div class="col-lg-3 col-md-6">
+                <div class="footer-newsletter">
+                    <h4>ជាវព័ត៌មាន</h4>
+                    <p>ទទួលព័ត៌មានថ្មីៗពីសកម្មភាពរបស់យើង</p>
+                    <form class="newsletter-form">
+                        <div class="input-group">
+                            <input type="email" placeholder="អ៊ីមែលរបស់អ្នក">
+                            <button type="submit"><i class="fas fa-paper-plane"></i></button>
+                        </div>
+                    </form>
+                    <p class="mt-3 small"><i class="fas fa-lock"></i> យើងមិនចែករំលែកព័ត៌មានរបស់អ្នកទេ</p>
+                </div>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <div class="row">
+                <div class="col-md-6"><p>&copy; ២០២៤ ស្នាមញញឹមខ្មែរ។ រក្សាសិទ្ធិគ្រប់យ៉ាង។</p></div>
+                <div class="col-md-6 text-md-end">
+                    <a href="#">គោលការណ៍ឯកជនភាព</a>
+                    <a href="#">លក្ខខណ្ឌប្រើប្រាស់</a>
+                </div>
+            </div>
+        </div>
+    </div>
+</footer>
+
+<!-- ============================================ -->
+<!-- BACK TO TOP BUTTON
+<!-- ============================================ -->
+<button id="backToTop" class="back-to-top">
+    <i class="fas fa-arrow-up"></i>
+</button>
+
+<!-- ============================================ -->
+<!-- SCRIPTS
+<!-- ============================================ -->
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+<script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+<script src="/js/Blood donation.js"></script>
+</body>
+</html>

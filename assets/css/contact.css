@@ -8,7 +8,7 @@
 
 @font-face {
   font-family: Kantumruy Pro;
-  src: url("../font/Koulen/Koulen-Regular.ttf") format("truetype");
+  src: url("../font/KantumruyPro/static/KantumruyPro-Regular.ttf") format("truetype");
 }
 
 body {
@@ -18,12 +18,19 @@ body {
   overflow-x: hidden;
 }
 
+:root {
+  --primary-blue: #1a5a96;
+  --accent-blue: #00adef;
+  --gold: #f39c12;
+  --glass: rgba(255, 255, 255, 0.95);
+}
+
+
 /* Background and Layout */
 
 .sec-1 {
   min-height: 100vh;
   padding: 80px 0;
-  /* Soft gradient background matching your logo */
   background: rgb(235, 249, 251);
   display: flex;
   align-items: center;
@@ -33,21 +40,24 @@ body {
   background: white;
   border-radius: 8px;
   padding: 5px;
-  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.05);
+  box-shadow: 0 2px 5px rgb(229, 229, 229);
 }
 
 .input-group-text {
   background: transparent;
   border: none;
-  color: #007bb5;
-  /* Logo Blue */
+  /* color: #007bb5; */
 }
 
 .form-control {
-  border: none;
-  background: transparent;
+  font-size: 13px;
+  border: 1px solid rgb(229, 229, 229);
 }
-
+.form-control:focus {
+  border-color: rgb(229, 229, 229);
+  /* box-shadow: none;  */
+  outline: none;
+}
 
 .glass-card {
   background: rgba(255, 255, 255, 0.7);
@@ -61,10 +71,10 @@ body {
 .message-area {
   width: 100%;
   height: 120px;
-  border: 1px solid #ddd;
+  font-size: 13px;
+  border: 1px solid rgb(229, 229, 229);
   border-radius: 10px;
   padding: 10px;
-  resize: none;
 }
 
 .img-logo {
@@ -90,13 +100,6 @@ body {
 /* Footer Navigation */
 .footer-line {
   border-top: 2px solid rgba(255, 255, 255, 0.2);
-}
-
-:root {
-  --primary-blue: #1a5a96;
-  --accent-blue: #00adef;
-  --gold: #f39c12;
-  --glass: rgba(255, 255, 255, 0.95);
 }
 
 .navbar-pill {
@@ -140,9 +143,6 @@ body {
   color: var(--accent-blue) !important;
   transform: translateY(-1px);
 }
-
-
-
 
 .nav-item.dropdown:hover>.dropdown-menu {
   display: block;
@@ -200,9 +200,6 @@ body {
 .modal-backdrop.show {
   opacity: 0.7;
 }
-
-
-
 
 
 /* =======section1===== */
