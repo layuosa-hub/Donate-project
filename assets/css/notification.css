@@ -1,0 +1,36 @@
+/* Notification Specific Styles */
+.notif-item {
+    transition: background 0.3s ease;
+}
+
+.notif-item:hover {
+    background: rgba(26, 90, 150, 0.02);
+}
+
+/* Customizing Bootstrap Switches to match --primary-blue */
+.form-check-input:checked {
+    background-color: var(--primary-blue);
+    border-color: var(--primary-blue);
+}
+
+.form-check-input:focus {
+    box-shadow: 0 0 0 0.25rem rgba(26, 90, 150, 0.15);
+    border-color: var(--accent-blue);
+}
+
+.notif-group h6.text-primary {
+    font-size: 0.9rem;
+    letter-spacing: 0.5px;
+    text-transform: uppercase;
+}
+
+/* Channel Cards */
+.notif-group .bg-white.shadow-sm {
+    border: 1px solid rgba(26, 90, 150, 0.1) !important;
+    transition: transform 0.3s ease;
+}
+
+.notif-group .bg-white.shadow-sm:hover {
+    transform: translateY(-5px);
+    border-color: var(--gold) !important;
+}

@@ -1,0 +1,36 @@
+/* Delete Account Specific Styling */
+.text-danger {
+    color: #dc3545 !important;
+}
+
+.border-danger-subtle {
+    border-color: rgba(220, 53, 69, 0.2) !important;
+}
+
+.btn-delete-account {
+    background: #dc3545;
+    color: white;
+    border: none;
+    padding: 12px 30px;
+    border-radius: 12px;
+    font-weight: 700;
+    transition: all 0.3s ease;
+    box-shadow: 0 4px 15px rgba(220, 53, 69, 0.2);
+}
+
+.btn-delete-account:hover {
+    background: #c82333;
+    transform: translateY(-2px);
+    box-shadow: 0 8px 20px rgba(220, 53, 69, 0.3);
+    color: white;
+}
+
+/* Custom Checkbox for Danger Action */
+input[type="checkbox"]#confirmDelete:checked {
+    background-color: #dc3545;
+    border-color: #dc3545;
+}
+
+.delete-warning-box ul li::marker {
+    color: #dc3545;
+}
