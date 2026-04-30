@@ -114,6 +114,22 @@ body {
     opacity: 0.7;
 }
 
+/* ======header===== */
+.main-header {
+  background-color: #ffffff; /* Set background to white */
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1); /* Optional: adds a subtle shadow for depth */
+  transition: background-color 0.3s ease;
+}
+
+/* Ensure the navigation text is visible on the white background */
+.main-header .nav-link {
+  color: var(--primary-blue) !important;
+}
+
+.main-header .nav-link:hover {
+  color: var(--accent-blue) !important;
+}
+
 
 
 
