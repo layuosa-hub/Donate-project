@@ -1,8 +1,5 @@
-/* ============================================ */
-/* MONEY DONATION PAGE STYLES
-/* ============================================ */
 
-/* Money Header */
+
 .money-header {
     background: linear-gradient(135deg, #007bff, #0056b3);
     padding: 100px 0 80px;
@@ -36,7 +33,7 @@
     opacity: 0.9;
 }
 
-/* Donation Stats */
+
 .donation-stats {
     padding: 60px 0;
     background: #f8f9fa;
@@ -168,7 +165,7 @@
     box-shadow: 0 10px 30px rgba(0,123,255,0.3);
 }
 
-/* Payment Methods */
+
 .payment-methods {
     padding: 80px 0;
     background: #f8f9fa;
@@ -325,7 +322,7 @@
     font-size: 0.85rem;
 }
 
-/* Donation Form Section */
+
 .donation-form-section {
     padding: 80px 0;
     background: #fff;
@@ -407,7 +404,7 @@
     box-shadow: 0 10px 30px rgba(0,123,255,0.3);
 }
 
-/* Where Money Goes */
+
 .where-money-goes {
     padding: 80px 0;
     background: #f8f9fa;
@@ -483,7 +480,7 @@
     color: #1a1a2e;
 }
 
-/* Success Modal */
+
 .modal-content {
     border-radius: 20px;
     border: none;
@@ -500,7 +497,7 @@
     margin-bottom: 15px;
 }
 
-/* Money FAQ */
+
 .money-faq {
     padding: 80px 0;
     background: #fff;
@@ -553,7 +550,7 @@
     max-height: 300px;
 }
 
-/* Responsive */
+
 @media (max-width: 992px) {
     .money-header h1 {
         font-size: 2.5rem;

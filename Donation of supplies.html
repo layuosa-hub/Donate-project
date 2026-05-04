@@ -5,613 +5,1011 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
     <title>បរិច្ចាគសម្ភារៈ - ស្នាមញញឹមខ្មែរ</title>
     
-    <!-- Bootstrap CSS -->
+   
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
-    
-    <!-- Font Awesome -->
+
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-    
-    <!-- Google Fonts -->
-    <link href="https://fonts.googleapis.com/css2?family=Kantumruy+Pro:wght@300;400;500;600;700&display=swap" rel="stylesheet">
-    
-    <!-- AOS Animation -->
+
+    <link href="https://fonts.googleapis.com/css2?family=Kantumruy+Pro:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+
     <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+    <link rel="stylesheet" href="assets/css/style2.css">
+    <link rel="stylesheet" href="assets/css/Footer.css">
     
-    <!-- Custom CSS -->
-    <link rel="stylesheet" href="/Donate-project/assets/css/Donation of supplies.css">
+    <style>
+      
+        :root {
+            --primary-blue: #1a5a96;
+            --accent-blue: #00adef;
+            --gold: #f39c12;
+            --dark-blue: #0b2b44;
+            --glass: rgba(255, 255, 255, 0.96);
+            --footer-bg: #16467a;
+            --text-gold: #f39c12;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Kantumruy Pro', sans-serif;
+            background-color: #fefcf5;
+            overflow-x: hidden;
+            color: #1e2a3e;
+        }
+
+  
+        #preloader {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: #ffffff;
+            z-index: 9999;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            transition: opacity 0.4s ease;
+        }
+        .loader {
+            width: 50px;
+            height: 50px;
+            border: 5px solid #e2e8f0;
+            border-top: 5px solid var(--primary-blue);
+            border-radius: 50%;
+            animation: spin 1s linear infinite;
+        }
+        @keyframes spin { 0% { transform: rotate(0deg); } 100% { transform: rotate(360deg); } }
+
+        /* ========== HEADER STYLES (exact from reference) ========== */
+        .main-header {
+            background: rgba(255, 255, 255, 0.98);
+            backdrop-filter: blur(12px);
+            box-shadow: 0 8px 28px rgba(0, 0, 0, 0.08);
+            border-bottom: 1px solid rgba(0,0,0,0.05);
+            transition: all 0.3s;
+        }
+        .navbar-pill {
+            background: var(--glass);
+            backdrop-filter: blur(10px);
+            border-radius: 60px;
+            padding: 0.3rem 1.8rem;
+            box-shadow: 0 6px 18px rgba(0, 0, 0, 0.08);
+        }
+        .navbar-pill .nav-link {
+            color: var(--primary-blue) !important;
+            font-weight: 600;
+            transition: 0.2s;
+            border-radius: 40px;
+        }
+        .navbar-pill .nav-link:hover {
+            color: var(--accent-blue) !important;
+            background: rgba(0,173,239,0.08);
+        }
+        .nav-item.dropdown:hover > .dropdown-menu {
+            display: block;
+            opacity: 1;
+            visibility: visible;
+            transform: translateY(0);
+        }
+        .dropdown-menu {
+            display: block;
+            opacity: 0;
+            visibility: hidden;
+            transform: translateY(12px);
+            transition: all 0.2s ease;
+            border-radius: 20px;
+            border: none;
+            box-shadow: 0 15px 35px rgba(0,0,0,0.1);
+        }
+        .notification-badge {
+            width: 10px;
+            height: 10px;
+            background: #e53e3e;
+            border-radius: 50%;
+            top: 2px;
+            right: 2px;
+        }
+        .icon-circle {
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+        .btn-orange {
+            background: linear-gradient(135deg, var(--gold) 0%, #e67e22 100%);
+            border: none;
+            color: white;
+            font-weight: 600;
+            transition: 0.2s;
+        }
+        .btn-orange:hover {
+            background: linear-gradient(135deg, #e67e22 0%, #d35400 100%);
+            transform: translateY(-2px);
+            box-shadow: 0 6px 14px rgba(243,156,18,0.3);
+        }
+        .btn-outline-orange {
+            border: 2px solid var(--gold);
+            color: var(--gold);
+            background: transparent;
+            font-weight: 600;
+        }
+        .btn-outline-orange:hover {
+            background: var(--gold);
+            color: white;
+        }
+
+        /* ========== CUSTOM MATERIAL DONATION STYLES ========== */
+        .material-header {
+            background: linear-gradient(120deg, var(--primary-blue) 0%, #0b3b5f 100%);
+            padding: 100px 0 70px;
+            margin-top: 80px;
+            color: white;
+            text-align: center;
+        }
+        .material-icon i {
+            font-size: 4rem;
+            background: rgba(255,255,255,0.2);
+            padding: 20px;
+            border-radius: 60px;
+            margin-bottom: 20px;
+        }
+        .breadcrumb-nav {
+            margin-top: 20px;
+            font-size: 0.9rem;
+        }
+        .breadcrumb-nav a {
+            color: var(--gold);
+            text-decoration: none;
+        }
+        .section-header {
+            margin-bottom: 3rem;
+        }
+        .section-badge, .section-badge-center {
+            display: inline-block;
+            background: rgba(26,90,150,0.1);
+            color: var(--primary-blue);
+            padding: 0.4rem 1.2rem;
+            border-radius: 40px;
+            font-weight: 600;
+            font-size: 0.85rem;
+            margin-bottom: 1rem;
+        }
+        .material-card {
+            background: white;
+            border-radius: 28px;
+            padding: 1.5rem;
+            box-shadow: 0 15px 30px rgba(0,0,0,0.05);
+            transition: all 0.25s ease;
+            height: 100%;
+            position: relative;
+            border: 1px solid rgba(0,0,0,0.03);
+        }
+        .material-card:hover {
+            transform: translateY(-8px);
+            box-shadow: 0 25px 35px rgba(0,0,0,0.1);
+        }
+        .material-card .material-icon i {
+            font-size: 2.5rem;
+            color: var(--primary-blue);
+            background: #eef2ff;
+            padding: 12px;
+            border-radius: 20px;
+        }
+        .material-card h3 {
+            font-size: 1.5rem;
+            margin: 1rem 0 1rem;
+            font-weight: 700;
+        }
+        .material-card ul {
+            list-style: none;
+            padding-left: 0;
+        }
+        .material-card li {
+            margin-bottom: 10px;
+            font-size: 0.9rem;
+        }
+        .material-card li i {
+            color: var(--gold);
+            width: 22px;
+        }
+        .urgent-badge {
+            position: absolute;
+            top: 20px;
+            right: 20px;
+            background: #e53e3e;
+            color: white;
+            font-size: 0.7rem;
+            font-weight: bold;
+            padding: 4px 10px;
+            border-radius: 40px;
+        }
+        .form-card {
+            background: white;
+            border-radius: 32px;
+            padding: 2rem;
+            box-shadow: 0 20px 35px rgba(0,0,0,0.05);
+            border: 1px solid rgba(26,90,150,0.1);
+        }
+        .form-header {
+            text-align: center;
+            margin-bottom: 2rem;
+        }
+        .form-header i {
+            font-size: 3rem;
+            color: var(--gold);
+        }
+        .form-group {
+            margin-bottom: 1.2rem;
+        }
+        .form-group label {
+            font-weight: 600;
+            margin-bottom: 0.5rem;
+            color: #2c3e50;
+        }
+        .custom-input, .form-control {
+            border-radius: 16px;
+            border: 1px solid #dee2e6;
+            padding: 0.75rem 1rem;
+            transition: 0.2s;
+        }
+        .custom-input:focus, .form-control:focus {
+            border-color: var(--accent-blue);
+            box-shadow: 0 0 0 3px rgba(0,173,239,0.2);
+        }
+        .btn-submit {
+            background: var(--primary-blue);
+            border: none;
+            padding: 14px 28px;
+            border-radius: 50px;
+            color: white;
+            font-weight: bold;
+            width: 100%;
+            margin-top: 1rem;
+            transition: 0.2s;
+        }
+        .btn-submit:hover {
+            background: var(--accent-blue);
+            transform: scale(0.98);
+        }
+        .location-card {
+            background: white;
+            padding: 2rem;
+            border-radius: 28px;
+            text-align: center;
+            box-shadow: 0 10px 25px rgba(0,0,0,0.05);
+            transition: 0.2s;
+        }
+        .location-card i {
+            font-size: 2.2rem;
+            color: var(--primary-blue);
+            margin-bottom: 1rem;
+        }
+        .impact-stats {
+            display: grid;
+            grid-template-columns: repeat(2,1fr);
+            gap: 1.5rem;
+            margin-top: 2rem;
+        }
+        .impact-item {
+            background: white;
+            border-radius: 28px;
+            padding: 1rem;
+            text-align: center;
+        }
+        .faq-item {
+            background: white;
+            border-radius: 24px;
+            margin-bottom: 1rem;
+            border: 1px solid rgba(0,0,0,0.05);
+        }
+        .faq-question {
+            padding: 1.2rem 1.5rem;
+            font-weight: 700;
+            cursor: pointer;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        .faq-answer {
+            padding: 0 1.5rem 1.2rem 1.5rem;
+            display: none;
+            color: #4a5568;
+            border-top: 1px solid #edf2f7;
+        }
+        .cta-section {
+            background: linear-gradient(110deg, var(--primary-blue), #0e4d7a);
+            padding: 70px 0;
+            color: white;
+            text-align: center;
+        }
+        /* FOOTER */
+        .custom-footer {
+            background-color: var(--footer-bg);
+            color: #ffffff;
+            padding-top: 3rem;
+            font-family: 'Kantumruy Pro', sans-serif;
+        }
+        .text-gold { color: var(--text-gold); }
+        .footer-links a, .footer-contact li {
+            color: rgba(255,255,255,0.8);
+            text-decoration: none;
+            transition: 0.2s;
+            display: inline-block;
+            margin-bottom: 0.6rem;
+        }
+        .footer-links a:hover { color: var(--gold); padding-left: 5px; }
+        .social-icon {
+            background: rgba(255,255,255,0.12);
+            width: 38px;
+            height: 38px;
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            border-radius: 50%;
+            margin-right: 10px;
+            transition: 0.2s;
+        }
+        .social-icon:hover { background: var(--gold); color: black; }
+        .back-to-top {
+            position: fixed;
+            bottom: 30px;
+            right: 30px;
+            background: var(--primary-blue);
+            border: none;
+            width: 48px;
+            height: 48px;
+            border-radius: 60px;
+            color: white;
+            display: none;
+            align-items: center;
+            justify-content: center;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.2);
+            z-index: 99;
+        }
+        @media (max-width: 768px) {
+            .navbar-pill { background: transparent; box-shadow: none; padding: 0; }
+            .material-header { margin-top: 70px; }
+        }
+    </style>
 </head>
 <body>
 
-<!-- ============================================ -->
-<!-- PRELOADER
-<!-- ============================================ -->
-<div id="preloader">
-    <div class="loader"></div>
-</div>
+<!-- PRELOADER -->
+<div id="preloader"><div class="loader"></div></div>
 
-<!-- ============================================ -->
-<!-- NAVBAR SECTION
-<!-- ============================================ -->
-<nav class="navbar navbar-expand-lg navbar-dark fixed-top" id="mainNav">
-    <div class="container">
-        <a class="navbar-brand" href="index.html">
-            <i class="fas fa-smile-wink"></i>
-            <span>ស្នាមញញឹមខ្មែរ</span>
-        </a>
-        
-        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
-            <span class="navbar-toggler-icon"></span>
-        </button>
-        
-        <div class="collapse navbar-collapse" id="navbarNav">
-            <ul class="navbar-nav ms-auto">
-                <li class="nav-item"><a class="nav-link" href="index.html">ទំព័រដើម</a></li>
-                <li class="nav-item"><a class="nav-link" href="about.html">អំពីយើង</a></li>
-                <li class="nav-item"><a class="nav-link" href="donate.html">បរិច្ចាគ</a></li>
-                <li class="nav-item"><a class="nav-link" href="blood-donation.html">បរិច្ចាគឈាម</a></li>
-                <li class="nav-item"><a class="nav-link active" href="material-donation.html">បរិច្ចាគសម្ភារៈ</a></li>
-                <li class="nav-item"><a class="nav-link" href="volunteer.html">ស្ម័គ្រចិត្ត</a></li>
-                <li class="nav-item"><a class="nav-link" href="impact.html">សមត្ថផល</a></li>
-                <li class="nav-item"><a class="nav-link" href="news.html">ព័ត៌មាន</a></li>
-                <li class="nav-item"><a class="nav-link" href="faq.html">FAQ</a></li>
+<!-- ========== HEADER : EXACT STYLE FROM REFERENCE (first page) ========== -->
+ <header class="container-fluid py-4 sticky-top main-header">
+        <div class="row align-items-center px-lg-5">
+          <div class="col-lg-2 col-6">
+            <div class="d-flex align-items-center">
+              <img
+                src="assets/img/photo_2026-04-02_12-02-02.jpg"
+                alt="Logo"
+                style="
+                  height: 60px;
+                  filter: drop-shadow(2px 2px 4px rgba(0, 0, 0, 0.3));
+                "
+              />
+              <div class="ms-2 lh-1">
+                <span class="fw-bold d-block fs-4" style="color: var(--gold)"
+                  >ស្នាមញញឹមខ្មែរ</span
+                >
+                <small class="text-white-50" style="font-size: 0.7rem"
+                  >ផ្តល់ក្តីសង្ឃឹមតាមរយៈការបរិច្ចាគ</small
+                >
+              </div>
+            </div>
+          </div>
+
+          <div class="col-lg-7 d-none d-lg-flex justify-content-center">
+            <nav class="navbar-pill">
+              <ul class="nav">
+                <li class="nav-item">
+                  <a class="nav-link fw-bold px-3 text-white" href="#"
+                    >ទំព័រដើម</a
+                  >
+                </li>
+
                 <li class="nav-item dropdown">
-                    <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown">
-                        <i class="fas fa-user"></i> គណនី
-                    </a>
-                    <ul class="dropdown-menu">
-                        <li><a class="dropdown-item" href="login.html">ចូលប្រើប្រាស់</a></li>
-                        <li><a class="dropdown-item" href="register.html">ចុះឈ្មោះ</a></li>
-                        <li><hr class="dropdown-divider"></li>
-                        <li><a class="dropdown-item" href="profile.html">ទម្រង់របស់ខ្ញុំ</a></li>
-                    </ul>
+                  <a
+                    class="nav-link fw-bold px-3 dropdown-toggle text-white"
+                    href="#"
+                    id="donateDropdown"
+                    role="button"
+                    data-bs-toggle="dropdown"
+                    aria-expanded="false"
+                  >
+                    ការបរិច្ចាគ
+                  </a>
+                  <ul
+                    class="dropdown-menu shadow-sm rounded-4 border-0"
+                    aria-labelledby="donateDropdown"
+                  >
+                    <li><h6 class="dropdown-header">ប្រភេទការបរិច្ចាគ</h6></li>
+                    <li>
+                      <a
+                        class="dropdown-item d-flex align-items-center"
+                        href="#blood-donation"
+                        ><i class="fa-solid fa-droplet me-3 text-danger"></i
+                        >ការបរិច្ចាគឈាម</a
+                      >
+                    </li>
+                    <li>
+                      <a
+                        class="dropdown-item d-flex align-items-center"
+                        href="#material-donation"
+                        ><i class="fa-solid fa-box-open me-3 text-primary"></i
+                        >ការបរិច្ចាគសម្ភារះ</a
+                      >
+                    </li>
+                    <li>
+                      <a
+                        class="dropdown-item d-flex align-items-center"
+                        href="Money donation.html"
+                        ><i
+                          class="fa-solid fa-hand-holding-dollar me-3 text-success"
+                        ></i
+                        >ការបរិច្ចាគប្រាក់</a
+                      >
+                    </li>
+                    <li>
+                      <a
+                        class="dropdown-item d-flex align-items-center"
+                        href="Food donation.html"
+                        ><i class="fa-solid fa-utensils me-3 text-warning"></i
+                        >បរិច្ចាគអាហារ</a
+                      >
+                    </li>
+                    <li>
+                      <a
+                        class="dropdown-item d-flex align-items-center"
+                        href="#time-donation"
+                        ><i class="fa-solid fa-clock me-3 text-info"></i
+                        >បរិច្ចាគពេលវេលា</a
+                      >
+                    </li>
+                    <li>
+                      <a
+                        class="dropdown-item d-flex align-items-center"
+                        href="#rebuild-donation"
+                        ><i
+                          class="fa-solid fa-trowel-bricks me-3 text-secondary"
+                        ></i
+                        >ការសាងសង</a
+                      >
+                    </li>
+                    <li><hr class="dropdown-divider" /></li>
+                    <li>
+                      <div class="dropdown-item-text text-muted small">
+                        <i class="fa-solid fa-circle-info me-2"></i
+                        >ស្វែងរកប្រភេទការបរិច្ចាគដែលសាកសម។
+                      </div>
+                    </li>
+                  </ul>
+                </li>
+
+                <li class="nav-item dropdown">
+                  <a
+                    class="nav-link fw-bold px-3 dropdown-toggle text-white"
+                    href="#"
+                    id="volunteerDropdown"
+                    role="button"
+                    data-bs-toggle="dropdown"
+                    aria-expanded="false"
+                  >
+                    ការស្ម័គ្រចិត្ត
+                  </a>
+                  <ul
+                    class="dropdown-menu shadow-sm rounded-4 border-0"
+                    aria-labelledby="volunteerDropdown"
+                  >
+                    <li>
+                      <h6 class="dropdown-header">កម្មវិធីស្ម័គ្រចិត្ត</h6>
+                    </li>
+                    <li>
+                      <a class="dropdown-item" href="#event-volunteer"
+                        ><i
+                          class="fa-solid fa-calendar-check me-2 text-primary"
+                        ></i
+                        >ស្ម័គ្រចិត្តតាមព្រឹត្តិការណ៍</a
+                      >
+                    </li>
+                    <li>
+                      <a class="dropdown-item" href="#community-teaching"
+                        ><i
+                          class="fa-solid fa-chalkboard-user me-2 text-success"
+                        ></i
+                        >ការបង្រៀនសហគមន៍</a
+                      >
+                    </li>
+                    <li>
+                      <a class="dropdown-item" href="#medical-volunteer"
+                        ><i class="fa-solid fa-user-doctor me-2 text-danger"></i
+                        >ក្រុមការងារសុខាភិបាល</a
+                      >
+                    </li>
+                    <li>
+                      <a class="dropdown-item" href="#digital-volunteer"
+                        ><i class="fa-solid fa-laptop-code me-2 text-info"></i
+                        >ស្ម័គ្រចិត្តផ្នែកឌីជីថល</a
+                      >
+                    </li>
+                    <li><hr class="dropdown-divider" /></li>
+                    <li>
+                      <a class="dropdown-item" href="#register-volunteer"
+                        ><i class="fa-solid fa-pen-to-square me-2"></i
+                        >ចុះឈ្មោះជាអ្នកស្ម័គ្រចិត្ត</a
+                      >
+                    </li>
+                  </ul>
+                </li>
+
+                <li class="nav-item">
+                  <a class="nav-link fw-bold px-3 text-white" href="contact.html"
+                    >ទំនាក់ទំនង</a
+                  >
                 </li>
                 <li class="nav-item">
-                    <a href="donate.html" class="btn-donate-nav">
-                        <i class="fas fa-heart"></i> បរិច្ចាគ
-                    </a>
+                  <a class="nav-link fw-bold px-3 text-white" href="about.us.html"
+                    >អំពីយើង</a
+                  >
                 </li>
-            </ul>
-        </div>
-    </div>
-</nav>
+              </ul>
+            </nav>
+          </div>
 
-<!-- ============================================ -->
-<!-- PAGE HEADER
-<!-- ============================================ -->
-<section class="material-header">
-    <div class="container">
-        <div class="row justify-content-center text-center">
-            <div class="col-lg-8" data-aos="fade-up">
-                <div class="material-icon">
-                    <i class="fas fa-boxes"></i>
-                </div>
-                <h1>បរិច្ចាគសម្ភារៈ</h1>
-                <p>ចែករំលែកសម្ភារៈប្រើប្រាស់ដើម្បីជួយសង្គ្រោះបងប្អូនយើង</p>
-                <div class="breadcrumb-nav">
-                    <a href="index.html">ទំព័រដើម</a>
-                    <i class="fas fa-chevron-right"></i>
-                    <span>បរិច្ចាគសម្ភារៈ</span>
-                </div>
-            </div>
-        </div>
-    </div>
-</section>
+          <div
+            class="col-lg-3 col-6 d-flex align-items-center justify-content-end gap-2"
+          >
+            <button
+              class="btn bg-white rounded-circle shadow-sm d-flex align-items-center justify-content-center"
+              style="width: 40px; height: 40px; border: none"
+             data-bs-toggle="modal" data-bs-target="#exampleModal"
+            >
+              <i
+                class="fa-solid fa-magnifying-glass"
+                style="color: var(--primary-blue)"
+              ></i>
+            </button>
 
-<!-- ============================================ -->
-<!-- NEEDED MATERIALS SECTION
-<!-- ============================================ -->
-<section class="needed-materials">
-    <div class="container">
-        <div class="section-header text-center" data-aos="fade-up">
-            <div class="section-badge-center">សម្ភារៈដែលត្រូវការ</div>
-            <h2>បញ្ជីសម្ភារៈដែលកំពុងត្រូវការបន្ទាន់</h2>
-            <p>សូមជួយបរិច្ចាគសម្ភារៈដែលមានក្នុងបញ្ជីខាងក្រោម</p>
-        </div>
-        
-        <div class="row g-4">
-            <div class="col-lg-3 col-md-6" data-aos="flip-up" data-aos-delay="100">
-                <div class="material-card">
-                    <div class="material-icon">
-                        <i class="fas fa-tshirt"></i>
+            <div
+              class="modal fade"
+             id="exampleModal"
+             tabindex="-1" 
+             aria-labelledby="exampleModalLabel" 
+             aria-hidden="true"
+             data-bs-backdrop="false"
+            >
+              <div class="modal-dialog modal-lg modal-dialog-centered">
+                <div class="modal-content border-0 shadow-lg">
+                  <div class="modal-body p-4">
+                    <div class="d-flex align-items-center mb-3">
+                      <i
+                        class="fa-solid fa-magnifying-glass me-3 fs-4 text-primary"
+                      ></i>
+                      <input
+                        type="text"
+                        id="searchInput"
+                        class="form-control form-control-lg border-0 shadow-none ps-0"
+                        placeholder="ស្វែងរកកម្មវិធីបរិច្ចាគ ឬការងារស្ម័គ្រចិត្ត..."
+                        autocomplete="off"
+                      />
+                      <button
+                        type="button"
+                        class="btn-close shadow-none"
+                        data-bs-dismiss="modal"
+                        aria-label="Close"
+                      ></button>
                     </div>
-                    <h3>សម្លៀកបំពាក់</h3>
-                    <ul>
-                        <li><i class="fas fa-check-circle"></i> អាវយឺត អាវវែង</li>
-                        <li><i class="fas fa-check-circle"></i> ខោខូវប៊য় ខោជើងវែង</li>
-                        <li><i class="fas fa-check-circle"></i> អាវរងារ</li>
-                        <li><i class="fas fa-check-circle"></i> ស្បែកជើង ស្បែកជើងកវែង</li>
-                    </ul>
-                    <div class="urgent-badge">ត្រូវការបន្ទាន់</div>
-                </div>
-            </div>
-            <div class="col-lg-3 col-md-6" data-aos="flip-up" data-aos-delay="200">
-                <div class="material-card">
-                    <div class="material-icon">
-                        <i class="fas fa-blanket"></i>
-                    </div>
-                    <h3>ភួយ និងកម្រាល</h3>
-                    <ul>
-                        <li><i class="fas fa-check-circle"></i> ភួយក្រាស់ៗ</li>
-                        <li><i class="fas fa-check-circle"></i> កម្រាលគេង</li>
-                        <li><i class="fas fa-check-circle"></i> មុង</li>
-                        <li><i class="fas fa-check-circle"></i> ខ្នើយ</li>
-                    </ul>
-                    <div class="urgent-badge">ត្រូវការបន្ទាន់</div>
-                </div>
-            </div>
-            <div class="col-lg-3 col-md-6" data-aos="flip-up" data-aos-delay="300">
-                <div class="material-card">
-                    <div class="material-icon">
-                        <i class="fas fa-tent"></i>
-                    </div>
-                    <h3>តង់ និងសម្ភារៈស្នាក់នៅ</h3>
-                    <ul>
-                        <li><i class="fas fa-check-circle"></i> តង់ស្នាក់នៅ</li>
-                        <li><i class="fas fa-check-circle"></i> ក្រណាត់តង់</li>
-                        <li><i class="fas fa-check-circle"></i> បង្គោលតង់</li>
-                        <li><i class="fas fa-check-circle"></i> កម្រាលឥដ្ឋ</li>
-                    </ul>
-                    <div class="urgent-badge">ត្រូវការបន្ទាន់</div>
-                </div>
-            </div>
-            <div class="col-lg-3 col-md-6" data-aos="flip-up" data-aos-delay="400">
-                <div class="material-card">
-                    <div class="material-icon">
-                        <i class="fas fa-pills"></i>
-                    </div>
-                    <h3>ថ្នាំពេទ្យ</h3>
-                    <ul>
-                        <li><i class="fas fa-check-circle"></i> ថ្នាំប៉ារ៉ាសេតាមុល</li>
-                        <li><i class="fas fa-check-circle"></i> ថ្នាំអាម៉ុកស៊ីស៊ីលីន</li>
-                        <li><i class="fas fa-check-circle"></i> ម៉ាស</li>
-                        <li><i class="fas fa-check-circle"></i> អាល់កុល បង់រុំ</li>
-                    </ul>
-                    <div class="urgent-badge">ត្រូវការបន្ទាន់</div>
-                </div>
-            </div>
-        </div>
-        
-        <div class="row g-4 mt-2">
-            <div class="col-lg-3 col-md-6" data-aos="flip-up" data-aos-delay="500">
-                <div class="material-card">
-                    <div class="material-icon">
-                        <i class="fas fa-soap"></i>
-                    </div>
-                    <h3>សម្ភារៈអនាម័យ</h3>
-                    <ul>
-                        <li><i class="fas fa-check-circle"></i> សាប៊ូ</li>
-                        <li><i class="fas fa-check-circle"></i> ថ្នាំដុសធ្មេញ</li>
-                        <li><i class="fas fa-check-circle"></i> ក្រដាសអនាម័យ</li>
-                        <li><i class="fas fa-check-circle"></i> កន្សែងសើម</li>
-                    </ul>
-                </div>
-            </div>
-            <div class="col-lg-3 col-md-6" data-aos="flip-up" data-aos-delay="600">
-                <div class="material-card">
-                    <div class="material-icon">
-                        <i class="fas fa-book"></i>
-                    </div>
-                    <h3>សម្ភារៈសិក្សា</h3>
-                    <ul>
-                        <li><i class="fas fa-check-circle"></i> សៀវភៅសិក្សា</li>
-                        <li><i class="fas fa-check-circle"></i> ប៊ិច ខ្មៅដៃ</li>
-                        <li><i class="fas fa-check-circle"></i> សៀវភៅគំនូរ</li>
-                        <li><i class="fas fa-check-circle"></i> កាបូបស្ពាយ</li>
-                    </ul>
-                </div>
-            </div>
-            <div class="col-lg-3 col-md-6" data-aos="flip-up" data-aos-delay="700">
-                <div class="material-card">
-                    <div class="material-icon">
-                        <i class="fas fa-baby-carriage"></i>
-                    </div>
-                    <h3>សម្ភារៈសម្រាប់កុមារ</h3>
-                    <ul>
-                        <li><i class="fas fa-check-circle"></i> ទឹកដោះគោម្សៅ</li>
-                        <li><i class="fas fa-check-circle"></i> កន្ទបទារក</li>
-                        <li><i class="fas fa-check-circle"></i> កែវបំបៅ</li>
-                        <li><i class="fas fa-check-circle"></i> ប្រដាប់ក្មេងលេង</li>
-                    </ul>
-                </div>
-            </div>
-            <div class="col-lg-3 col-md-6" data-aos="flip-up" data-aos-delay="800">
-                <div class="material-card">
-                    <div class="material-icon">
-                        <i class="fas fa-wheelchair"></i>
-                    </div>
-                    <h3>សម្ភារៈសម្រាប់ជនពិការ</h3>
-                    <ul>
-                        <li><i class="fas fa-check-circle"></i> រទេះរុញ</li>
-                        <li><i class="fas fa-check-circle"></i> ឈើច្រត់</li>
-                        <li><i class="fas fa-check-circle"></i> ឧបករណ៍ស្តាប់</li>
-                        <li><i class="fas fa-check-circle"></i> កៅអីងូតទឹក</li>
-                    </ul>
-                </div>
-            </div>
-        </div>
-    </div>
-</section>
 
-<!-- ============================================ -->
-<!-- DONATION FORM SECTION
-<!-- ============================================ -->
-<section class="donation-form-section">
-    <div class="container">
-        <div class="row justify-content-center">
-            <div class="col-lg-10" data-aos="fade-up">
-                <div class="form-card">
-                    <div class="form-header">
-                        <i class="fas fa-hand-holding-heart"></i>
-                        <h3>បំពេញព័ត៌មានបរិច្ចាគសម្ភារៈ</h3>
-                        <p>សូមបំពេញព័ត៌មានខាងក្រោមដើម្បីបរិច្ចាគសម្ភារៈ</p>
+                    <hr class="mt-0 opacity-10" />
+
+                    <div id="searchSuggestions" class="mt-3">
+                      <h6
+                        class="text-uppercase text-muted small fw-bold mb-3"
+                        id="searchStatus"
+                      >
+                        តំណភ្ជាប់រហ័ស
+                      </h6>
+                      <div class="list-group list-group-flush" id="resultsList">
+                        <a
+                          href="#blood-donation"
+                          class="list-group-item list-group-item-action border-0 rounded-3 mb-1 py-2"
+                        >
+                          <i class="fa-solid fa-droplet me-2 text-danger"></i>
+                          ការបរិច្ចាគឈាម
+                        </a>
+                        <a
+                          href="#event-volunteer"
+                          class="list-group-item list-group-item-action border-0 rounded-3 mb-1 py-2"
+                        >
+                          <i
+                            class="fa-solid fa-calendar-check me-2 text-primary"
+                          ></i>
+                          ស្ម័គ្រចិត្តតាមព្រឹត្តិការណ៍
+                        </a>
+                      </div>
                     </div>
-                    
-                    <form id="materialDonationForm">
-                        <div class="row">
-                            <div class="col-md-6">
-                                <div class="form-group">
-                                    <label><i class="fas fa-user"></i> នាមត្រកូល</label>
-                                    <input type="text" class="form-control" id="lastName" placeholder="ឧទាហរណ៍៖ សុខ" required>
-                                </div>
-                            </div>
-                            <div class="col-md-6">
-                                <div class="form-group">
-                                    <label><i class="fas fa-user"></i> នាមខ្លួន</label>
-                                    <input type="text" class="form-control" id="firstName" placeholder="ឧទាហរណ៍៖ វិបុល" required>
-                                </div>
-                            </div>
-                        </div>
-                        
-                        <div class="row">
-                            <div class="col-md-6">
-                                <div class="form-group">
-                                    <label><i class="fas fa-envelope"></i> អ៊ីមែល</label>
-                                    <input type="email" class="form-control" id="email" placeholder="ឧទាហរណ៍៖ vipol@email.com" required>
-                                </div>
-                            </div>
-                            <div class="col-md-6">
-                                <div class="form-group">
-                                    <label><i class="fas fa-phone"></i> លេខទូរស័ព្ទ</label>
-                                    <input type="tel" class="form-control" id="phone" placeholder="ឧទាហរណ៍៖ 012 345 678" required>
-                                </div>
-                            </div>
-                        </div>
-                        
-                        <div class="row">
-                            <div class="col-md-6">
-                                <div class="form-group">
-                                    <label><i class="fas fa-box"></i> ប្រភេទសម្ភារៈ</label>
-                                    <select class="form-control" id="materialType" required>
-                                        <option value="">ជ្រើសរើសប្រភេទសម្ភារៈ</option>
-                                        <option value="clothes">សម្លៀកបំពាក់</option>
-                                        <option value="blanket">ភួយ និងកម្រាល</option>
-                                        <option value="tent">តង់ និងសម្ភារៈស្នាក់នៅ</option>
-                                        <option value="medicine">ថ្នាំពេទ្យ</option>
-                                        <option value="hygiene">សម្ភារៈអនាម័យ</option>
-                                        <option value="study">សម្ភារៈសិក្សា</option>
-                                        <option value="baby">សម្ភារៈកុមារ</option>
-                                        <option value="disability">សម្ភារៈជនពិការ</option>
-                                        <option value="other">ផ្សេងៗ</option>
-                                    </select>
-                                </div>
-                            </div>
-                            <div class="col-md-6">
-                                <div class="form-group">
-                                    <label><i class="fas fa-cubes"></i> បរិមាណ</label>
-                                    <input type="text" class="form-control" id="quantity" placeholder="ឧទាហរណ៍៖ ១០ អាវ, ៥ ភួយ" required>
-                                </div>
-                            </div>
-                        </div>
-                        
-                        <div class="form-group">
-                            <label><i class="fas fa-align-left"></i> ការពិពណ៌នាបន្ថែម</label>
-                            <textarea class="form-control" id="description" rows="3" placeholder="សូមបញ្ជាក់ព័ត៌មានលម្អិតអំពីសម្ភារៈដែលអ្នកចង់បរិច្ចាគ..."></textarea>
-                        </div>
-                        
-                        <div class="row">
-                            <div class="col-md-6">
-                                <div class="form-group">
-                                    <label><i class="fas fa-map-marker-alt"></i> ទីតាំងដឹកជញ្ជូន</label>
-                                    <select class="form-control" id="location" required>
-                                        <option value="">ជ្រើសរើសទីតាំង</option>
-                                        <option value="pp">ទីតាំងភ្នំពេញ</option>
-                                        <option value="bb">ទីតាំងបន្ទាយមានជ័យ</option>
-                                        <option value="od">ទីតាំងឧត្តរមានជ័យ</option>
-                                    </select>
-                                </div>
-                            </div>
-                            <div class="col-md-6">
-                                <div class="form-group">
-                                    <label><i class="fas fa-truck"></i> វិធីសាស្ត្រដឹកជញ្ជូន</label>
-                                    <select class="form-control" id="deliveryMethod" required>
-                                        <option value="">ជ្រើសរើសវិធីសាស្ត្រ</option>
-                                        <option value="bring">នាំយកទៅទីតាំងដោយខ្លួនឯង</option>
-                                        <option value="pickup">សុំឱ្យក្រុមការងារមកទទួល</option>
-                                    </select>
-                                </div>
-                            </div>
-                        </div>
-                        
-                        <div class="pickup-address" style="display: none;">
-                            <div class="form-group">
-                                <label><i class="fas fa-home"></i> អាសយដ្ឋានសម្រាប់មកទទួល</label>
-                                <textarea class="form-control" id="pickupAddress" rows="2" placeholder="សូមបញ្ចូលអាសយដ្ឋានពេញលេញ..."></textarea>
-                            </div>
-                        </div>
-                        
-                        <div class="form-check">
-                            <input type="checkbox" class="form-check-input" id="termsCheck" required>
-                            <label class="form-check-label" for="termsCheck">
-                                ខ្ញុំបញ្ជាក់ថាព័ត៌មានខាងលើត្រឹមត្រូវ 
-                                ហើយសម្ភារៈដែលបរិច្ចាគគឺស្ថិតក្នុងស្ថានភាពល្អប្រើប្រាស់បាន
-                            </label>
-                        </div>
-                        
-                        <button type="submit" class="btn-submit">
-                            <i class="fas fa-hand-holding-heart me-2"></i>បញ្ជូនព័ត៌មានបរិច្ចាគ
-                        </button>
-                    </form>
+                  </div>
                 </div>
+              </div>
+            </div>
+           <div class="dropdown">
+  <button
+    class="btn bg-white rounded-circle shadow-sm d-flex align-items-center justify-content-center position-relative"
+    style="width: 40px; height: 40px; border: none"
+    type="button"
+    id="notificationBell"
+    data-bs-toggle="dropdown"
+    data-bs-auto-close="outside" 
+    aria-expanded="false"
+  >
+    <i class="fa-solid fa-bell" style="color: var(--primary-blue)"></i>
+    <span class="position-absolute top-0 start-100 translate-middle p-1 bg-danger border border-2 border-light rounded-circle notification-badge">
+      <span class="visually-hidden">New notifications</span>
+    </span>
+  </button>
+
+  <ul class="dropdown-menu dropdown-menu-end shadow-lg border-0 rounded-4 mt-3 py-0 overflow-hidden" style="width: 350px">
+    <li class="px-3 py-3 bg-white border-bottom d-flex justify-content-between align-items-center">
+      <h6 class="fw-bold text-dark mb-0">ការជូនដំណឹង</h6>
+      <button class="btn btn-link btn-sm text-decoration-none p-0 text-primary small fw-bold">អានទាំងអស់</button>
+    </li>
+
+    <div class="notification-items" style="max-height: 380px; overflow-y: auto;">
+     <li>
+  <a class="dropdown-item unread-item d-flex align-items-start gap-3 py-3 px-3 border-bottom" href="#">
+    <div class="icon-circle bg-warning-subtle text-warning rounded-circle d-flex align-items-center justify-content-center" style="width: 45px; height: 45px; flex-shrink: 0;">
+      <i class="fa-solid fa-hand-holding-hand"></i>
+    </div>
+    <div class="flex-grow-1">
+      <p class="mb-1 text-dark small"><b>ជំនួយដល់ជនភៀសខ្លួន៖</b> សម្ភារៈប្រើប្រាស់ចាំបាច់ត្រូវបានបញ្ជូនទៅដល់មជ្ឈមណ្ឌលហើយ។</p>
+      <span class="text-muted extra-small">៣០ នាទីមុន</span>
+    </div>
+    <div class="unread-dot"></div>
+  </a>
+</li>
+
+<li>
+  <a class="dropdown-item d-flex align-items-start gap-3 py-3 px-3 border-bottom" href="#">
+    <div class="icon-circle bg-info-subtle text-info rounded-circle d-flex align-items-center justify-content-center" style="width: 45px; height: 45px; flex-shrink: 0;">
+      <i class="fa-solid fa-file-invoice-dollar"></i>
+    </div>
+    <div class="flex-grow-1">
+      <p class="mb-1 text-dark small"><b>របាយការណ៍ហិរញ្ញវត្ថុ៖</b> ការបរិច្ចាគប្រាក់ប្រចាំខែមីនា ត្រូវបានប្រើប្រាស់ក្នុងគម្រោងសាងសង់សាលារៀន។</p>
+      <span class="text-muted extra-small">៥ ម៉ោងមុន</span>
+    </div>
+  </a>
+</li>
+
+      <li>
+        <a class="dropdown-item d-flex align-items-start gap-3 py-3 px-3 border-bottom" href="#">
+          <div class="icon-circle bg-primary-subtle text-primary rounded-circle d-flex align-items-center justify-content-center" style="width: 45px; height: 45px; flex-shrink: 0;">
+            <i class="fa-solid fa-calendar-check"></i>
+          </div>
+          <div class="flex-grow-1">
+            <p class="mb-1 text-dark small"><b>ការស្ម័គ្រចិត្ត៖</b> កម្មវិធីសម្អាតឆ្នេរនឹងចាប់ផ្តើមនៅថ្ងៃស្អែកនេះ។</p>
+            <span class="text-muted extra-small">១ ម៉ោងមុន</span>
+          </div>
+        </a>
+      </li>
+    </div>
+
+    <li>
+      <a class="dropdown-item text-center py-2 text-primary fw-bold small border-top" href="#">មើលទាំងអស់</a>
+    </li>
+  </ul>
+</div>
+
+            <div class="dropdown">
+              <button
+                class="btn bg-white d-flex align-items-center gap-2 rounded-pill shadow-sm border-0 px-2 py-1"
+                type="button"
+                id="userProfileDropdown"
+                data-bs-toggle="dropdown"
+                aria-expanded="false"
+              >
+                <img
+                  src="assets/img/photoProfile.jpg"
+                  alt="Profile"
+                  class="rounded-circle border border-2 border-primary"
+                  style="width: 32px; height: 32px; object-fit: cover"
+                />
+                <i
+                  class="fa-solid fa-chevron-down small text-muted d-none d-md-block"
+                ></i>
+              </button>
+
+              <ul
+                class="dropdown-menu dropdown-menu-end shadow-lg border-0 rounded-4 mt-3 p-0 overflow-hidden"
+                aria-labelledby="userProfileDropdown"
+                style="width: 280px; background-color: #f8f9fa"
+              >
+                <li class="p-3 d-flex align-items-center gap-3 bg-white">
+                  <img
+                    src="assets/img/photoProfile.jpg"
+                    alt="User Avatar"
+                    class="rounded-circle shadow-sm"
+                    style="
+                      width: 60px;
+                      height: 60px;
+                      object-fit: cover;
+                      border: 2px solid #fff;
+                    "
+                  />
+                  <div class="lh-sm">
+                    <h6
+                      class="mb-1 fw-bold text-dark text-uppercase"
+                      style="letter-spacing: 0.5px"
+                    >
+                      ឡាយ​​​​ ឧស្សា
+                    </h6>
+                    <p class="mb-0 text-muted small">layusa07@gmail.com</p>
+                  </div>
+                </li>
+                <li><hr class="dropdown-divider m-0 opacity-10" /></li>
+                <li class="p-2">
+                  <a
+                    class="dropdown-item rounded-3 py-2 d-flex align-items-center"
+                    href="history.donation.html"
+                  >
+                    <i
+                      class="fa-solid fa-clock-rotate-left me-3 text-dark fs-5"
+                    ></i>
+                    <span class="fw-bold">ប្រវត្តិបរិច្ចាគ</span>
+                  </a>
+                  <a
+                    class="dropdown-item rounded-3 py-2 d-flex align-items-center"
+                    href="profile2.html"
+                  >
+                    <i class="fa-solid fa-gear me-3 text-dark fs-5"></i>
+                    <span class="fw-bold">ការកំណត់</span>
+                  </a>
+                  <hr class="dropdown-divider" />
+                  <a
+                    class="dropdown-item rounded-3 py-2 d-flex align-items-center text-danger"
+                    href="#"
+                    id="btnLogout"
+                  >
+                    <i class="fa-solid fa-right-from-bracket me-3 fs-5"></i>
+                    <span class="fw-bold">ចាកចេញ</span>
+                  </a>
+                </li>
+              </ul>
+            </div>
+          </div>
+        </div>
+      </header>
+
+
+<div class="modal fade" id="searchModal" tabindex="-1">
+    <div class="modal-dialog modal-lg modal-dialog-centered">
+        <div class="modal-content border-0 shadow-lg rounded-4">
+            <div class="modal-body p-4">
+                <input type="text" class="form-control form-control-lg" placeholder="ស្វែងរកសម្ភារៈ ឬកម្មវិធី...">
+                <div class="mt-3"><a href="#" class="list-group-item">សម្លៀកបំពាក់</a><a href="#" class="list-group-item">ភួយ</a></div>
             </div>
         </div>
     </div>
-</section>
+</div>
 
-<!-- ============================================ -->
-<!-- DROP-OFF LOCATIONS SECTION
-<!-- ============================================ -->
-<section class="dropoff-locations">
-    <div class="container">
-        <div class="section-header text-center" data-aos="fade-up">
-            <div class="section-badge-center">ទីតាំងទទួលសម្ភារៈ</div>
-            <h2>ទីតាំងទទួលសម្ភារៈបរិច្ចាគ</h2>
-            <p>អ្នកអាចនាំយកសម្ភារៈមកកាន់ទីតាំងណាមួយខាងក្រោម</p>
+<main>
+    <!-- PAGE HEADER -->
+    <section class="material-header">
+        <div class="container" data-aos="fade-up">
+            <div class="material-icon"><i class="fas fa-boxes"></i></div>
+            <h1 class="display-5 fw-bold">បរិច្ចាគសម្ភារៈ</h1>
+            <p>ចែករំលែកសម្ភារៈប្រើប្រាស់ដើម្បីជួយសង្គ្រោះបងប្អូនយើង</p>
         </div>
-        
-        <div class="row g-4">
-            <div class="col-md-4" data-aos="fade-up" data-aos-delay="100">
-                <div class="location-card">
-                    <div class="location-icon">
-                        <i class="fas fa-building"></i>
-                    </div>
-                    <h3>ទីតាំងភ្នំពេញ</h3>
-                    <p><i class="fas fa-map-marker-alt"></i> ផ្សារធំថ្មី អគារ C បន្ទប់ ២០</p>
-                    <p><i class="fas fa-clock"></i> ម៉ោង៖ ៨:០០ ព្រឹក - ៥:០០ ល្ងាច</p>
-                    <p><i class="fas fa-calendar-alt"></i> ថ្ងៃ៖ ចន្ទ - សៅរ៍</p>
-                    <p><i class="fas fa-phone"></i> ទំនាក់ទំនង៖ 012 345 678</p>
-                </div>
-            </div>
-            <div class="col-md-4" data-aos="fade-up" data-aos-delay="200">
-                <div class="location-card">
-                    <div class="location-icon">
-                        <i class="fas fa-building"></i>
-                    </div>
-                    <h3>ទីតាំងបន្ទាយមានជ័យ</h3>
-                    <p><i class="fas fa-map-marker-alt"></i> ក្រុងសិរីសោភ័ណ ផ្លូវជាតិលេខ៥</p>
-                    <p><i class="fas fa-clock"></i> ម៉ោង៖ ៨:០០ ព្រឹក - ៥:០០ ល្ងាច</p>
-                    <p><i class="fas fa-calendar-alt"></i> ថ្ងៃ៖ ចន្ទ - សៅរ៍</p>
-                    <p><i class="fas fa-phone"></i> ទំនាក់ទំនង៖ 096 789 0123</p>
-                </div>
-            </div>
-            <div class="col-md-4" data-aos="fade-up" data-aos-delay="300">
-                <div class="location-card">
-                    <div class="location-icon">
-                        <i class="fas fa-building"></i>
-                    </div>
-                    <h3>ទីតាំងឧត្តរមានជ័យ</h3>
-                    <p><i class="fas fa-map-marker-alt"></i> ក្រុងសំរោង ផ្សារសំរោង</p>
-                    <p><i class="fas fa-clock"></i> ម៉ោង៖ ៨:០០ ព្រឹក - ៤:០០ ល្ងាច</p>
-                    <p><i class="fas fa-calendar-alt"></i> ថ្ងៃ៖ ចន្ទ - សៅរ៍</p>
-                    <p><i class="fas fa-phone"></i> ទំនាក់ទំនង៖ 097 890 1234</p>
-                </div>
-            </div>
-        </div>
-    </div>
-</section>
+    </section>
 
-<!-- ============================================ -->
-<!-- IMPACT SECTION
-<!-- ============================================ -->
-<section class="impact-section">
-    <div class="container">
-        <div class="row align-items-center">
-            <div class="col-lg-6" data-aos="fade-right">
-                <div class="section-badge">ផលប៉ះពាល់នៃការបរិច្ចាគរបស់អ្នក</div>
-                <h2>សម្ភារៈរបស់អ្នកបានជួយអ្នកដទៃយ៉ាងដូចម្តេចខ្លះ?</h2>
-                <p>ការបរិច្ចាគសម្ភារៈរបស់អ្នកបានជួយសង្គ្រោះជីវិតមនុស្សរាប់ពាន់នាក់</p>
-                <div class="impact-stats">
-                    <div class="impact-item">
-                        <i class="fas fa-tshirt"></i>
-                        <span>៥,២០០+</span>
-                        <p>សម្លៀកបំពាក់បានចែកជូន</p>
-                    </div>
-                    <div class="impact-item">
-                        <i class="fas fa-blanket"></i>
-                        <span>១,៥០០+</span>
-                        <p>ភួយ និងកម្រាល</p>
-                    </div>
-                    <div class="impact-item">
-                        <i class="fas fa-tent"></i>
-                        <span>៥០០+</span>
-                        <p>តង់ស្នាក់នៅ</p>
-                    </div>
-                    <div class="impact-item">
-                        <i class="fas fa-pills"></i>
-                        <span>១០,០០០+</span>
-                        <p>ថ្នាំពេទ្យបានចែកជូន</p>
-                    </div>
-                </div>
+    <!-- NEEDED MATERIALS -->
+    <section class="py-5">
+        <div class="container">
+            <div class="section-header text-center" data-aos="fade-up">
+                <div class="section-badge-center">សម្ភារៈដែលត្រូវការ</div>
+                <h2>បញ្ជីសម្ភារៈដែលកំពុងត្រូវការបន្ទាន់</h2>
             </div>
-            <div class="col-lg-6" data-aos="fade-left">
-                <div class="impact-image">
-                    <img src="https://images.unsplash.com/photo-1488521787991-aba00f032111?w=600&h=450&fit=crop" 
-                         alt="Impact" 
-                         class="img-fluid rounded-4 shadow-lg">
-                    <div class="image-caption">
-                        <i class="fas fa-quote-left"></i>
-                        សម្ភារៈរបស់អ្នកបានផ្លាស់ប្តូរជីវិតពួកគេ
-                    </div>
-                </div>
+            <div class="row g-4">
+                <div class="col-lg-3 col-md-6" data-aos="flip-up"><div class="material-card"><div class="material-icon"><i class="fas fa-tshirt"></i></div><h3>សម្លៀកបំពាក់</h3><ul><li><i class="fas fa-check-circle"></i> អាវយឺត អាវវែង</li><li><i class="fas fa-check-circle"></i> ខោខូវប៊យ</li><li><i class="fas fa-check-circle"></i> អាវរងារ</li></ul><div class="urgent-badge">ត្រូវការបន្ទាន់</div></div></div>
+                <div class="col-lg-3 col-md-6" data-aos="flip-up" data-aos-delay="100"><div class="material-card"><div class="material-icon"><i class="fas fa-blanket"></i></div><h3>ភួយ និងកម្រាល</h3><ul><li><i class="fas fa-check-circle"></i> ភួយក្រាស់ៗ</li><li><i class="fas fa-check-circle"></i> កម្រាលគេង</li><li><i class="fas fa-check-circle"></i> មុង</li></ul><div class="urgent-badge">ត្រូវការបន្ទាន់</div></div></div>
+                <div class="col-lg-3 col-md-6" data-aos="flip-up" data-aos-delay="200"><div class="material-card"><div class="material-icon"><i class="fas fa-tent"></i></div><h3>តង់ និងស្នាក់នៅ</h3><ul><li><i class="fas fa-check-circle"></i> តង់ស្នាក់នៅ</li><li><i class="fas fa-check-circle"></i> ក្រណាត់តង់</li><li><i class="fas fa-check-circle"></i> បង្គោលតង់</li></ul><div class="urgent-badge">ត្រូវការបន្ទាន់</div></div></div>
+                <div class="col-lg-3 col-md-6" data-aos="flip-up" data-aos-delay="300"><div class="material-card"><div class="material-icon"><i class="fas fa-pills"></i></div><h3>ថ្នាំពេទ្យ</h3><ul><li><i class="fas fa-check-circle"></i> ថ្នាំប៉ារ៉ា</li><li><i class="fas fa-check-circle"></i> ថ្នាំអាម៉ុកស៊ីលីន</li><li><i class="fas fa-check-circle"></i> ម៉ាស បង់រុំ</li></ul><div class="urgent-badge">ត្រូវការបន្ទាន់</div></div></div>
             </div>
         </div>
-    </div>
-</section>
+    </section>
 
-<!-- ============================================ -->
-<!-- FAQ SECTION
-<!-- ============================================ -->
-<section class="material-faq">
-    <div class="container">
-        <div class="section-header text-center" data-aos="fade-up">
-            <div class="section-badge-center">សំណួរច្រើនសួរ</div>
-            <h2>សំណួរទូទៅអំពីការបរិច្ចាគសម្ភារៈ</h2>
-        </div>
-        
-        <div class="row justify-content-center">
-            <div class="col-lg-10">
-                <div class="faq-container">
-                    <div class="faq-item">
-                        <div class="faq-question">
-                            <span>តើសម្ភារៈប្រភេទណាខ្លះដែលអាចបរិច្ចាគបាន?</span>
-                            <i class="fas fa-chevron-down"></i>
-                        </div>
-                        <div class="faq-answer">
-                            អ្នកអាចបរិច្ចាគសម្លៀកបំពាក់ ភួយ កម្រាល តង់ ថ្នាំពេទ្យ 
-                            សម្ភារៈអនាម័យ សម្ភារៈសិក្សា និងសម្ភារៈប្រើប្រាស់ប្រចាំថ្ងៃផ្សេងៗទៀត
-                        </div>
-                    </div>
-                    <div class="faq-item">
-                        <div class="faq-question">
-                            <span>តើសម្ភារៈត្រូវមានស្ថានភាពបែបណា?</span>
-                            <i class="fas fa-chevron-down"></i>
-                        </div>
-                        <div class="faq-answer">
-                            សម្ភារៈគួរតែស្ថិតក្នុងស្ថានភាពល្អ ប្រើប្រាស់បាន 
-                            មិនរហែក មិនខូច និងស្អាតសម្រាប់អ្នកទទួល
-                        </div>
-                    </div>
-                    <div class="faq-item">
-                        <div class="faq-question">
-                            <span>តើខ្ញុំអាចសុំឱ្យក្រុមការងារមកទទួលសម្ភារៈដល់ផ្ទះបានទេ?</span>
-                            <i class="fas fa-chevron-down"></i>
-                        </div>
-                        <div class="faq-answer">
-                            បាទ។ អ្នកអាចជ្រើសរើសវិធីសាស្ត្រ "សុំឱ្យក្រុមការងារមកទទួល" 
-                            ក្នុងទម្រង់បំពេញព័ត៌មាន ហើយបំពេញអាសយដ្ឋានរបស់អ្នក
-                        </div>
-                    </div>
-                    <div class="faq-item">
-                        <div class="faq-question">
-                            <span>តើខ្ញុំអាចតាមដានសម្ភារៈដែលខ្ញុំបានបរិច្ចាគបានទេ?</span>
-                            <i class="fas fa-chevron-down"></i>
-                        </div>
-                        <div class="faq-answer">
-                            បាទ។ យើងនឹងផ្ញើរបាយការណ៍តាមអ៊ីមែល និងបង្ហោះរូបភាព 
-                            នៅលើទំព័រ "សមត្ថផល" នៃគេហទំព័ររបស់យើង
-                        </div>
+    <!-- DONATION FORM SECTION -->
+    <section class="py-5 bg-light" id="donation-form-section">
+        <div class="container">
+            <div class="row justify-content-center">
+                <div class="col-lg-10" data-aos="fade-up">
+                    <div class="form-card">
+                        <div class="form-header"><i class="fas fa-hand-holding-heart"></i><h3 class="mt-2">បំពេញព័ត៌មានបរិច្ចាគសម្ភារៈ</h3></div>
+                        <form id="materialDonationForm">
+                            <div class="row g-3">
+                                <div class="col-md-6"><div class="form-group"><label>នាមត្រកូល</label><input type="text" class="form-control" id="lastName" required></div></div>
+                                <div class="col-md-6"><div class="form-group"><label>នាមខ្លួន</label><input type="text" class="form-control" id="firstName" required></div></div>
+                                <div class="col-md-6"><div class="form-group"><label>អ៊ីមែល</label><input type="email" class="form-control" id="email" required></div></div>
+                                <div class="col-md-6"><div class="form-group"><label>លេខទូរស័ព្ទ</label><input type="tel" class="form-control" id="phone" required></div></div>
+                                <div class="col-md-6"><div class="form-group"><label>ប្រភេទសម្ភារៈ</label><select class="form-control" id="materialType" required><option value="">ជ្រើសរើស</option><option>សម្លៀកបំពាក់</option><option>ភួយកម្រាល</option><option>តង់</option><option>ថ្នាំពេទ្យ</option><option>សម្ភារៈអនាម័យ</option><option>ផ្សេងៗ</option></select></div></div>
+                                <div class="col-md-6"><div class="form-group"><label>បរិមាណ</label><input type="text" class="form-control" id="quantity" placeholder="ឧ. ១០ អាវ" required></div></div>
+                                <div class="col-12"><div class="form-group"><label>ការពិពណ៌នាបន្ថែម</label><textarea class="form-control" id="description" rows="2"></textarea></div></div>
+                                <div class="col-md-6"><div class="form-group"><label>ទីតាំងដឹកជញ្ជូន</label><select class="form-control" id="location"><option>ទីតាំងភ្នំពេញ</option><option>ទីតាំងបន្ទាយមានជ័យ</option></select></div></div>
+                                <div class="col-md-6"><div class="form-group"><label>វិធីសាស្ត្រដឹកជញ្ជូន</label><select class="form-control" id="deliveryMethod"><option value="bring">នាំយកទៅទីតាំងដោយខ្លួនឯង</option><option value="pickup">សុំឱ្យក្រុមការងារមកទទួល</option></select></div></div>
+                                <div class="col-12" id="pickupAddressDiv" style="display:none;"><div class="form-group"><label>អាសយដ្ឋានសម្រាប់មកទទួល</label><textarea class="form-control" rows="2" placeholder="អាសយដ្ឋានលម្អិត"></textarea></div></div>
+                                <div class="col-12"><div class="form-check"><input type="checkbox" class="form-check-input" id="termsCheck" required><label class="form-check-label">ខ្ញុំបញ្ជាក់ថាព័ត៌មានត្រឹមត្រូវ និងសម្ភារៈស្ថិតក្នុងស្ថានភាពល្អ</label></div></div>
+                                <div class="col-12"><button type="submit" class="btn-submit"><i class="fas fa-hand-holding-heart me-2"></i>បញ្ជូនព័ត៌មានបរិច្ចាគ</button></div>
+                            </div>
+                        </form>
                     </div>
                 </div>
             </div>
         </div>
-    </div>
-</section>
+    </section>
 
-<!-- ============================================ -->
-<!-- CTA SECTION
-<!-- ============================================ -->
-<section class="cta-section">
-    <div class="container">
-        <div class="cta-content" data-aos="zoom-in">
-            <h2>ចូលរួមបរិច្ចាគសម្ភារៈឥឡូវនេះ</h2>
-            <p>ចែករំលែកសម្ភារៈដែលអ្នកមាន ដើម្បីជួយបងប្អូនយើង</p>
-            <div class="cta-buttons">
-                <a href="#donation-form-section" class="btn btn-light btn-lg">
-                    <i class="fas fa-hand-holding-heart me-2"></i>បរិច្ចាគឥឡូវនេះ
-                </a>
+    <!-- DROP-OFF LOCATIONS -->
+    <section class="py-5">
+        <div class="container">
+            <div class="section-header text-center"><div class="section-badge-center">ទីតាំងទទួលសម្ភារៈ</div><h2>ទីតាំងទទួលសម្ភារៈបរិច្ចាគ</h2></div>
+            <div class="row g-4">
+                <div class="col-md-4"><div class="location-card"><i class="fas fa-building"></i><h4>ភ្នំពេញ</h4><p><i class="fas fa-map-marker-alt"></i> អគារ C ផ្សារធំថ្មី</p><p>012 345 678</p></div></div>
+                <div class="col-md-4"><div class="location-card"><i class="fas fa-building"></i><h4>បន្ទាយមានជ័យ</h4><p><i class="fas fa-map-marker-alt"></i> ក្រុងសិរីសោភ័ណ</p><p>096 789 0123</p></div></div>
+                <div class="col-md-4"><div class="location-card"><i class="fas fa-building"></i><h4>ឧត្តរមានជ័យ</h4><p><i class="fas fa-map-marker-alt"></i> ក្រុងសំរោង</p><p>097 890 1234</p></div></div>
             </div>
         </div>
-    </div>
-</section>
+    </section>
 
-<!-- ============================================ -->
-<!-- FOOTER SECTION
-<!-- ============================================ -->
-<footer class="footer">
-    <div class="container">
-        <div class="row">
-            <div class="col-lg-4 col-md-6">
-                <div class="footer-about">
-                    <h3><i class="fas fa-smile-wink"></i> ស្នាមញញឹមខ្មែរ</h3>
-                    <p>យើងជាអង្គការមិនរកប្រាក់ចំណេញ ដែលប្រមូលផ្តុំគ្នាដើម្បីជួយសង្គ្រោះបងប្អូនយើងដែលកំពុងរងគ្រោះនៅតាមព្រំដែន។</p>
-                    <div class="social-links">
-                        <a href="#"><i class="fab fa-facebook-f"></i></a>
-                        <a href="#"><i class="fab fa-telegram"></i></a>
-                        <a href="#"><i class="fab fa-youtube"></i></a>
-                        <a href="#"><i class="fab fa-tiktok"></i></a>
-                    </div>
-                </div>
-            </div>
-            <div class="col-lg-2 col-md-6">
-                <div class="footer-links">
-                    <h4>តំណភ្ជាប់</h4>
-                    <ul>
-                        <li><a href="index.html">ទំព័រដើម</a></li>
-                        <li><a href="about.html">អំពីយើង</a></li>
-                        <li><a href="donate.html">បរិច្ចាគ</a></li>
-                        <li><a href="volunteer.html">ស្ម័គ្រចិត្ត</a></li>
-                        <li><a href="impact.html">សមត្ថផល</a></li>
-                        <li><a href="news.html">ព័ត៌មាន</a></li>
-                    </ul>
-                </div>
-            </div>
-            <div class="col-lg-3 col-md-6">
-                <div class="footer-contact">
-                    <h4>ទំនាក់ទំនង</h4>
-                    <ul>
-                        <li><i class="fas fa-map-marker-alt"></i> ផ្ទះលេខ ១២៣ ផ្លូវ ២៧១ ភ្នំពេញ</li>
-                        <li><i class="fas fa-phone"></i> 012 345 678 / 098 765 432</li>
-                        <li><i class="fas fa-envelope"></i> info@khmersmile.org</li>
-                    </ul>
-                </div>
-            </div>
-            <div class="col-lg-3 col-md-6">
-                <div class="footer-newsletter">
-                    <h4>ជាវព័ត៌មាន</h4>
-                    <p>ទទួលព័ត៌មានថ្មីៗពីសកម្មភាពរបស់យើង</p>
-                    <form class="newsletter-form">
-                        <div class="input-group">
-                            <input type="email" placeholder="អ៊ីមែលរបស់អ្នក">
-                            <button type="submit"><i class="fas fa-paper-plane"></i></button>
-                        </div>
-                    </form>
-                    <p class="mt-3 small"><i class="fas fa-lock"></i> យើងមិនចែករំលែកព័ត៌មានរបស់អ្នកទេ</p>
-                </div>
+    <!-- IMPACT SECTION -->
+    <section class="py-5 bg-light">
+        <div class="container">
+            <div class="row align-items-center">
+                <div class="col-lg-6"><div class="section-badge">ផលប៉ះពាល់នៃការបរិច្ចាគ</div><h2>សម្ភារៈរបស់អ្នកបានជួយអ្នកដទៃ</h2><div class="impact-stats"><div class="impact-item"><i class="fas fa-tshirt fa-2x text-primary"></i><span class="d-block fw-bold fs-3">៥,២០០+</span><p>សម្លៀកបំពាក់</p></div><div class="impact-item"><i class="fas fa-blanket fa-2x text-primary"></i><span class="d-block fw-bold fs-3">១,៥០០+</span><p>ភួយកម្រាល</p></div></div></div>
+                <div class="col-lg-6"><img src="https://images.unsplash.com/photo-1488521787991-aba00f032111?w=600&h=400&fit=crop" class="img-fluid rounded-4 shadow-lg" alt="volunteer"></div>
             </div>
         </div>
-        <div class="footer-bottom">
-            <div class="row">
-                <div class="col-md-6"><p>&copy; ២០២៤ ស្នាមញញឹមខ្មែរ។ រក្សាសិទ្ធិគ្រប់យ៉ាង។</p></div>
-                <div class="col-md-6 text-md-end">
-                    <a href="#">គោលការណ៍ឯកជនភាព</a>
-                    <a href="#">លក្ខខណ្ឌប្រើប្រាស់</a>
-                </div>
+    </section>
+
+    <!-- FAQ -->
+    <section class="py-5">
+        <div class="container">
+            <div class="section-header text-center"><div class="section-badge-center">សំណួរច្រើនសួរ</div><h2>សំណួរទូទៅអំពីការបរិច្ចាគសម្ភារៈ</h2></div>
+            <div class="faq-container mx-auto" style="max-width:800px;">
+                <div class="faq-item"><div class="faq-question">តើសម្ភារៈប្រភេទណាខ្លះដែលអាចបរិច្ចាគបាន?<i class="fas fa-chevron-down"></i></div><div class="faq-answer">សម្លៀកបំពាក់ ភួយ តង់ ថ្នាំពេទ្យ សម្ភារៈអនាម័យ និងសៀវភៅសិក្សា</div></div>
+                <div class="faq-item"><div class="faq-question">តើអាចសុំឱ្យក្រុមការងារមកទទួលសម្ភារៈដល់ផ្ទះបានទេ?<i class="fas fa-chevron-down"></i></div><div class="faq-answer">បាទ អ្នកអាចជ្រើសរើសវិធីសាស្ត្រ “សុំឱ្យមកទទួល” ក្នុងទម្រង់បរិច្ចាគ</div></div>
+                <div class="faq-item"><div class="faq-question">តើសម្ភារៈត្រូវមានស្ថានភាពបែបណា?<i class="fas fa-chevron-down"></i></div><div class="faq-answer">សម្ភារៈគួរស្ថិតក្នុងស្ថានភាពល្អ ប្រើប្រាស់បាន និងស្អាត</div></div>
             </div>
         </div>
-    </div>
-</footer>
+    </section>
 
-<!-- ============================================ -->
-<!-- BACK TO TOP BUTTON
-<!-- ============================================ -->
-<button id="backToTop" class="back-to-top">
-    <i class="fas fa-arrow-up"></i>
-</button>
+    <!-- CTA -->
+    <section class="cta-section"><div class="container"><h2 class="fw-bold">ចូលរួមបរិច្ចាគសម្ភារៈឥឡូវនេះ</h2><a href="#donation-form-section" class="btn btn-light btn-lg mt-3 rounded-pill"><i class="fas fa-hand-holding-heart me-2"></i>បរិច្ចាគឥឡូវ</a></div></section>
+</main>
 
-<!-- ============================================ -->
-<!-- SCRIPTS
-<!-- ============================================ -->
+<!-- FOOTER (same design as reference) -->
+ <footer class="site-footer bg-dark text-white">
+      <div class="footer-top py-5">
+        <div class="container">
+          <div class="row gy-4">
+            <div class="col-lg-4">
+              <a
+                href="#"
+                class="footer-brand d-inline-flex align-items-center gap-3 mb-3"
+              >
+                <img
+                  src="assets/img/photo_2026-04-02_12-02-02.jpg"
+                  alt="Logo"
+                  class="footer-logo"
+                />
+                <div>
+                  <span class="d-block fw-bold fs-4" style="color: var(--gold)"
+                    >ស្នាមញញឹមខ្មែរ</span
+                  >
+                  <small class="text-white-50">ផ្តល់ក្តីសង្ឃឹមតាមរយៈការបរិច្ចាគ</small>
+                </div>
+              </a>
+              <p class="footer-text text-white-75">
+               ចូលរួមជាមួយយើងក្នុងការចែករំលែកក្ដីស្រឡាញ់ និងការជួយដល់អ្នកខ្វះខាតតាមរយៈសកម្មភាពបរិច្ចាគ។
+យើងផ្តោតលើការគាំទ្រសហគមន៍ ការអប់រំ សុខភាព និងការអភិវឌ្ឍជីវភាពរស់នៅឱ្យកាន់តែប្រសើរ។
+              </p>
+            </div>
+            <div class="col-lg-2 col-6">
+              <h5 class="footer-heading mb-3">ទំព័រ</h5>
+              <ul class="footer-links list-unstyled">
+                <li><a href="index.html">ទំព័រដើម</a></li>
+                <li><a href="donate.html">ការបរិច្ចាគ</a></li>
+                <li><a href="volunteering.html">ការស្ម័គ្រចិត្ត</a></li>
+                <li><a href="about.us.html">អំពីយើង</a></li>
+              </ul>
+            </div>
+            <div class="col-lg-2 col-6">
+              <h5 class="footer-heading mb-3">ចំណាត់ក្រុម</h5>
+              <ul class="footer-links list-unstyled">
+                <li><a href="profile.html">ប្រវត្តិរូប</a></li>
+                <li><a href="login.html">ចូលប្រើ</a></li>
+                <li><a href="register.html">ចុះឈ្មោះ</a></li>
+                <li><a href="contact.html">ទំនាក់ទំនង</a></li>
+              </ul>
+            </div>
+            <div class="col-lg-4">
+              <h5 class="footer-heading mb-3">ទំនាក់ទំនង</h5>
+              <p class="footer-text text-white-75 mb-3">
+                យើងសហការជាមួយសហគមន៍ក្នុងការចែករំលែកក្ដីស្រឡាញ់ និងការជួយគ្នាតាមរយៈសកម្មភាពបរិច្ចាគ ដើម្បីគាំទ្រអ្នកខ្វះខាត និងអភិវឌ្ឍសង្គមកម្ពុជា។ សូមទាក់ទងមកយើង ដើម្បីចូលរួមបរិច្ចាគ និងទទួលបានព័ត៌មានបន្ថែម។
+              </p>
+              <ul class="footer-contact list-unstyled mb-4">
+                <li>
+                  <i class="fa-solid fa-envelope me-2"></i
+                  ><a href="mailto:info@tourism.org">info@tourism.org</a>
+                </li>
+                <li>
+                  <i class="fa-solid fa-phone me-2"></i
+                  ><a href="tel:+85512345678">+855 12 345 678</a>
+                </li>
+                <li>
+                  <i class="fa-solid fa-location-dot me-2"></i
+                  ><span>ភ្នំពេញ, កម្ពុជា</span>
+                </li>
+              </ul>
+              <div class="footer-social d-flex gap-3">
+                <a href="#" aria-label="Facebook"
+                  ><i class="fa-brands fa-facebook-f"></i
+                ></a>
+                <a href="#" aria-label="Instagram"
+                  ><i class="fa-brands fa-instagram"></i
+                ></a>
+                <a href="#" aria-label="Twitter"
+                  ><i class="fa-brands fa-twitter"></i
+                ></a>
+                <a href="#" aria-label="YouTube"
+                  ><i class="fa-brands fa-youtube"></i
+                ></a>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="footer-bottom py-3 border-top border-white-25">
+        <div
+          class="container d-flex flex-column flex-md-row justify-content-between align-items-center gap-3"
+        >
+          <p class="mb-0 text-white-50 small">
+            © 2026 ស្នាមញញឹមខ្មែរ. រក្សាសិទ្ធិគ្រប់យ៉ាង។
+          </p>
+          <div class="footer-bottom-links d-flex gap-3">
+            <a href="#">គោលការណ៍ភាពឯកជន</a>
+            <a href="#">លក្ខខណ្ឌប្រើប្រាស់</a>
+            <a href="#">ជំនួយ</a>
+          </div>
+        </div>
+      </div>
+    </footer>
+
+<button id="backToTop" class="back-to-top"><i class="fas fa-arrow-up"></i></button>
+
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
 <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
-<script src="/js/Donation of supplies.js"></script>
+<script>
+    AOS.init({ duration: 700, once: true });
+    window.addEventListener('load', () => { document.getElementById('preloader').style.opacity = '0'; setTimeout(() => { document.getElementById('preloader').style.display = 'none'; }, 400); });
+    // back to top
+    const backBtn = document.getElementById('backToTop');
+    window.addEventListener('scroll', () => { backBtn.style.display = window.scrollY > 300 ? 'flex' : 'none'; });
+    backBtn.addEventListener('click', () => window.scrollTo({ top: 0, behavior: 'smooth' }));
+    // pickup address toggle
+    const deliverySelect = document.getElementById('deliveryMethod');
+    const pickupDiv = document.getElementById('pickupAddressDiv');
+    if(deliverySelect) deliverySelect.addEventListener('change', function() { pickupDiv.style.display = this.value === 'pickup' ? 'block' : 'none'; });
+    // FAQ toggle
+    document.querySelectorAll('.faq-question').forEach(q => { q.addEventListener('click', () => { const ans = q.nextElementSibling; ans.style.display = ans.style.display === 'block' ? 'none' : 'block'; }); });
+    // form submission alert
+    document.getElementById('materialDonationForm')?.addEventListener('submit', (e) => { e.preventDefault(); alert('អរគុណសម្រាប់ការបរិច្ចាគ! ក្រុមការងារនឹងទាក់ទងអ្នកក្នុងពេលឆាប់ៗ។'); e.target.reset(); pickupDiv.style.display = 'none'; });
+</script>
 </body>
 </html>
