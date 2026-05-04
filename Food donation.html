@@ -4,648 +4,986 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
     <title>បរិច្ចាគអាហារ - ស្នាមញញឹមខ្មែរ</title>
-    
-    <!-- Bootstrap CSS -->
+
+
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
-    
-    <!-- Font Awesome -->
+
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-    
-    <!-- Google Fonts -->
-    <link href="https://fonts.googleapis.com/css2?family=Kantumruy+Pro:wght@300;400;500;600;700&display=swap" rel="stylesheet">
-    
-    <!-- AOS Animation -->
+
+    <link href="https://fonts.googleapis.com/css2?family=Kantumruy+Pro:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+  
     <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
-    
-    <!-- Custom CSS -->
-    <link rel="stylesheet" href="/Donate-project/assets/css/Food donation.css">
+    <link rel="stylesheet" href="assets/css/style2.css">
+    <link rel="stylesheet" href="assets/css/Footer.css">
+
+    <style>
+       
+        :root {
+            --primary-blue: #1a5a96;
+            --accent-blue: #00adef;
+            --gold: #f39c12;
+            --dark-blue: #0b2b44;
+            --glass-white: rgba(255, 255, 255, 0.96);
+            --footer-bg: #16467a;
+            --text-gold: #f39c12;
+            --light-bg: #fefcf5;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Kantumruy Pro', sans-serif;
+            background-color: var(--light-bg);
+            color: #1e2a3e;
+            overflow-x: hidden;
+        }
+
+        #preloader {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: #ffffff;
+            z-index: 9999;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            transition: opacity 0.4s ease;
+        }
+        .loader {
+            width: 50px;
+            height: 50px;
+            border: 5px solid #e2e8f0;
+            border-top: 5px solid var(--primary-blue);
+            border-radius: 50%;
+            animation: spin 1s linear infinite;
+        }
+        @keyframes spin { 100% { transform: rotate(360deg); } }
+
+        .food-header {
+            background: linear-gradient(120deg, var(--primary-blue) 0%, #0b3b5f 100%);
+            padding: 110px 0 70px;
+            color: white;
+            text-align: center;
+        }
+        .food-icon i {
+            font-size: 4rem;
+            background: rgba(255,255,255,0.2);
+            padding: 20px;
+            border-radius: 60px;
+            margin-bottom: 20px;
+        }
+        .breadcrumb-nav {
+            margin-top: 20px;
+            font-size: 0.9rem;
+        }
+        .breadcrumb-nav a {
+            color: var(--gold);
+            text-decoration: none;
+        }
+        .section-badge-center {
+            display: inline-block;
+            background: rgba(26,90,150,0.1);
+            color: var(--primary-blue);
+            padding: 0.4rem 1.2rem;
+            border-radius: 40px;
+            font-weight: 600;
+            font-size: 0.85rem;
+            margin-bottom: 1rem;
+        }
+        .stat-card {
+            background: white;
+            border-radius: 28px;
+            padding: 1.8rem 1rem;
+            text-align: center;
+            box-shadow: 0 15px 30px rgba(0,0,0,0.05);
+            transition: transform 0.3s;
+        }
+        .stat-card:hover { transform: translateY(-5px); }
+        .stat-card i { font-size: 2.5rem; color: var(--gold); margin-bottom: 1rem; }
+        .stat-card h2 { font-size: 2.3rem; font-weight: 800; color: var(--primary-blue); }
+
+        .food-item-card {
+            background: white;
+            border-radius: 28px;
+            padding: 1.8rem 1.2rem;
+            text-align: center;
+            box-shadow: 0 15px 25px rgba(0,0,0,0.04);
+            height: 100%;
+            transition: all 0.25s;
+        }
+        .food-item-card:hover { transform: translateY(-8px); box-shadow: 0 25px 35px rgba(0,0,0,0.1); }
+        .food-item-card .food-icon i {
+            font-size: 2.5rem;
+            background: #eef2ff;
+            padding: 15px;
+            border-radius: 30px;
+            color: var(--primary-blue);
+            margin-bottom: 1.2rem;
+        }
+        .food-item-card h3 { font-size: 1.4rem; font-weight: 700; margin-bottom: 0.5rem; }
+        .progress { height: 8px; border-radius: 10px; margin: 1rem 0 0.5rem; }
+        .btn-donate-food {
+            background: var(--primary-blue);
+            border: none;
+            color: white;
+            border-radius: 40px;
+            padding: 8px 20px;
+            margin-top: 1rem;
+            transition: 0.2s;
+            font-weight: 600;
+        }
+        .btn-donate-food:hover { background: var(--accent-blue); transform: scale(0.96); }
+
+        .form-card {
+            background: white;
+            border-radius: 32px;
+            padding: 2rem;
+            box-shadow: 0 20px 35px rgba(0,0,0,0.05);
+            border: 1px solid rgba(26,90,150,0.1);
+        }
+        .form-header { text-align: center; margin-bottom: 2rem; }
+        .form-header i { font-size: 3rem; color: var(--gold); }
+        .form-group { margin-bottom: 1.2rem; }
+        .form-group label { font-weight: 600; margin-bottom: 0.5rem; color: #2c3e50; }
+        .form-control {
+            border-radius: 16px;
+            border: 1px solid #dee2e6;
+            padding: 0.75rem 1rem;
+            transition: 0.2s;
+        }
+        .form-control:focus {
+            border-color: var(--accent-blue);
+            box-shadow: 0 0 0 3px rgba(0,173,239,0.2);
+        }
+        .btn-submit {
+            background: var(--primary-blue);
+            border: none;
+            padding: 14px 28px;
+            border-radius: 50px;
+            color: white;
+            font-weight: bold;
+            width: 100%;
+            transition: 0.2s;
+        }
+        .btn-submit:hover { background: var(--accent-blue); transform: scale(0.98); }
+
+        .help-card {
+            background: white;
+            padding: 1.5rem;
+            border-radius: 28px;
+            text-align: center;
+            box-shadow: 0 10px 20px rgba(0,0,0,0.05);
+        }
+        .help-card i { font-size: 2.5rem; color: var(--gold); margin-bottom: 1rem; }
+
+        .location-card {
+            background: white;
+            padding: 2rem;
+            border-radius: 28px;
+            text-align: center;
+            box-shadow: 0 10px 25px rgba(0,0,0,0.05);
+        }
+        .location-card i { font-size: 2rem; color: var(--primary-blue); margin-bottom: 1rem; }
+
+        .faq-item {
+            background: white;
+            border-radius: 24px;
+            margin-bottom: 1rem;
+            border: 1px solid rgba(0,0,0,0.05);
+        }
+        .faq-question {
+            padding: 1.2rem 1.5rem;
+            font-weight: 700;
+            cursor: pointer;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        .faq-answer {
+            padding: 0 1.5rem 1.2rem 1.5rem;
+            display: none;
+            color: #4a5568;
+            border-top: 1px solid #edf2f7;
+        }
+        .cta-section {
+            background: linear-gradient(110deg, var(--primary-blue), #0e4d7a);
+            padding: 70px 0;
+            color: white;
+            text-align: center;
+        }
+
+        /* ---------- FOOTER (matching reference) ---------- */
+        .custom-footer {
+            background-color: var(--footer-bg);
+            color: #ffffff;
+            padding-top: 3rem;
+        }
+        .text-gold { color: var(--text-gold); }
+        .footer-links a, .footer-contact li {
+            color: rgba(255,255,255,0.8);
+            text-decoration: none;
+            transition: 0.2s;
+            margin-bottom: 0.6rem;
+            display: inline-block;
+        }
+        .footer-links a:hover { color: var(--gold); padding-left: 5px; }
+        .social-icon {
+            background: rgba(255,255,255,0.12);
+            width: 38px;
+            height: 38px;
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            border-radius: 50%;
+            margin-right: 10px;
+            transition: 0.2s;
+        }
+        .social-icon:hover { background: var(--gold); color: black; }
+        .back-to-top {
+            position: fixed;
+            bottom: 30px;
+            right: 30px;
+            background: var(--primary-blue);
+            width: 48px;
+            height: 48px;
+            border-radius: 60px;
+            color: white;
+            display: none;
+            align-items: center;
+            justify-content: center;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.2);
+            z-index: 99;
+            border: none;
+        }
+        @media (max-width: 768px) {
+            .navbar-pill { background: transparent; box-shadow: none; padding: 0; }
+            .food-header { padding-top: 100px; }
+            .stat-card h2 { font-size: 1.8rem; }
+        }
+    </style>
 </head>
 <body>
 
-<!-- ============================================ -->
-<!-- PRELOADER
-<!-- ============================================ -->
-<div id="preloader">
-    <div class="loader"></div>
-</div>
 
-<!-- ============================================ -->
-<!-- NAVBAR SECTION
-<!-- ============================================ -->
-<nav class="navbar navbar-expand-lg navbar-dark fixed-top" id="mainNav">
-    <div class="container">
-        <a class="navbar-brand" href="index.html">
-            <i class="fas fa-smile-wink"></i>
-            <span>ស្នាមញញឹមខ្មែរ</span>
-        </a>
-        
-        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
-            <span class="navbar-toggler-icon"></span>
-        </button>
-        
-        <div class="collapse navbar-collapse" id="navbarNav">
-            <ul class="navbar-nav ms-auto">
-                <li class="nav-item"><a class="nav-link" href="index.html">ទំព័រដើម</a></li>
-                <li class="nav-item"><a class="nav-link" href="about.html">អំពីយើង</a></li>
-                <li class="nav-item"><a class="nav-link" href="money-donation.html">បរិច្ចាគប្រាក់</a></li>
-                <li class="nav-item"><a class="nav-link" href="blood-donation.html">បរិច្ចាគឈាម</a></li>
-                <li class="nav-item"><a class="nav-link" href="material-donation.html">បរិច្ចាគសម្ភារៈ</a></li>
-                <li class="nav-item"><a class="nav-link active" href="food-donation.html">បរិច្ចាគអាហារ</a></li>
-                <li class="nav-item"><a class="nav-link" href="volunteer.html">ស្ម័គ្រចិត្ត</a></li>
-                <li class="nav-item"><a class="nav-link" href="impact.html">សមត្ថផល</a></li>
-                <li class="nav-item"><a class="nav-link" href="news.html">ព័ត៌មាន</a></li>
-                <li class="nav-item"><a class="nav-link" href="faq.html">FAQ</a></li>
+<div id="preloader"><div class="loader"></div></div>
+
+
+  <header class="container-fluid py-4 sticky-top main-header">
+        <div class="row align-items-center px-lg-5">
+          <div class="col-lg-2 col-6">
+            <div class="d-flex align-items-center">
+              <img
+                src="assets/img/photo_2026-04-02_12-02-02.jpg"
+                alt="Logo"
+                style="
+                  height: 60px;
+                  filter: drop-shadow(2px 2px 4px rgba(0, 0, 0, 0.3));
+                "
+              />
+              <div class="ms-2 lh-1">
+                <span class="fw-bold d-block fs-4" style="color: var(--gold)"
+                  >ស្នាមញញឹមខ្មែរ</span
+                >
+                <small class="text-white-50" style="font-size: 0.7rem"
+                  >ផ្តល់ក្តីសង្ឃឹមតាមរយៈការបរិច្ចាគ</small
+                >
+              </div>
+            </div>
+          </div>
+
+          <div class="col-lg-7 d-none d-lg-flex justify-content-center">
+            <nav class="navbar-pill">
+              <ul class="nav">
+                <li class="nav-item">
+                  <a class="nav-link fw-bold px-3 text-white" href="#"
+                    >ទំព័រដើម</a
+                  >
+                </li>
+
                 <li class="nav-item dropdown">
-                    <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown">
-                        <i class="fas fa-user"></i> គណនី
-                    </a>
-                    <ul class="dropdown-menu">
-                        <li><a class="dropdown-item" href="login.html">ចូលប្រើប្រាស់</a></li>
-                        <li><a class="dropdown-item" href="register.html">ចុះឈ្មោះ</a></li>
-                        <li><hr class="dropdown-divider"></li>
-                        <li><a class="dropdown-item" href="profile.html">ទម្រង់របស់ខ្ញុំ</a></li>
-                    </ul>
+                  <a
+                    class="nav-link fw-bold px-3 dropdown-toggle text-white"
+                    href="#"
+                    id="donateDropdown"
+                    role="button"
+                    data-bs-toggle="dropdown"
+                    aria-expanded="false"
+                  >
+                    ការបរិច្ចាគ
+                  </a>
+                  <ul
+                    class="dropdown-menu shadow-sm rounded-4 border-0"
+                    aria-labelledby="donateDropdown"
+                  >
+                    <li><h6 class="dropdown-header">ប្រភេទការបរិច្ចាគ</h6></li>
+                    <li>
+                      <a
+                        class="dropdown-item d-flex align-items-center"
+                        href="#blood-donation"
+                        ><i class="fa-solid fa-droplet me-3 text-danger"></i
+                        >ការបរិច្ចាគឈាម</a
+                      >
+                    </li>
+                    <li>
+                      <a
+                        class="dropdown-item d-flex align-items-center"
+                        href="#material-donation"
+                        ><i class="fa-solid fa-box-open me-3 text-primary"></i
+                        >ការបរិច្ចាគសម្ភារះ</a
+                      >
+                    </li>
+                    <li>
+                      <a
+                        class="dropdown-item d-flex align-items-center"
+                        href="Money donation.html"
+                        ><i
+                          class="fa-solid fa-hand-holding-dollar me-3 text-success"
+                        ></i
+                        >ការបរិច្ចាគប្រាក់</a
+                      >
+                    </li>
+                    <li>
+                      <a
+                        class="dropdown-item d-flex align-items-center"
+                        href="#food-donation"
+                        ><i class="fa-solid fa-utensils me-3 text-warning"></i
+                        >បរិច្ចាគអាហារ</a
+                      >
+                    </li>
+                    <li>
+                      <a
+                        class="dropdown-item d-flex align-items-center"
+                        href="#time-donation"
+                        ><i class="fa-solid fa-clock me-3 text-info"></i
+                        >បរិច្ចាគពេលវេលា</a
+                      >
+                    </li>
+                    <li>
+                      <a
+                        class="dropdown-item d-flex align-items-center"
+                        href="#rebuild-donation"
+                        ><i
+                          class="fa-solid fa-trowel-bricks me-3 text-secondary"
+                        ></i
+                        >ការសាងសង</a
+                      >
+                    </li>
+                    <li><hr class="dropdown-divider" /></li>
+                    <li>
+                      <div class="dropdown-item-text text-muted small">
+                        <i class="fa-solid fa-circle-info me-2"></i
+                        >ស្វែងរកប្រភេទការបរិច្ចាគដែលសាកសម។
+                      </div>
+                    </li>
+                  </ul>
+                </li>
+
+                <li class="nav-item dropdown">
+                  <a
+                    class="nav-link fw-bold px-3 dropdown-toggle text-white"
+                    href="#"
+                    id="volunteerDropdown"
+                    role="button"
+                    data-bs-toggle="dropdown"
+                    aria-expanded="false"
+                  >
+                    ការស្ម័គ្រចិត្ត
+                  </a>
+                  <ul
+                    class="dropdown-menu shadow-sm rounded-4 border-0"
+                    aria-labelledby="volunteerDropdown"
+                  >
+                    <li>
+                      <h6 class="dropdown-header">កម្មវិធីស្ម័គ្រចិត្ត</h6>
+                    </li>
+                    <li>
+                      <a class="dropdown-item" href="#event-volunteer"
+                        ><i
+                          class="fa-solid fa-calendar-check me-2 text-primary"
+                        ></i
+                        >ស្ម័គ្រចិត្តតាមព្រឹត្តិការណ៍</a
+                      >
+                    </li>
+                    <li>
+                      <a class="dropdown-item" href="#community-teaching"
+                        ><i
+                          class="fa-solid fa-chalkboard-user me-2 text-success"
+                        ></i
+                        >ការបង្រៀនសហគមន៍</a
+                      >
+                    </li>
+                    <li>
+                      <a class="dropdown-item" href="#medical-volunteer"
+                        ><i class="fa-solid fa-user-doctor me-2 text-danger"></i
+                        >ក្រុមការងារសុខាភិបាល</a
+                      >
+                    </li>
+                    <li>
+                      <a class="dropdown-item" href="#digital-volunteer"
+                        ><i class="fa-solid fa-laptop-code me-2 text-info"></i
+                        >ស្ម័គ្រចិត្តផ្នែកឌីជីថល</a
+                      >
+                    </li>
+                    <li><hr class="dropdown-divider" /></li>
+                    <li>
+                      <a class="dropdown-item" href="#register-volunteer"
+                        ><i class="fa-solid fa-pen-to-square me-2"></i
+                        >ចុះឈ្មោះជាអ្នកស្ម័គ្រចិត្ត</a
+                      >
+                    </li>
+                  </ul>
+                </li>
+
+                <li class="nav-item">
+                  <a class="nav-link fw-bold px-3 text-white" href="contact.html"
+                    >ទំនាក់ទំនង</a
+                  >
                 </li>
                 <li class="nav-item">
-                    <a href="donate.html" class="btn-donate-nav">
-                        <i class="fas fa-heart"></i> បរិច្ចាគ
-                    </a>
+                  <a class="nav-link fw-bold px-3 text-white" href="about.us.html"
+                    >អំពីយើង</a
+                  >
                 </li>
-            </ul>
+              </ul>
+            </nav>
+          </div>
+
+          <div
+            class="col-lg-3 col-6 d-flex align-items-center justify-content-end gap-2"
+          >
+            <button
+              class="btn bg-white rounded-circle shadow-sm d-flex align-items-center justify-content-center"
+              style="width: 40px; height: 40px; border: none"
+             data-bs-toggle="modal" data-bs-target="#exampleModal"
+            >
+              <i
+                class="fa-solid fa-magnifying-glass"
+                style="color: var(--primary-blue)"
+              ></i>
+            </button>
+
+            <div
+              class="modal fade"
+             id="exampleModal"
+             tabindex="-1" 
+             aria-labelledby="exampleModalLabel" 
+             aria-hidden="true"
+             data-bs-backdrop="false"
+            >
+              <div class="modal-dialog modal-lg modal-dialog-centered">
+                <div class="modal-content border-0 shadow-lg">
+                  <div class="modal-body p-4">
+                    <div class="d-flex align-items-center mb-3">
+                      <i
+                        class="fa-solid fa-magnifying-glass me-3 fs-4 text-primary"
+                      ></i>
+                      <input
+                        type="text"
+                        id="searchInput"
+                        class="form-control form-control-lg border-0 shadow-none ps-0"
+                        placeholder="ស្វែងរកកម្មវិធីបរិច្ចាគ ឬការងារស្ម័គ្រចិត្ត..."
+                        autocomplete="off"
+                      />
+                      <button
+                        type="button"
+                        class="btn-close shadow-none"
+                        data-bs-dismiss="modal"
+                        aria-label="Close"
+                      ></button>
+                    </div>
+
+                    <hr class="mt-0 opacity-10" />
+
+                    <div id="searchSuggestions" class="mt-3">
+                      <h6
+                        class="text-uppercase text-muted small fw-bold mb-3"
+                        id="searchStatus"
+                      >
+                        តំណភ្ជាប់រហ័ស
+                      </h6>
+                      <div class="list-group list-group-flush" id="resultsList">
+                        <a
+                          href="#blood-donation"
+                          class="list-group-item list-group-item-action border-0 rounded-3 mb-1 py-2"
+                        >
+                          <i class="fa-solid fa-droplet me-2 text-danger"></i>
+                          ការបរិច្ចាគឈាម
+                        </a>
+                        <a
+                          href="#event-volunteer"
+                          class="list-group-item list-group-item-action border-0 rounded-3 mb-1 py-2"
+                        >
+                          <i
+                            class="fa-solid fa-calendar-check me-2 text-primary"
+                          ></i>
+                          ស្ម័គ្រចិត្តតាមព្រឹត្តិការណ៍
+                        </a>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+           <div class="dropdown">
+  <button
+    class="btn bg-white rounded-circle shadow-sm d-flex align-items-center justify-content-center position-relative"
+    style="width: 40px; height: 40px; border: none"
+    type="button"
+    id="notificationBell"
+    data-bs-toggle="dropdown"
+    data-bs-auto-close="outside" 
+    aria-expanded="false"
+  >
+    <i class="fa-solid fa-bell" style="color: var(--primary-blue)"></i>
+    <span class="position-absolute top-0 start-100 translate-middle p-1 bg-danger border border-2 border-light rounded-circle notification-badge">
+      <span class="visually-hidden">New notifications</span>
+    </span>
+  </button>
+
+  <ul class="dropdown-menu dropdown-menu-end shadow-lg border-0 rounded-4 mt-3 py-0 overflow-hidden" style="width: 350px">
+    <li class="px-3 py-3 bg-white border-bottom d-flex justify-content-between align-items-center">
+      <h6 class="fw-bold text-dark mb-0">ការជូនដំណឹង</h6>
+      <button class="btn btn-link btn-sm text-decoration-none p-0 text-primary small fw-bold">អានទាំងអស់</button>
+    </li>
+
+    <div class="notification-items" style="max-height: 380px; overflow-y: auto;">
+     <li>
+  <a class="dropdown-item unread-item d-flex align-items-start gap-3 py-3 px-3 border-bottom" href="#">
+    <div class="icon-circle bg-warning-subtle text-warning rounded-circle d-flex align-items-center justify-content-center" style="width: 45px; height: 45px; flex-shrink: 0;">
+      <i class="fa-solid fa-hand-holding-hand"></i>
+    </div>
+    <div class="flex-grow-1">
+      <p class="mb-1 text-dark small"><b>ជំនួយដល់ជនភៀសខ្លួន៖</b> សម្ភារៈប្រើប្រាស់ចាំបាច់ត្រូវបានបញ្ជូនទៅដល់មជ្ឈមណ្ឌលហើយ។</p>
+      <span class="text-muted extra-small">៣០ នាទីមុន</span>
+    </div>
+    <div class="unread-dot"></div>
+  </a>
+</li>
+
+<li>
+  <a class="dropdown-item d-flex align-items-start gap-3 py-3 px-3 border-bottom" href="#">
+    <div class="icon-circle bg-info-subtle text-info rounded-circle d-flex align-items-center justify-content-center" style="width: 45px; height: 45px; flex-shrink: 0;">
+      <i class="fa-solid fa-file-invoice-dollar"></i>
+    </div>
+    <div class="flex-grow-1">
+      <p class="mb-1 text-dark small"><b>របាយការណ៍ហិរញ្ញវត្ថុ៖</b> ការបរិច្ចាគប្រាក់ប្រចាំខែមីនា ត្រូវបានប្រើប្រាស់ក្នុងគម្រោងសាងសង់សាលារៀន។</p>
+      <span class="text-muted extra-small">៥ ម៉ោងមុន</span>
+    </div>
+  </a>
+</li>
+
+      <li>
+        <a class="dropdown-item d-flex align-items-start gap-3 py-3 px-3 border-bottom" href="#">
+          <div class="icon-circle bg-primary-subtle text-primary rounded-circle d-flex align-items-center justify-content-center" style="width: 45px; height: 45px; flex-shrink: 0;">
+            <i class="fa-solid fa-calendar-check"></i>
+          </div>
+          <div class="flex-grow-1">
+            <p class="mb-1 text-dark small"><b>ការស្ម័គ្រចិត្ត៖</b> កម្មវិធីសម្អាតឆ្នេរនឹងចាប់ផ្តើមនៅថ្ងៃស្អែកនេះ។</p>
+            <span class="text-muted extra-small">១ ម៉ោងមុន</span>
+          </div>
+        </a>
+      </li>
+    </div>
+
+    <li>
+      <a class="dropdown-item text-center py-2 text-primary fw-bold small border-top" href="#">មើលទាំងអស់</a>
+    </li>
+  </ul>
+</div>
+
+            <div class="dropdown">
+              <button
+                class="btn bg-white d-flex align-items-center gap-2 rounded-pill shadow-sm border-0 px-2 py-1"
+                type="button"
+                id="userProfileDropdown"
+                data-bs-toggle="dropdown"
+                aria-expanded="false"
+              >
+                <img
+                  src="assets/img/photoProfile.jpg"
+                  alt="Profile"
+                  class="rounded-circle border border-2 border-primary"
+                  style="width: 32px; height: 32px; object-fit: cover"
+                />
+                <i
+                  class="fa-solid fa-chevron-down small text-muted d-none d-md-block"
+                ></i>
+              </button>
+
+              <ul
+                class="dropdown-menu dropdown-menu-end shadow-lg border-0 rounded-4 mt-3 p-0 overflow-hidden"
+                aria-labelledby="userProfileDropdown"
+                style="width: 280px; background-color: #f8f9fa"
+              >
+                <li class="p-3 d-flex align-items-center gap-3 bg-white">
+                  <img
+                    src="assets/img/photoProfile.jpg"
+                    alt="User Avatar"
+                    class="rounded-circle shadow-sm"
+                    style="
+                      width: 60px;
+                      height: 60px;
+                      object-fit: cover;
+                      border: 2px solid #fff;
+                    "
+                  />
+                  <div class="lh-sm">
+                    <h6
+                      class="mb-1 fw-bold text-dark text-uppercase"
+                      style="letter-spacing: 0.5px"
+                    >
+                      ឡាយ​​​​ ឧស្សា
+                    </h6>
+                    <p class="mb-0 text-muted small">layusa07@gmail.com</p>
+                  </div>
+                </li>
+                <li><hr class="dropdown-divider m-0 opacity-10" /></li>
+                <li class="p-2">
+                  <a
+                    class="dropdown-item rounded-3 py-2 d-flex align-items-center"
+                    href="history.donation.html"
+                  >
+                    <i
+                      class="fa-solid fa-clock-rotate-left me-3 text-dark fs-5"
+                    ></i>
+                    <span class="fw-bold">ប្រវត្តិបរិច្ចាគ</span>
+                  </a>
+                  <a
+                    class="dropdown-item rounded-3 py-2 d-flex align-items-center"
+                    href="profile2.html"
+                  >
+                    <i class="fa-solid fa-gear me-3 text-dark fs-5"></i>
+                    <span class="fw-bold">ការកំណត់</span>
+                  </a>
+                  <hr class="dropdown-divider" />
+                  <a
+                    class="dropdown-item rounded-3 py-2 d-flex align-items-center text-danger"
+                    href="#"
+                    id="btnLogout"
+                  >
+                    <i class="fa-solid fa-right-from-bracket me-3 fs-5"></i>
+                    <span class="fw-bold">ចាកចេញ</span>
+                  </a>
+                </li>
+              </ul>
+            </div>
+          </div>
+        </div>
+      </header>
+
+
+<div class="modal fade" id="searchModal" tabindex="-1">
+    <div class="modal-dialog modal-lg modal-dialog-centered">
+        <div class="modal-content border-0 shadow-lg rounded-4">
+            <div class="modal-body p-4">
+                <input type="text" class="form-control form-control-lg" placeholder="ស្វែងរកអាហារ ឬកម្មវិធីជំនួយ...">
+                <div class="mt-3"><a href="#" class="list-group-item list-group-item-action">អង្ករ ១០តោន</a><a href="#" class="list-group-item list-group-item-action">មី និងគុយទាវ</a></div>
+            </div>
         </div>
     </div>
-</nav>
+</div>
 
-<!-- ============================================ -->
-<!-- PAGE HEADER
-<!-- ============================================ -->
-<section class="food-header">
-    <div class="container">
-        <div class="row justify-content-center text-center">
-            <div class="col-lg-8" data-aos="fade-up">
-                <div class="food-icon">
-                    <i class="fas fa-utensils"></i>
-                </div>
-                <h1>បរិច្ចាគអាហារ</h1>
-                <p>ចូលរួមផ្តល់អាហារដល់បងប្អូនដែលកំពុងខ្វះខាត</p>
-                <div class="breadcrumb-nav">
-                    <a href="index.html">ទំព័រដើម</a>
-                    <i class="fas fa-chevron-right"></i>
-                    <span>បរិច្ចាគអាហារ</span>
-                </div>
-            </div>
+<main>
+  
+    <section class="food-header">
+        <div class="container" data-aos="fade-up">
+            <div class="food-icon"><i class="fas fa-utensils"></i></div>
+            <h1 class="display-5 fw-bold">បរិច្ចាគអាហារ</h1>
+            <p>ចូលរួមផ្តល់អាហារដល់បងប្អូនដែលកំពុងខ្វះខាត</p>
+            <div class="breadcrumb-nav"><a href="#">ទំព័រដើម</a> <i class="fas fa-chevron-right"></i> <span>បរិច្ចាគអាហារ</span></div>
         </div>
-    </div>
-</section>
+    </section>
 
-<!-- ============================================ -->
-<!-- FOOD CRISIS STATS
-<!-- ============================================ -->
-<section class="food-crisis-stats">
-    <div class="container">
-        <div class="row g-4">
-            <div class="col-md-3 col-6" data-aos="zoom-in">
-                <div class="stat-card">
-                    <i class="fas fa-users"></i>
-                    <h2 class="counter-fact" data-target="5200">0</h2>
-                    <p>គ្រួសារខ្វះខាតអាហារ</p>
-                </div>
-            </div>
-            <div class="col-md-3 col-6" data-aos="zoom-in" data-aos-delay="100">
-                <div class="stat-card">
-                    <i class="fas fa-child"></i>
-                    <h2 class="counter-fact" data-target="2500">0</h2>
-                    <p>កុមារខ្វះអាហារូបត្ថម្ភ</p>
-                </div>
-            </div>
-            <div class="col-md-3 col-6" data-aos="zoom-in" data-aos-delay="200">
-                <div class="stat-card">
-                    <i class="fas fa-weight-scale"></i>
-                    <h2 class="counter-fact" data-target="25">0</h2>
-                    <p>តោនអាហារត្រូវការ/ខែ</p>
-                </div>
-            </div>
-            <div class="col-md-3 col-6" data-aos="zoom-in" data-aos-delay="300">
-                <div class="stat-card">
-                    <i class="fas fa-calendar-day"></i>
-                    <h2 class="counter-fact" data-target="30">0</h2>
-                    <p>ថ្ងៃបន្ទាន់បំផុត</p>
-                </div>
-            </div>
-        </div>
-    </div>
-</section>
 
-<!-- ============================================ -->
-<!-- NEEDED FOOD ITEMS SECTION
-<!-- ============================================ -->
-<section class="needed-food">
-    <div class="container">
-        <div class="section-header text-center" data-aos="fade-up">
-            <div class="section-badge-center">អាហារដែលត្រូវការ</div>
-            <h2>បញ្ជីអាហារដែលកំពុងត្រូវការបន្ទាន់</h2>
-            <p>សូមជួយបរិច្ចាគអាហារដែលមានក្នុងបញ្ជីខាងក្រោម</p>
-        </div>
-        
-        <div class="row g-4">
-            <div class="col-lg-3 col-md-6" data-aos="flip-up" data-aos-delay="100">
-                <div class="food-item-card">
-                    <div class="food-icon">
-                        <i class="fas fa-bowl-food"></i>
-                    </div>
-                    <h3>អង្ករ</h3>
-                    <p>ត្រូវការ ១០ តោន</p>
-                    <div class="progress">
-                        <div class="progress-bar" style="width: 35%"></div>
-                    </div>
-                    <span>ទទួលបាន ៣.៥ តោន</span>
-                    <button class="btn-donate-food" data-food="rice">
-                        <i class="fas fa-hand-holding-heart"></i> បរិច្ចាគ
-                    </button>
-                </div>
-            </div>
-            <div class="col-lg-3 col-md-6" data-aos="flip-up" data-aos-delay="200">
-                <div class="food-item-card">
-                    <div class="food-icon">
-                        <i class="fas fa-egg"></i>
-                    </div>
-                    <h3>មី និងគុយទាវ</h3>
-                    <p>ត្រូវការ ៥,០០០ កេស</p>
-                    <div class="progress">
-                        <div class="progress-bar" style="width: 25%"></div>
-                    </div>
-                    <span>ទទួលបាន ១,២៥០ កេស</span>
-                    <button class="btn-donate-food" data-food="noodles">
-                        <i class="fas fa-hand-holding-heart"></i> បរិច្ចាគ
-                    </button>
-                </div>
-            </div>
-            <div class="col-lg-3 col-md-6" data-aos="flip-up" data-aos-delay="300">
-                <div class="food-item-card">
-                    <div class="food-icon">
-                        <i class="fas fa-fish"></i>
-                    </div>
-                    <h3>ត្រីខ និងសាច់កំប៉ុង</h3>
-                    <p>ត្រូវការ ៣,០០០ កំប៉ុង</p>
-                    <div class="progress">
-                        <div class="progress-bar" style="width: 40%"></div>
-                    </div>
-                    <span>ទទួលបាន ១,២០០ កំប៉ុង</span>
-                    <button class="btn-donate-food" data-food="canned">
-                        <i class="fas fa-hand-holding-heart"></i> បរិច្ចាគ
-                    </button>
-                </div>
-            </div>
-            <div class="col-lg-3 col-md-6" data-aos="flip-up" data-aos-delay="400">
-                <div class="food-item-card">
-                    <div class="food-icon">
-                        <i class="fas fa-oil-can"></i>
-                    </div>
-                    <h3>ប្រេងឆា</h3>
-                    <p>ត្រូវការ ២,០០០ លីត្រ</p>
-                    <div class="progress">
-                        <div class="progress-bar" style="width: 20%"></div>
-                    </div>
-                    <span>ទទួលបាន ៤០០ លីត្រ</span>
-                    <button class="btn-donate-food" data-food="oil">
-                        <i class="fas fa-hand-holding-heart"></i> បរិច្ចាគ
-                    </button>
-                </div>
+    <section class="py-5">
+        <div class="container">
+            <div class="row g-4">
+                <div class="col-md-3 col-6" data-aos="zoom-in"><div class="stat-card"><i class="fas fa-users"></i><h2 class="counter-fact" data-target="5200">0</h2><p>គ្រួសារខ្វះខាតអាហារ</p></div></div>
+                <div class="col-md-3 col-6" data-aos="zoom-in" data-aos-delay="100"><div class="stat-card"><i class="fas fa-child"></i><h2 class="counter-fact" data-target="2500">0</h2><p>កុមារខ្វះអាហារូបត្ថម្ភ</p></div></div>
+                <div class="col-md-3 col-6" data-aos="zoom-in" data-aos-delay="200"><div class="stat-card"><i class="fas fa-weight-scale"></i><h2 class="counter-fact" data-target="25">0</h2><p>តោនអាហារត្រូវការ/ខែ</p></div></div>
+                <div class="col-md-3 col-6" data-aos="zoom-in" data-aos-delay="300"><div class="stat-card"><i class="fas fa-calendar-day"></i><h2 class="counter-fact" data-target="30">0</h2><p>ថ្ងៃបន្ទាន់បំផុត</p></div></div>
             </div>
         </div>
-        
-        <div class="row g-4 mt-2">
-            <div class="col-lg-3 col-md-6" data-aos="flip-up" data-aos-delay="500">
-                <div class="food-item-card">
-                    <div class="food-icon">
-                        <i class="fas fa-bottle-water"></i>
-                    </div>
-                    <h3>ទឹកបរិសុទ្ធ</h3>
-                    <p>ត្រូវការ ១០,០០០ ដប</p>
-                    <div class="progress">
-                        <div class="progress-bar" style="width: 30%"></div>
-                    </div>
-                    <span>ទទួលបាន ៣,០០០ ដប</span>
-                    <button class="btn-donate-food" data-food="water">
-                        <i class="fas fa-hand-holding-heart"></i> បរិច្ចាគ
-                    </button>
-                </div>
-            </div>
-            <div class="col-lg-3 col-md-6" data-aos="flip-up" data-aos-delay="600">
-                <div class="food-item-card">
-                    <div class="food-icon">
-                        <i class="fas fa-baby"></i>
-                    </div>
-                    <h3>ទឹកដោះគោទារក</h3>
-                    <p>ត្រូវការ ១,០០០ កំប៉ុង</p>
-                    <div class="progress">
-                        <div class="progress-bar" style="width: 15%"></div>
-                    </div>
-                    <span>ទទួលបាន ១៥០ កំប៉ុង</span>
-                    <button class="btn-donate-food" data-food="milk">
-                        <i class="fas fa-hand-holding-heart"></i> បរិច្ចាគ
-                    </button>
-                </div>
-            </div>
-            <div class="col-lg-3 col-md-6" data-aos="flip-up" data-aos-delay="700">
-                <div class="food-item-card">
-                    <div class="food-icon">
-                        <i class="fas fa-apple-alt"></i>
-                    </div>
-                    <h3>អាហារសម្បូរវីតាមីន</h3>
-                    <p>ត្រូវការ ២,០០០ កញ្ចប់</p>
-                    <div class="progress">
-                        <div class="progress-bar" style="width: 10%"></div>
-                    </div>
-                    <span>ទទួលបាន ២០០ កញ្ចប់</span>
-                    <button class="btn-donate-food" data-food="vitamin">
-                        <i class="fas fa-hand-holding-heart"></i> បរិច្ចាគ
-                    </button>
-                </div>
-            </div>
-            <div class="col-lg-3 col-md-6" data-aos="flip-up" data-aos-delay="800">
-                <div class="food-item-card">
-                    <div class="food-icon">
-                        <i class="fas fa-cookie-bite"></i>
-                    </div>
-                    <h3>នំប៉័ង និងប៊ីស្គីត</h3>
-                    <p>ត្រូវការ ៥,០០០ កញ្ចប់</p>
-                    <div class="progress">
-                        <div class="progress-bar" style="width: 25%"></div>
-                    </div>
-                    <span>ទទួលបាន ១,២៥០ កញ្ចប់</span>
-                    <button class="btn-donate-food" data-food="snacks">
-                        <i class="fas fa-hand-holding-heart"></i> បរិច្ចាគ
-                    </button>
-                </div>
-            </div>
-        </div>
-    </div>
-</section>
+    </section>
 
-<!-- ============================================ -->
-<!-- DONATION FORM SECTION
-<!-- ============================================ -->
-<section class="donation-form-section" id="donationForm" style="display: none;">
-    <div class="container">
-        <div class="row justify-content-center">
-            <div class="col-lg-8" data-aos="fade-up">
-                <div class="form-card">
-                    <div class="form-header">
-                        <i class="fas fa-hands-helping"></i>
-                        <h3>បំពេញព័ត៌មានបរិច្ចាគអាហារ</h3>
-                        <p id="selectedFoodInfo"></p>
-                    </div>
-                    
-                    <form id="foodDonationForm">
-                        <input type="hidden" id="selectedFoodType">
-                        
-                        <div class="row">
-                            <div class="col-md-6">
-                                <div class="form-group">
-                                    <label><i class="fas fa-user"></i> នាមត្រកូល</label>
-                                    <input type="text" class="form-control" id="lastName" required>
-                                </div>
+  
+    <section class="py-4" id="needed-food">
+        <div class="container">
+            <div class="section-header text-center" data-aos="fade-up">
+                <div class="section-badge-center">អាហារដែលត្រូវការ</div>
+                <h2>បញ្ជីអាហារដែលកំពុងត្រូវការបន្ទាន់</h2>
+            </div>
+            <div class="row g-4">
+                <div class="col-lg-3 col-md-6" data-aos="flip-up"><div class="food-item-card"><div class="food-icon"><i class="fas fa-bowl-food"></i></div><h3>អង្ករ</h3><p>ត្រូវការ ១០ តោន</p><div class="progress"><div class="progress-bar bg-warning" style="width:35%"></div></div><span>ទទួលបាន ៣.៥ តោន</span><button class="btn-donate-food" data-food="អង្ករ">បរិច្ចាគ</button></div></div>
+                <div class="col-lg-3 col-md-6" data-aos="flip-up" data-aos-delay="100"><div class="food-item-card"><div class="food-icon"><i class="fas fa-egg"></i></div><h3>មី និងគុយទាវ</h3><p>ត្រូវការ ៥,០០០ កេស</p><div class="progress"><div class="progress-bar bg-warning" style="width:25%"></div></div><span>ទទួលបាន ១,២៥០ កេស</span><button class="btn-donate-food" data-food="មី និងគុយទាវ">បរិច្ចាគ</button></div></div>
+                <div class="col-lg-3 col-md-6" data-aos="flip-up" data-aos-delay="200"><div class="food-item-card"><div class="food-icon"><i class="fas fa-fish"></i></div><h3>ត្រីខ និងសាច់កំប៉ុង</h3><p>ត្រូវការ ៣,០០០ កំប៉ុង</p><div class="progress"><div class="progress-bar bg-warning" style="width:40%"></div></div><span>ទទួលបាន ១,២០០ កំប៉ុង</span><button class="btn-donate-food" data-food="ត្រីខ / សាច់កំប៉ុង">បរិច្ចាគ</button></div></div>
+                <div class="col-lg-3 col-md-6" data-aos="flip-up" data-aos-delay="300"><div class="food-item-card"><div class="food-icon"><i class="fas fa-oil-can"></i></div><h3>ប្រេងឆា</h3><p>ត្រូវការ ២,០០០ លីត្រ</p><div class="progress"><div class="progress-bar bg-warning" style="width:20%"></div></div><span>ទទួលបាន ៤០០ លីត្រ</span><button class="btn-donate-food" data-food="ប្រេងឆា">បរិច្ចាគ</button></div></div>
+                <div class="col-lg-3 col-md-6" data-aos="flip-up" data-aos-delay="400"><div class="food-item-card"><div class="food-icon"><i class="fas fa-bottle-water"></i></div><h3>ទឹកបរិសុទ្ធ</h3><p>ត្រូវការ ១០,០០០ ដប</p><div class="progress"><div class="progress-bar bg-warning" style="width:30%"></div></div><span>ទទួលបាន ៣,០០០ ដប</span><button class="btn-donate-food" data-food="ទឹកបរិសុទ្ធ">បរិច្ចាគ</button></div></div>
+                <div class="col-lg-3 col-md-6" data-aos="flip-up" data-aos-delay="500"><div class="food-item-card"><div class="food-icon"><i class="fas fa-baby"></i></div><h3>ទឹកដោះគោទារក</h3><p>ត្រូវការ ១,០០០ កំប៉ុង</p><div class="progress"><div class="progress-bar bg-warning" style="width:15%"></div></div><span>ទទួលបាន ១៥០ កំប៉ុង</span><button class="btn-donate-food" data-food="ទឹកដោះគោទារក">បរិច្ចាគ</button></div></div>
+                <div class="col-lg-3 col-md-6" data-aos="flip-up" data-aos-delay="600"><div class="food-item-card"><div class="food-icon"><i class="fas fa-apple-alt"></i></div><h3>អាហារសម្បូរវីតាមីន</h3><p>ត្រូវការ ២,០០០ កញ្ចប់</p><div class="progress"><div class="progress-bar bg-warning" style="width:10%"></div></div><span>ទទួលបាន ២០០ កញ្ចប់</span><button class="btn-donate-food" data-food="អាហារសម្បូរវីតាមីន">បរិច្ចាគ</button></div></div>
+                <div class="col-lg-3 col-md-6" data-aos="flip-up" data-aos-delay="700"><div class="food-item-card"><div class="food-icon"><i class="fas fa-cookie-bite"></i></div><h3>នំប៉័ង និងប៊ីស្គីត</h3><p>ត្រូវការ ៥,០០០ កញ្ចប់</p><div class="progress"><div class="progress-bar bg-warning" style="width:25%"></div></div><span>ទទួលបាន ១,២៥០ កញ្ចប់</span><button class="btn-donate-food" data-food="នំប៉័ង / ប៊ីស្គីត">បរិច្ចាគ</button></div></div>
+            </div>
+        </div>
+    </section>
+
+  
+    <section class="py-5 bg-light" id="donationFormSection" style="display: none;">
+        <div class="container">
+            <div class="row justify-content-center">
+                <div class="col-lg-8" data-aos="fade-up">
+                    <div class="form-card">
+                        <div class="form-header"><i class="fas fa-hands-helping"></i><h3>បំពេញព័ត៌មានបរិច្ចាគអាហារ</h3><p id="selectedFoodInfo" class="text-primary fw-bold"></p></div>
+                        <form id="foodDonationForm">
+                            <input type="hidden" id="selectedFoodType">
+                            <div class="row g-3">
+                                <div class="col-md-6"><div class="form-group"><label>នាមត្រកូល</label><input type="text" class="form-control" id="lastName" required></div></div>
+                                <div class="col-md-6"><div class="form-group"><label>នាមខ្លួន</label><input type="text" class="form-control" id="firstName" required></div></div>
+                                <div class="col-md-6"><div class="form-group"><label>អ៊ីមែល</label><input type="email" class="form-control" id="email" required></div></div>
+                                <div class="col-md-6"><div class="form-group"><label>លេខទូរស័ព្ទ</label><input type="tel" class="form-control" id="phone" required></div></div>
+                                <div class="col-md-6"><div class="form-group"><label>ប្រភេទអាហារ</label><input type="text" class="form-control" id="foodTypeDisplay" readonly></div></div>
+                                <div class="col-md-6"><div class="form-group"><label>បរិមាណ</label><input type="text" class="form-control" id="quantity" placeholder="ឧ. ៥០ គីឡូក្រាម, ២ កេស" required></div></div>
+                                <div class="col-12"><div class="form-group"><label>ការពិពណ៌នាបន្ថែម</label><textarea class="form-control" id="description" rows="2"></textarea></div></div>
+                                <div class="col-md-6"><div class="form-group"><label>ទីតាំងដឹកជញ្ជូន</label><select class="form-control" id="location" required><option value="">ជ្រើសរើស</option><option>ភ្នំពេញ</option><option>បន្ទាយមានជ័យ</option><option>ឧត្តរមានជ័យ</option></select></div></div>
+                                <div class="col-md-6"><div class="form-group"><label>វិធីសាស្ត្រដឹកជញ្ជូន</label><select class="form-control" id="deliveryMethod"><option value="bring">នាំយកទៅទីតាំងដោយខ្លួនឯង</option><option value="pickup">សុំឱ្យក្រុមការងារមកទទួល</option></select></div></div>
+                                <div class="col-12 pickup-address" style="display:none;"><div class="form-group"><label>អាសយដ្ឋានសម្រាប់មកទទួល</label><textarea class="form-control" rows="2" placeholder="អាសយដ្ឋានលម្អិត"></textarea></div></div>
+                                <div class="col-12"><div class="form-check"><input class="form-check-input" type="checkbox" id="termsCheck" required><label class="form-check-label">ខ្ញុំបញ្ជាក់ថាអាហារស្ថិតក្នុងស្ថានភាពល្អ មិនទាន់ខូចគុណភាព</label></div></div>
+                                <div class="col-12"><button type="submit" class="btn-submit"><i class="fas fa-hand-holding-heart me-2"></i>បញ្ជូនព័ត៌មានបរិច្ចាគ</button></div>
                             </div>
-                            <div class="col-md-6">
-                                <div class="form-group">
-                                    <label><i class="fas fa-user"></i> នាមខ្លួន</label>
-                                    <input type="text" class="form-control" id="firstName" required>
-                                </div>
-                            </div>
-                        </div>
-                        
-                        <div class="row">
-                            <div class="col-md-6">
-                                <div class="form-group">
-                                    <label><i class="fas fa-envelope"></i> អ៊ីមែល</label>
-                                    <input type="email" class="form-control" id="email" required>
-                                </div>
-                            </div>
-                            <div class="col-md-6">
-                                <div class="form-group">
-                                    <label><i class="fas fa-phone"></i> លេខទូរស័ព្ទ</label>
-                                    <input type="tel" class="form-control" id="phone" required>
-                                </div>
-                            </div>
-                        </div>
-                        
-                        <div class="row">
-                            <div class="col-md-6">
-                                <div class="form-group">
-                                    <label><i class="fas fa-utensils"></i> ប្រភេទអាហារ</label>
-                                    <input type="text" class="form-control" id="foodTypeDisplay" readonly>
-                                </div>
-                            </div>
-                            <div class="col-md-6">
-                                <div class="form-group">
-                                    <label><i class="fas fa-cubes"></i> បរិមាណ</label>
-                                    <input type="text" class="form-control" id="quantity" placeholder="ឧ. ៥០ គីឡូក្រាម, ២ កេស" required>
-                                </div>
-                            </div>
-                        </div>
-                        
-                        <div class="form-group">
-                            <label><i class="fas fa-align-left"></i> ការពិពណ៌នាបន្ថែម</label>
-                            <textarea class="form-control" id="description" rows="3" placeholder="សូមបញ្ជាក់ព័ត៌មានលម្អិតអំពីអាហារដែលអ្នកចង់បរិច្ចាគ..."></textarea>
-                        </div>
-                        
-                        <div class="row">
-                            <div class="col-md-6">
-                                <div class="form-group">
-                                    <label><i class="fas fa-map-marker-alt"></i> ទីតាំងដឹកជញ្ជូន</label>
-                                    <select class="form-control" id="location" required>
-                                        <option value="">ជ្រើសរើសទីតាំង</option>
-                                        <option value="pp">ទីតាំងភ្នំពេញ</option>
-                                        <option value="bb">ទីតាំងបន្ទាយមានជ័យ</option>
-                                        <option value="od">ទីតាំងឧត្តរមានជ័យ</option>
-                                    </select>
-                                </div>
-                            </div>
-                            <div class="col-md-6">
-                                <div class="form-group">
-                                    <label><i class="fas fa-truck"></i> វិធីសាស្ត្រដឹកជញ្ជូន</label>
-                                    <select class="form-control" id="deliveryMethod" required>
-                                        <option value="">ជ្រើសរើសវិធីសាស្ត្រ</option>
-                                        <option value="bring">នាំយកទៅទីតាំងដោយខ្លួនឯង</option>
-                                        <option value="pickup">សុំឱ្យក្រុមការងារមកទទួល</option>
-                                    </select>
-                                </div>
-                            </div>
-                        </div>
-                        
-                        <div class="pickup-address" style="display: none;">
-                            <div class="form-group">
-                                <label><i class="fas fa-home"></i> អាសយដ្ឋានសម្រាប់មកទទួល</label>
-                                <textarea class="form-control" id="pickupAddress" rows="2" placeholder="សូមបញ្ចូលអាសយដ្ឋានពេញលេញ..."></textarea>
-                            </div>
-                        </div>
-                        
-                        <div class="form-check">
-                            <input type="checkbox" class="form-check-input" id="termsCheck" required>
-                            <label class="form-check-label" for="termsCheck">
-                                ខ្ញុំបញ្ជាក់ថាព័ត៌មានខាងលើត្រឹមត្រូវ 
-                                ហើយអាហារដែលបរិច្ចាគគឺស្ថិតក្នុងស្ថានភាពល្អ មិនទាន់ខូចគុណភាព
-                            </label>
-                        </div>
-                        
-                        <button type="submit" class="btn-submit">
-                            <i class="fas fa-hand-holding-heart me-2"></i>បញ្ជូនព័ត៌មានបរិច្ចាគ
-                        </button>
-                    </form>
+                        </form>
+                    </div>
                 </div>
             </div>
         </div>
-    </div>
-</section>
+    </section>
 
-<!-- ============================================ -->
-<!-- HOW YOUR DONATION HELPS
-<!-- ============================================ -->
-<section class="how-helps">
-    <div class="container">
-        <div class="section-header text-center" data-aos="fade-up">
-            <div class="section-badge-center">ផលប៉ះពាល់នៃការបរិច្ចាគរបស់អ្នក</div>
-            <h2>តើអាហាររបស់អ្នកជួយអ្វីខ្លះ?</h2>
-        </div>
-        
-        <div class="row g-4">
-            <div class="col-md-3 col-6" data-aos="zoom-in" data-aos-delay="100">
-                <div class="help-card">
-                    <i class="fas fa-child"></i>
-                    <h3>កុមារ</h3>
-                    <p>ទទួលបានអាហារូបត្ថម្ភគ្រប់គ្រាន់សម្រាប់ការលូតលាស់</p>
-                </div>
-            </div>
-            <div class="col-md-3 col-6" data-aos="zoom-in" data-aos-delay="200">
-                <div class="help-card">
-                    <i class="fas fa-heartbeat"></i>
-                    <h3>អ្នកជំងឺ</h3>
-                    <p>ទទួលបានអាហារសម្រាប់កម្លាំងរាងកាយ</p>
-                </div>
-            </div>
-            <div class="col-md-3 col-6" data-aos="zoom-in" data-aos-delay="300">
-                <div class="help-card">
-                    <i class="fas fa-hand-holding-heart"></i>
-                    <h3>គ្រួសារក្រីក្រ</h3>
-                    <p>មានអាហារគ្រប់គ្រាន់សម្រាប់គ្រួសារ</p>
-                </div>
-            </div>
-            <div class="col-md-3 col-6" data-aos="zoom-in" data-aos-delay="400">
-                <div class="help-card">
-                    <i class="fas fa-smile"></i>
-                    <h3>សុភមង្គល</h3>
-                    <p>នាំមកនូវស្នាមញញឹមដល់អ្នកដែលត្រូវការ</p>
-                </div>
-            </div>
-        </div>
-    </div>
-</section>
 
-<!-- ============================================ -->
-<!-- DROP-OFF LOCATIONS
-<!-- ============================================ -->
-<section class="dropoff-locations">
-    <div class="container">
-        <div class="section-header text-center" data-aos="fade-up">
-            <div class="section-badge-center">ទីតាំងទទួលអាហារ</div>
-            <h2>ទីតាំងទទួលអាហារបរិច្ចាគ</h2>
-            <p>អ្នកអាចនាំយកអាហារមកកាន់ទីតាំងណាមួយខាងក្រោម</p>
-        </div>
-        
-        <div class="row g-4">
-            <div class="col-md-4" data-aos="fade-up" data-aos-delay="100">
-                <div class="location-card">
-                    <div class="location-icon">
-                        <i class="fas fa-building"></i>
-                    </div>
-                    <h3>ទីតាំងភ្នំពេញ</h3>
-                    <p><i class="fas fa-map-marker-alt"></i> ផ្សារធំថ្មី អគារ C បន្ទប់ ២០</p>
-                    <p><i class="fas fa-clock"></i> ម៉ោង៖ ៨:០០ - ១៧:០០</p>
-                    <p><i class="fas fa-calendar-alt"></i> ចន្ទ - សៅរ៍</p>
-                </div>
-            </div>
-            <div class="col-md-4" data-aos="fade-up" data-aos-delay="200">
-                <div class="location-card">
-                    <div class="location-icon">
-                        <i class="fas fa-building"></i>
-                    </div>
-                    <h3>ទីតាំងបន្ទាយមានជ័យ</h3>
-                    <p><i class="fas fa-map-marker-alt"></i> ក្រុងសិរីសោភ័ណ ផ្លូវជាតិលេខ៥</p>
-                    <p><i class="fas fa-clock"></i> ម៉ោង៖ ៨:០០ - ១៧:០០</p>
-                    <p><i class="fas fa-calendar-alt"></i> ចន្ទ - សៅរ៍</p>
-                </div>
-            </div>
-            <div class="col-md-4" data-aos="fade-up" data-aos-delay="300">
-                <div class="location-card">
-                    <div class="location-icon">
-                        <i class="fas fa-building"></i>
-                    </div>
-                    <h3>ទីតាំងឧត្តរមានជ័យ</h3>
-                    <p><i class="fas fa-map-marker-alt"></i> ក្រុងសំរោង ផ្សារសំរោង</p>
-                    <p><i class="fas fa-clock"></i> ម៉ោង៖ ៨:០០ - ១៦:០០</p>
-                    <p><i class="fas fa-calendar-alt"></i> ចន្ទ - សៅរ៍</p>
-                </div>
+    <section class="py-5">
+        <div class="container">
+            <div class="section-header text-center"><div class="section-badge-center">ផលប៉ះពាល់នៃការបរិច្ចាគ</div><h2>តើអាហាររបស់អ្នកជួយអ្វីខ្លះ?</h2></div>
+            <div class="row g-4">
+                <div class="col-md-3 col-6" data-aos="zoom-in"><div class="help-card"><i class="fas fa-child"></i><h3>កុមារ</h3><p>ទទួលបានអាហារូបត្ថម្ភគ្រប់គ្រាន់</p></div></div>
+                <div class="col-md-3 col-6" data-aos="zoom-in" data-aos-delay="100"><div class="help-card"><i class="fas fa-heartbeat"></i><h3>អ្នកជំងឺ</h3><p>ទទួលបានកម្លាំងរាងកាយ</p></div></div>
+                <div class="col-md-3 col-6" data-aos="zoom-in" data-aos-delay="200"><div class="help-card"><i class="fas fa-hand-holding-heart"></i><h3>គ្រួសារក្រីក្រ</h3><p>មានអាហារគ្រប់គ្រាន់ប្រចាំថ្ងៃ</p></div></div>
+                <div class="col-md-3 col-6" data-aos="zoom-in" data-aos-delay="300"><div class="help-card"><i class="fas fa-smile"></i><h3>សុភមង្គល</h3><p>នាំមកនូវស្នាមញញឹមដល់អ្នកដែលត្រូវការ</p></div></div>
             </div>
         </div>
-    </div>
-</section>
+    </section>
 
-<!-- ============================================ -->
-<!-- FAQ SECTION
-<!-- ============================================ -->
-<section class="food-faq">
-    <div class="container">
-        <div class="section-header text-center" data-aos="fade-up">
-            <div class="section-badge-center">សំណួរច្រើនសួរ</div>
-            <h2>សំណួរទូទៅអំពីការបរិច្ចាគអាហារ</h2>
-        </div>
-        
-        <div class="row justify-content-center">
-            <div class="col-lg-10">
-                <div class="faq-container">
-                    <div class="faq-item">
-                        <div class="faq-question">
-                            <span>តើអាហារប្រភេទណាខ្លះដែលអាចបរិច្ចាគបាន?</span>
-                            <i class="fas fa-chevron-down"></i>
-                        </div>
-                        <div class="faq-answer">
-                            អ្នកអាចបរិច្ចាគអង្ករ មី ត្រីខ សាច់កំប៉ុង ប្រេងឆា 
-                            ទឹកបរិសុទ្ធ ទឹកដោះគោទារក អាហារសម្បូរវីតាមីន 
-                            នំប៉័ង និងអាហារស្ងួតផ្សេងៗទៀត
-                        </div>
-                    </div>
-                    <div class="faq-item">
-                        <div class="faq-question">
-                            <span>តើអាហារត្រូវមានលក្ខខណ្ឌបែបណា?</span>
-                            <i class="fas fa-chevron-down"></i>
-                        </div>
-                        <div class="faq-answer">
-                            អាហារគួរតែស្ថិតក្នុងស្ថានភាពល្អ មិនទាន់ខូចគុណភាព 
-                            មិនទាន់ផុតកំណត់ និងវេចខ្ចប់យ៉ាងល្អ
-                        </div>
-                    </div>
-                    <div class="faq-item">
-                        <div class="faq-question">
-                            <span>តើខ្ញុំអាចសុំឱ្យក្រុមការងារមកទទួលអាហារដល់ផ្ទះបានទេ?</span>
-                            <i class="fas fa-chevron-down"></i>
-                        </div>
-                        <div class="faq-answer">
-                            បាទ។ អ្នកអាចជ្រើសរើសវិធីសាស្ត្រ "សុំឱ្យក្រុមការងារមកទទួល" 
-                            ក្នុងទម្រង់បំពេញព័ត៌មាន
-                        </div>
-                    </div>
-                    <div class="faq-item">
-                        <div class="faq-question">
-                            <span>តើអាហារដែលបានបរិច្ចាគត្រូវបានចែកចាយយ៉ាងដូចម្តេច?</span>
-                            <i class="fas fa-chevron-down"></i>
-                        </div>
-                        <div class="faq-answer">
-                            អាហារនឹងត្រូវបានប្រមូល និងចែកចាយដោយផ្ទាល់ទៅកាន់ 
-                            ជនភៀសខ្លួន មនុស្សចាស់ កុមារកំព្រា និងគ្រួសារក្រីក្រ
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
-</section>
 
-<!-- ============================================ -->
-<!-- CTA SECTION
-<!-- ============================================ -->
-<section class="cta-section">
-    <div class="container">
-        <div class="cta-content" data-aos="zoom-in">
-            <h2>ចូលរួមបរិច្ចាគអាហារឥឡូវនេះ</h2>
-            <p>មួយក្តាប់តូចរបស់អ្នកអាចបំពេញភាពអត់ឃ្លានរបស់អ្នកដទៃ</p>
-            <div class="cta-buttons">
-                <a href="#needed-food" class="btn btn-light btn-lg">
-                    <i class="fas fa-utensils me-2"></i>បរិច្ចាគឥឡូវនេះ
-                </a>
+    <section class="py-5 bg-light">
+        <div class="container">
+            <div class="section-header text-center"><div class="section-badge-center">ទីតាំងទទួលអាហារ</div><h2>ទីតាំងទទួលអាហារបរិច្ចាគ</h2></div>
+            <div class="row g-4">
+                <div class="col-md-4"><div class="location-card"><i class="fas fa-building"></i><h3>ភ្នំពេញ</h3><p>ផ្សារធំថ្មី អគារ C</p><p>ម៉ោង ៨:០០-១៧:០០</p></div></div>
+                <div class="col-md-4"><div class="location-card"><i class="fas fa-building"></i><h3>បន្ទាយមានជ័យ</h3><p>ក្រុងសិរីសោភ័ណ</p><p>ម៉ោង ៨:០០-១៧:០០</p></div></div>
+                <div class="col-md-4"><div class="location-card"><i class="fas fa-building"></i><h3>ឧត្តរមានជ័យ</h3><p>ក្រុងសំរោង</p><p>ម៉ោង ៨:០០-១៦:០០</p></div></div>
             </div>
         </div>
-    </div>
-</section>
+    </section>
 
-<!-- ============================================ -->
-<!-- FOOTER SECTION
-<!-- ============================================ -->
-<footer class="footer">
-    <div class="container">
-        <div class="row">
-            <div class="col-lg-4 col-md-6">
-                <div class="footer-about">
-                    <h3><i class="fas fa-smile-wink"></i> ស្នាមញញឹមខ្មែរ</h3>
-                    <p>យើងជាអង្គការមិនរកប្រាក់ចំណេញ ដែលប្រមូលផ្តុំគ្នាដើម្បីជួយសង្គ្រោះបងប្អូនយើងដែលកំពុងរងគ្រោះនៅតាមព្រំដែន។</p>
-                    <div class="social-links">
-                        <a href="#"><i class="fab fa-facebook-f"></i></a>
-                        <a href="#"><i class="fab fa-telegram"></i></a>
-                        <a href="#"><i class="fab fa-youtube"></i></a>
-                        <a href="#"><i class="fab fa-tiktok"></i></a>
-                    </div>
-                </div>
-            </div>
-            <div class="col-lg-2 col-md-6">
-                <div class="footer-links">
-                    <h4>តំណភ្ជាប់</h4>
-                    <ul>
-                        <li><a href="index.html">ទំព័រដើម</a></li>
-                        <li><a href="about.html">អំពីយើង</a></li>
-                        <li><a href="money-donation.html">បរិច្ចាគប្រាក់</a></li>
-                        <li><a href="food-donation.html">បរិច្ចាគអាហារ</a></li>
-                        <li><a href="volunteer.html">ស្ម័គ្រចិត្ត</a></li>
-                    </ul>
-                </div>
-            </div>
-            <div class="col-lg-3 col-md-6">
-                <div class="footer-contact">
-                    <h4>ទំនាក់ទំនង</h4>
-                    <ul>
-                        <li><i class="fas fa-map-marker-alt"></i> ផ្ទះលេខ ១២៣ ផ្លូវ ២៧១ ភ្នំពេញ</li>
-                        <li><i class="fas fa-phone"></i> 012 345 678 / 098 765 432</li>
-                        <li><i class="fas fa-envelope"></i> info@khmersmile.org</li>
-                    </ul>
-                </div>
-            </div>
-            <div class="col-lg-3 col-md-6">
-                <div class="footer-newsletter">
-                    <h4>ជាវព័ត៌មាន</h4>
-                    <p>ទទួលព័ត៌មានថ្មីៗពីសកម្មភាពរបស់យើង</p>
-                    <form class="newsletter-form">
-                        <div class="input-group">
-                            <input type="email" placeholder="អ៊ីមែលរបស់អ្នក">
-                            <button type="submit"><i class="fas fa-paper-plane"></i></button>
-                        </div>
-                    </form>
-                    <p class="mt-3 small"><i class="fas fa-lock"></i> យើងមិនចែករំលែកព័ត៌មានរបស់អ្នកទេ</p>
-                </div>
-            </div>
+
+    <section class="py-5">
+        <div class="container">
+            <div class="section-header text-center"><div class="section-badge-center">សំណួរច្រើនសួរ</div><h2>សំណួរទូទៅអំពីការបរិច្ចាគអាហារ</h2></div>
+            <div class="row justify-content-center"><div class="col-lg-10"><div class="faq-container"><div class="faq-item"><div class="faq-question">តើអាហារប្រភេទណាខ្លះដែលអាចបរិច្ចាគបាន? <i class="fas fa-chevron-down"></i></div><div class="faq-answer">អ្នកអាចបរិច្ចាគអង្ករ មី ត្រីខ សាច់កំប៉ុង ប្រេងឆា ទឹកបរិសុទ្ធ ទឹកដោះគោទារក និងអាហារស្ងួតផ្សេងៗ។</div></div><div class="faq-item"><div class="faq-question">តើអាហារត្រូវមានលក្ខខណ្ឌបែបណា? <i class="fas fa-chevron-down"></i></div><div class="faq-answer">អាហារគួរស្ថិតក្នុងស្ថានភាពល្អ មិនទាន់ផុតកំណត់ និងវេចខ្ចប់យ៉ាងល្អ។</div></div><div class="faq-item"><div class="faq-question">តើអាចសុំឱ្យក្រុមការងារមកទទួលអាហារដល់ផ្ទះបានទេ? <i class="fas fa-chevron-down"></i></div><div class="faq-answer">បាទ។ អ្នកអាចជ្រើសរើសវិធីសាស្ត្រ “សុំឱ្យក្រុមការងារមកទទួល” ក្នុងទម្រង់បរិច្ចាគ។</div></div></div></div></div>
         </div>
-        <div class="footer-bottom">
-            <div class="row">
-                <div class="col-md-6"><p>&copy; ២០២៤ ស្នាមញញឹមខ្មែរ។ រក្សាសិទ្ធិគ្រប់យ៉ាង។</p></div>
-                <div class="col-md-6 text-md-end">
-                    <a href="#">គោលការណ៍ឯកជនភាព</a>
-                    <a href="#">លក្ខខណ្ឌប្រើប្រាស់</a>
+    </section>
+
+
+    <section class="cta-section">
+        <div class="container"><div class="cta-content" data-aos="zoom-in"><h2>ចូលរួមបរិច្ចាគអាហារឥឡូវនេះ</h2><p>មួយក្តាប់តូចរបស់អ្នកអាចបំពេញភាពអត់ឃ្លានរបស់អ្នកដទៃ</p><a href="#needed-food" class="btn btn-light btn-lg rounded-pill px-4"><i class="fas fa-utensils me-2"></i>បរិច្ចាគឥឡូវ</a></div></div>
+    </section>
+</main>
+
+
+ <footer class="site-footer bg-dark text-white">
+      <div class="footer-top py-5">
+        <div class="container">
+          <div class="row gy-4">
+            <div class="col-lg-4">
+              <a
+                href="#"
+                class="footer-brand d-inline-flex align-items-center gap-3 mb-3"
+              >
+                <img
+                  src="assets/img/photo_2026-04-02_12-02-02.jpg"
+                  alt="Logo"
+                  class="footer-logo"
+                />
+                <div>
+                  <span class="d-block fw-bold fs-4" style="color: var(--gold)"
+                    >ស្នាមញញឹមខ្មែរ</span
+                  >
+                  <small class="text-white-50">ផ្តល់ក្តីសង្ឃឹមតាមរយៈការបរិច្ចាគ</small>
                 </div>
+              </a>
+              <p class="footer-text text-white-75">
+               ចូលរួមជាមួយយើងក្នុងការចែករំលែកក្ដីស្រឡាញ់ និងការជួយដល់អ្នកខ្វះខាតតាមរយៈសកម្មភាពបរិច្ចាគ។
+យើងផ្តោតលើការគាំទ្រសហគមន៍ ការអប់រំ សុខភាព និងការអភិវឌ្ឍជីវភាពរស់នៅឱ្យកាន់តែប្រសើរ។
+              </p>
             </div>
+            <div class="col-lg-2 col-6">
+              <h5 class="footer-heading mb-3">ទំព័រ</h5>
+              <ul class="footer-links list-unstyled">
+                <li><a href="index.html">ទំព័រដើម</a></li>
+                <li><a href="donate.html">ការបរិច្ចាគ</a></li>
+                <li><a href="volunteering.html">ការស្ម័គ្រចិត្ត</a></li>
+                <li><a href="about.us.html">អំពីយើង</a></li>
+              </ul>
+            </div>
+            <div class="col-lg-2 col-6">
+              <h5 class="footer-heading mb-3">ចំណាត់ក្រុម</h5>
+              <ul class="footer-links list-unstyled">
+                <li><a href="profile.html">ប្រវត្តិរូប</a></li>
+                <li><a href="login.html">ចូលប្រើ</a></li>
+                <li><a href="register.html">ចុះឈ្មោះ</a></li>
+                <li><a href="contact.html">ទំនាក់ទំនង</a></li>
+              </ul>
+            </div>
+            <div class="col-lg-4">
+              <h5 class="footer-heading mb-3">ទំនាក់ទំនង</h5>
+              <p class="footer-text text-white-75 mb-3">
+                យើងសហការជាមួយសហគមន៍ក្នុងការចែករំលែកក្ដីស្រឡាញ់ និងការជួយគ្នាតាមរយៈសកម្មភាពបរិច្ចាគ ដើម្បីគាំទ្រអ្នកខ្វះខាត និងអភិវឌ្ឍសង្គមកម្ពុជា។ សូមទាក់ទងមកយើង ដើម្បីចូលរួមបរិច្ចាគ និងទទួលបានព័ត៌មានបន្ថែម។
+              </p>
+              <ul class="footer-contact list-unstyled mb-4">
+                <li>
+                  <i class="fa-solid fa-envelope me-2"></i
+                  ><a href="mailto:info@tourism.org">info@tourism.org</a>
+                </li>
+                <li>
+                  <i class="fa-solid fa-phone me-2"></i
+                  ><a href="tel:+85512345678">+855 12 345 678</a>
+                </li>
+                <li>
+                  <i class="fa-solid fa-location-dot me-2"></i
+                  ><span>ភ្នំពេញ, កម្ពុជា</span>
+                </li>
+              </ul>
+              <div class="footer-social d-flex gap-3">
+                <a href="#" aria-label="Facebook"
+                  ><i class="fa-brands fa-facebook-f"></i
+                ></a>
+                <a href="#" aria-label="Instagram"
+                  ><i class="fa-brands fa-instagram"></i
+                ></a>
+                <a href="#" aria-label="Twitter"
+                  ><i class="fa-brands fa-twitter"></i
+                ></a>
+                <a href="#" aria-label="YouTube"
+                  ><i class="fa-brands fa-youtube"></i
+                ></a>
+              </div>
+            </div>
+          </div>
         </div>
-    </div>
-</footer>
+      </div>
+      <div class="footer-bottom py-3 border-top border-white-25">
+        <div
+          class="container d-flex flex-column flex-md-row justify-content-between align-items-center gap-3"
+        >
+          <p class="mb-0 text-white-50 small">
+            © 2026 ស្នាមញញឹមខ្មែរ. រក្សាសិទ្ធិគ្រប់យ៉ាង។
+          </p>
+          <div class="footer-bottom-links d-flex gap-3">
+            <a href="#">គោលការណ៍ភាពឯកជន</a>
+            <a href="#">លក្ខខណ្ឌប្រើប្រាស់</a>
+            <a href="#">ជំនួយ</a>
+          </div>
+        </div>
+      </div>
+    </footer>
 
-<!-- ============================================ -->
-<!-- BACK TO TOP BUTTON
-<!-- ============================================ -->
-<button id="backToTop" class="back-to-top">
-    <i class="fas fa-arrow-up"></i>
-</button>
 
-<!-- ============================================ -->
-<!-- SCRIPTS
-<!-- ============================================ -->
+<button id="backToTop" class="back-to-top"><i class="fas fa-arrow-up"></i></button>
+
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
 <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
-<script src="/js/Food donation.js"></script>
+<script>
+    (function() {
+        AOS.init({ duration: 700, once: true });
+        window.addEventListener('load', () => {
+            const preloader = document.getElementById('preloader');
+            preloader.style.opacity = '0';
+            setTimeout(() => preloader.style.display = 'none', 400);
+        });
+
+        // counter animation
+        const counters = document.querySelectorAll('.counter-fact');
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    const counter = entry.target;
+                    const target = +counter.getAttribute('data-target');
+                    let count = 0;
+                    const increment = target / 45;
+                    const update = () => {
+                        count += increment;
+                        if (count < target) {
+                            counter.innerText = Math.ceil(count);
+                            requestAnimationFrame(update);
+                        } else counter.innerText = target.toLocaleString();
+                    };
+                    update();
+                    observer.unobserve(counter);
+                }
+            });
+        }, { threshold: 0.4 });
+        counters.forEach(c => observer.observe(c));
+
+        // show donation form on food button click
+        const donateBtns = document.querySelectorAll('.btn-donate-food');
+        const formSection = document.getElementById('donationFormSection');
+        const selectedFoodInput = document.getElementById('selectedFoodType');
+        const foodTypeDisplay = document.getElementById('foodTypeDisplay');
+        const selectedInfo = document.getElementById('selectedFoodInfo');
+
+        donateBtns.forEach(btn => {
+            btn.addEventListener('click', () => {
+                const foodName = btn.getAttribute('data-food');
+                selectedFoodInput.value = foodName;
+                foodTypeDisplay.value = foodName;
+                selectedInfo.innerText = `អ្នកកំពុងបរិច្ចាគ៖ ${foodName}`;
+                formSection.style.display = 'block';
+                window.scrollTo({ top: formSection.offsetTop - 80, behavior: 'smooth' });
+            });
+        });
+
+        // toggle pickup address
+        const deliverySelect = document.getElementById('deliveryMethod');
+        const pickupDiv = document.querySelector('.pickup-address');
+        if (deliverySelect) {
+            deliverySelect.addEventListener('change', () => {
+                pickupDiv.style.display = deliverySelect.value === 'pickup' ? 'block' : 'none';
+            });
+        }
+
+        // FAQ toggle
+        document.querySelectorAll('.faq-question').forEach(q => {
+            q.addEventListener('click', () => {
+                const ans = q.nextElementSibling;
+                ans.style.display = ans.style.display === 'block' ? 'none' : 'block';
+            });
+        });
+        // Back to top
+        const backBtn = document.getElementById('backToTop');
+        window.addEventListener('scroll', () => backBtn.style.display = window.scrollY > 300 ? 'flex' : 'none');
+        backBtn.addEventListener('click', () => window.scrollTo({ top: 0, behavior: 'smooth' }));
+
+        // form submit
+        const form = document.getElementById('foodDonationForm');
+        form.addEventListener('submit', (e) => {
+            e.preventDefault();
+            alert('អរគុណសម្រាប់ការបរិច្ចាគអាហារ! ក្រុមការងារនឹងទាក់ទងអ្នកក្នុងពេលឆាប់ៗ។');
+            form.reset();
+            formSection.style.display = 'none';
+        });
+    })();
+</script>
 </body>
 </html>
