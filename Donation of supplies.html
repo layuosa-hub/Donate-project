@@ -380,11 +380,9 @@
     </style>
 </head>
 <body>
-
-<!-- PRELOADER -->
 <div id="preloader"><div class="loader"></div></div>
 
-<!-- ========== HEADER : EXACT STYLE FROM REFERENCE (first page) ========== -->
+
  <header class="container-fluid py-4 sticky-top main-header">
         <div class="row align-items-center px-lg-5">
           <div class="col-lg-2 col-6">
@@ -436,7 +434,7 @@
                     <li>
                       <a
                         class="dropdown-item d-flex align-items-center"
-                        href="#blood-donation"
+                        href="Blood donation.html"
                         ><i class="fa-solid fa-droplet me-3 text-danger"></i
                         >ការបរិច្ចាគឈាម</a
                       >
@@ -444,7 +442,7 @@
                     <li>
                       <a
                         class="dropdown-item d-flex align-items-center"
-                        href="#material-donation"
+                        href="Donation of supplies.html"
                         ><i class="fa-solid fa-box-open me-3 text-primary"></i
                         >ការបរិច្ចាគសម្ភារះ</a
                       >
@@ -465,24 +463,6 @@
                         href="Food donation.html"
                         ><i class="fa-solid fa-utensils me-3 text-warning"></i
                         >បរិច្ចាគអាហារ</a
-                      >
-                    </li>
-                    <li>
-                      <a
-                        class="dropdown-item d-flex align-items-center"
-                        href="#time-donation"
-                        ><i class="fa-solid fa-clock me-3 text-info"></i
-                        >បរិច្ចាគពេលវេលា</a
-                      >
-                    </li>
-                    <li>
-                      <a
-                        class="dropdown-item d-flex align-items-center"
-                        href="#rebuild-donation"
-                        ><i
-                          class="fa-solid fa-trowel-bricks me-3 text-secondary"
-                        ></i
-                        >ការសាងសង</a
                       >
                     </li>
                     <li><hr class="dropdown-divider" /></li>
@@ -786,7 +766,7 @@
             </div>
           </div>
         </div>
-      </header>
+</header>
 
 
 <div class="modal fade" id="searchModal" tabindex="-1">
@@ -801,7 +781,7 @@
 </div>
 
 <main>
-    <!-- PAGE HEADER -->
+ 
     <section class="material-header">
         <div class="container" data-aos="fade-up">
             <div class="material-icon"><i class="fas fa-boxes"></i></div>
@@ -810,7 +790,7 @@
         </div>
     </section>
 
-    <!-- NEEDED MATERIALS -->
+   
     <section class="py-5">
         <div class="container">
             <div class="section-header text-center" data-aos="fade-up">
@@ -826,7 +806,7 @@
         </div>
     </section>
 
-    <!-- DONATION FORM SECTION -->
+
     <section class="py-5 bg-light" id="donation-form-section">
         <div class="container">
             <div class="row justify-content-center">
@@ -846,7 +826,7 @@
                                 <div class="col-md-6"><div class="form-group"><label>វិធីសាស្ត្រដឹកជញ្ជូន</label><select class="form-control" id="deliveryMethod"><option value="bring">នាំយកទៅទីតាំងដោយខ្លួនឯង</option><option value="pickup">សុំឱ្យក្រុមការងារមកទទួល</option></select></div></div>
                                 <div class="col-12" id="pickupAddressDiv" style="display:none;"><div class="form-group"><label>អាសយដ្ឋានសម្រាប់មកទទួល</label><textarea class="form-control" rows="2" placeholder="អាសយដ្ឋានលម្អិត"></textarea></div></div>
                                 <div class="col-12"><div class="form-check"><input type="checkbox" class="form-check-input" id="termsCheck" required><label class="form-check-label">ខ្ញុំបញ្ជាក់ថាព័ត៌មានត្រឹមត្រូវ និងសម្ភារៈស្ថិតក្នុងស្ថានភាពល្អ</label></div></div>
-                                <div class="col-12"><button type="submit" class="btn-submit"><i class="fas fa-hand-holding-heart me-2"></i>បញ្ជូនព័ត៌មានបរិច្ចាគ</button></div>
+                                <div class="col-12"><button type="submit" class="btn-submit" data-bs-toggle="modal" data-bs-target="#successModal"><i class="fas fa-hand-holding-heart me-2"></i>បញ្ជូនព័ត៌មានបរិច្ចាគ</button></div>
                             </div>
                         </form>
                     </div>
@@ -854,8 +834,45 @@
             </div>
         </div>
     </section>
+        <div
+                        class="modal fade"
+                        id="successModal"
+                        tabindex="-1"
+                        aria-hidden="true"
+                      >
+                        <div class="modal-dialog modal-dialog-centered">
+                          <div
+                            class="modal-content text-center p-4 border-0 "
+                            style="border-radius: 28px"
+                          >
+                            <div class="modal-body">
+                              <div class="mb-3">
+                                <i
+                                  class="fas fa-check-circle text-success"
+                                  style="font-size: 5rem"
+                                ></i>
+                              </div>
+                              <h2 class="fw-bold text-success mb-3">ជោគជ័យ!</h2>
+                              <p class="text-muted mb-4">
+                                ព័ត៌មានបរិច្ចាគរបស់អ្នកត្រូវបានបញ្ជូនដោយជោគជ័យ។
+                                ក្រុមការងារនឹងទាក់ទងទៅលោកអ្នកក្នុងពេលឆាប់ៗ។
+                              </p>
+                              <button
+                                type="button"
+                                class="btn btn-primary rounded-pill px-5 py-2"
+                                data-bs-dismiss="modal"
+                                style="
+                                  background-color: var(--primary-blue);
+                                  border: none;
+                                "
+                              >
+                                យល់ព្រម
+                              </button>
+                            </div>
+                          </div>
+                        </div>
+        </div>
 
-    <!-- DROP-OFF LOCATIONS -->
     <section class="py-5">
         <div class="container">
             <div class="section-header text-center"><div class="section-badge-center">ទីតាំងទទួលសម្ភារៈ</div><h2>ទីតាំងទទួលសម្ភារៈបរិច្ចាគ</h2></div>
@@ -867,7 +884,7 @@
         </div>
     </section>
 
-    <!-- IMPACT SECTION -->
+  
     <section class="py-5 bg-light">
         <div class="container">
             <div class="row align-items-center">
@@ -877,7 +894,7 @@
         </div>
     </section>
 
-    <!-- FAQ -->
+  
     <section class="py-5">
         <div class="container">
             <div class="section-header text-center"><div class="section-badge-center">សំណួរច្រើនសួរ</div><h2>សំណួរទូទៅអំពីការបរិច្ចាគសម្ភារៈ</h2></div>
