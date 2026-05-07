@@ -3,583 +3,968 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
-    <title>បរិច្ចាគឈាម - ស្នាមញញឹមខ្មែរ</title>
-    
-    <!-- Bootstrap CSS -->
+    <title>បរិច្ចាគឈាម - ស្នាមញញឹមខ្មែរ (ងាយស្រួលប្រើ)</title>
+
+    <!-- External Libraries -->
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
-    
-    <!-- Font Awesome -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-    
-    <!-- Google Fonts -->
-    <link href="https://fonts.googleapis.com/css2?family=Kantumruy+Pro:wght@300;400;500;600;700&display=swap" rel="stylesheet">
-    
-    <!-- AOS Animation -->
+    <link href="https://fonts.googleapis.com/css2?family=Kantumruy+Pro:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
     <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
-    
-    <!-- Custom CSS -->
-    <link rel="stylesheet" href="/Donate-project/assets/css/Blood donation.css">
+    <link rel="stylesheet" href="assets/css/style2.css">
+    <link rel="stylesheet" href="assets/css/Footer.css">
+
+    <style>
+        :root {
+            --primary-blue: #1a5a96;
+            --accent-blue: #00adef;
+            --gold: #f39c12;
+            --dark-blue: #0b2b44;
+            --glass-white: rgba(255, 255, 255, 0.96);
+            --footer-bg: #16467a;
+            --text-gold: #f39c12;
+            --light-bg: #fefcf5;
+            --blood-red: #c0392b;
+        }
+
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+
+        body {
+            font-family: 'Kantumruy Pro', sans-serif;
+            background-color: var(--light-bg);
+            color: #1e2a3e;
+            overflow-x: hidden;
+        }
+
+        /* Preloader */
+        #preloader {
+            position: fixed;
+            top: 0; left: 0; width: 100%; height: 100%;
+            background: white; z-index: 9999;
+            display: flex; align-items: center; justify-content: center;
+            transition: opacity 0.4s;
+        }
+        .loader {
+            width: 50px; height: 50px;
+            border: 5px solid #e2e8f0; border-top: 5px solid var(--primary-blue);
+            border-radius: 50%; animation: spin 1s linear infinite;
+        }
+        @keyframes spin { 100% { transform: rotate(360deg); } }
+
+        /* Header */
+        .main-header {
+            background: rgba(255, 255, 255, 0.98);
+            backdrop-filter: blur(12px);
+            box-shadow: 0 8px 28px rgba(0,0,0,0.08);
+            border-bottom: 1px solid rgba(0,0,0,0.05);
+        }
+        .navbar-pill {
+            background: var(--glass-white);
+            backdrop-filter: blur(10px);
+            border-radius: 60px;
+            padding: 0.3rem 1.8rem;
+            box-shadow: 0 6px 18px rgba(0,0,0,0.08);
+        }
+        .navbar-pill .nav-link {
+            color: var(--primary-blue) !important;
+            font-weight: 600;
+            border-radius: 40px;
+            transition: 0.2s;
+        }
+        .navbar-pill .nav-link:hover,
+        .navbar-pill .nav-link.active {
+            color: var(--accent-blue) !important;
+            background: rgba(0,173,239,0.08);
+        }
+        .dropdown-menu {
+            border-radius: 20px; border: none; box-shadow: 0 15px 35px rgba(0,0,0,0.1);
+        }
+        .notification-badge {
+            width: 10px; height: 10px; background: #e53e3e;
+            border-radius: 50%; top: 2px; right: 2px; position: absolute;
+        }
+
+        /* Blood Header */
+        .blood-header {
+            background: linear-gradient(120deg, #b03a2e 0%, #7b241c 100%);
+            padding: 110px 0 60px;
+            color: white; text-align: center;
+        }
+        .blood-icon i {
+            font-size: 4rem; background: rgba(255,255,255,0.2);
+            padding: 20px; border-radius: 60px; margin-bottom: 20px;
+        }
+        .section-badge-center {
+            display: inline-block; background: rgba(255,255,255,0.2);
+            color: white; padding: 0.4rem 1.2rem;
+            border-radius: 40px; font-weight: 600; font-size: 0.85rem;
+            margin-bottom: 1rem;
+        }
+        .stat-card {
+            background: white; border-radius: 28px; padding: 1.5rem 0.8rem;
+            text-align: center; box-shadow: 0 15px 30px rgba(0,0,0,0.05);
+            transition: transform 0.3s;
+            cursor: pointer;
+        }
+        .stat-card:hover { transform: translateY(-5px); }
+        .stat-card i { font-size: 2rem; color: var(--blood-red); margin-bottom: 0.8rem; }
+        .stat-card h2 { font-size: 1.8rem; font-weight: 800; color: var(--primary-blue); }
+
+        /* Easy-use components */
+        .step-card {
+            background: white; border-radius: 28px; padding: 1.2rem;
+            text-align: center; box-shadow: 0 5px 15px rgba(0,0,0,0.05);
+            border-bottom: 4px solid var(--blood-red);
+        }
+        .step-number {
+            width: 48px; height: 48px; background: var(--blood-red);
+            color: white; border-radius: 60px; display: inline-flex;
+            align-items: center; justify-content: center; font-size: 1.5rem;
+            font-weight: bold; margin-bottom: 1rem;
+        }
+        .form-card-simple {
+            background: white; border-radius: 32px; padding: 1.8rem;
+            box-shadow: 0 20px 35px rgba(0,0,0,0.08);
+        }
+        .form-control-lg-custom {
+            border-radius: 60px; padding: 0.9rem 1.2rem;
+            border: 1px solid #dee2e6; font-size: 1rem;
+        }
+        .form-control-lg-custom:focus {
+            border-color: var(--blood-red);
+            box-shadow: 0 0 0 3px rgba(192,57,43,0.2);
+        }
+        .btn-easy {
+            background: var(--blood-red); border: none;
+            padding: 14px 28px; border-radius: 60px; color: white;
+            font-weight: bold; font-size: 1.1rem; width: 100%;
+            transition: 0.2s;
+        }
+        .btn-easy:hover { background: #e74c3c; transform: scale(0.98); }
+        .btn-outline-easy {
+            border: 2px solid var(--blood-red); background: transparent;
+            padding: 10px 20px; border-radius: 60px; color: var(--blood-red);
+            font-weight: bold;
+        }
+        .blood-type-selector {
+            display: flex; flex-wrap: wrap; gap: 12px; margin: 15px 0;
+            justify-content: center;
+        }
+        .blood-option {
+            background: #fff0f0; padding: 10px 18px; border-radius: 60px;
+            font-weight: bold; cursor: pointer; transition: 0.2s;
+            border: 2px solid transparent;
+        }
+        .blood-option.selected {
+            background: var(--blood-red); color: white; border-color: #a93226;
+        }
+        .faq-item {
+            background: white; border-radius: 24px; margin-bottom: 1rem;
+            cursor: pointer;
+        }
+        .faq-question {
+            padding: 1.2rem 1.5rem; font-weight: 700;
+            display: flex; justify-content: space-between;
+        }
+        .faq-answer { padding: 0 1.5rem 1.2rem; display: none; color: #4a5568; border-top: 1px solid #edf2f7; }
+        
+        .quick-info {
+            background: #e8f8f5; border-radius: 20px; padding: 1rem;
+            margin-top: 1rem;
+        }
+        .back-to-top {
+            position: fixed; bottom: 30px; right: 30px;
+            background: var(--blood-red); width: 48px; height: 48px;
+            border-radius: 60px; color: white; display: none;
+            align-items: center; justify-content: center; z-index: 99; border: none;
+        }
+        .custom-footer {
+            background-color: var(--footer-bg); color: white; padding-top: 3rem;
+        }
+        .text-gold { color: var(--text-gold); }
+        .social-icon {
+            background: rgba(255,255,255,0.12); width: 38px; height: 38px;
+            display: inline-flex; align-items: center; justify-content: center;
+            border-radius: 50%; margin-right: 10px; transition: 0.2s;
+        }
+        .social-icon:hover { background: var(--gold); color: black; }
+        @media (max-width:768px) {
+            .blood-header { padding-top: 100px; }
+            .step-number { width: 40px; height: 40px; font-size: 1.2rem; }
+        }
+    </style>
 </head>
 <body>
 
-<!-- ============================================ -->
+<div id="preloader"><div class="loader"></div></div>
 
-<!-- ============================================ -->
-<div id="preloader">
-    <div class="loader"></div>
-</div>
 
-<!-- ============================================ -->
+<header class="container-fluid py-4 sticky-top main-header">
+        <div class="row align-items-center px-lg-5">
+          <div class="col-lg-2 col-6">
+            <div class="d-flex align-items-center">
+              <img
+                src="assets/img/photo_2026-04-02_12-02-02.jpg"
+                alt="Logo"
+                style="
+                  height: 60px;
+                  filter: drop-shadow(2px 2px 4px rgba(0, 0, 0, 0.3));
+                "
+              />
+              <div class="ms-2 lh-1">
+                <span class="fw-bold d-block fs-4" style="color: var(--gold)"
+                  >ស្នាមញញឹមខ្មែរ</span
+                >
+                <small class="text-white-50" style="font-size: 0.7rem"
+                  >ផ្តល់ក្តីសង្ឃឹមតាមរយៈការបរិច្ចាគ</small
+                >
+              </div>
+            </div>
+          </div>
 
-<!-- ============================================ -->
-<nav class="navbar navbar-expand-lg navbar-dark fixed-top" id="mainNav">
-    <div class="container">
-        <a class="navbar-brand" href="index.html">
-            <i class="fas fa-smile-wink"></i>
-            <span>ស្នាមញញឹមខ្មែរ</span>
-        </a>
-        
-        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
-            <span class="navbar-toggler-icon"></span>
-        </button>
-        
-        <div class="collapse navbar-collapse" id="navbarNav">
-            <ul class="navbar-nav ms-auto">
-                <li class="nav-item"><a class="nav-link" href="index.html">ទំព័រដើម</a></li>
-                <li class="nav-item"><a class="nav-link" href="about.html">អំពីយើង</a></li>
-                <li class="nav-item"><a class="nav-link" href="donate.html">បរិច្ចាគ</a></li>
-                <li class="nav-item"><a class="nav-link active" href="blood-donation.html">បរិច្ចាគឈាម</a></li>
-                <li class="nav-item"><a class="nav-link" href="volunteer.html">ស្ម័គ្រចិត្ត</a></li>
-                <li class="nav-item"><a class="nav-link" href="impact.html">សមត្ថផល</a></li>
-                <li class="nav-item"><a class="nav-link" href="news.html">ព័ត៌មាន</a></li>
-                <li class="nav-item"><a class="nav-link" href="faq.html">FAQ</a></li>
+          <div class="col-lg-7 d-none d-lg-flex justify-content-center">
+            <nav class="navbar-pill">
+              <ul class="nav">
+                <li class="nav-item">
+                  <a class="nav-link fw-bold px-3 text-white" href="#"
+                    >ទំព័រដើម</a
+                  >
+                </li>
+
                 <li class="nav-item dropdown">
-                    <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown">
-                        <i class="fas fa-user"></i> គណនី
-                    </a>
-                    <ul class="dropdown-menu">
-                        <li><a class="dropdown-item" href="login.html">ចូលប្រើប្រាស់</a></li>
-                        <li><a class="dropdown-item" href="register.html">ចុះឈ្មោះ</a></li>
-                        <li><hr class="dropdown-divider"></li>
-                        <li><a class="dropdown-item" href="profile.html">ទម្រង់របស់ខ្ញុំ</a></li>
-                    </ul>
+                  <a
+                    class="nav-link fw-bold px-3 dropdown-toggle text-white"
+                    href="#"
+                    id="donateDropdown"
+                    role="button"
+                    data-bs-toggle="dropdown"
+                    aria-expanded="false"
+                  >
+                    ការបរិច្ចាគ
+                  </a>
+                  <ul
+                    class="dropdown-menu shadow-sm rounded-4 border-0"
+                    aria-labelledby="donateDropdown"
+                  >
+                    <li><h6 class="dropdown-header">ប្រភេទការបរិច្ចាគ</h6></li>
+                    <li>
+                      <a
+                        class="dropdown-item d-flex align-items-center"
+                        href="Blood donation.html"
+                        ><i class="fa-solid fa-droplet me-3 text-danger"></i
+                        >ការបរិច្ចាគឈាម</a
+                      >
+                    </li>
+                    <li>
+                      <a
+                        class="dropdown-item d-flex align-items-center"
+                        href="Donation of supplies.html"
+                        ><i class="fa-solid fa-box-open me-3 text-primary"></i
+                        >ការបរិច្ចាគសម្ភារះ</a
+                      >
+                    </li>
+                    <li>
+                      <a
+                        class="dropdown-item d-flex align-items-center"
+                        href="Money donation.html"
+                        ><i
+                          class="fa-solid fa-hand-holding-dollar me-3 text-success"
+                        ></i
+                        >ការបរិច្ចាគប្រាក់</a
+                      >
+                    </li>
+                    <li>
+                      <a
+                        class="dropdown-item d-flex align-items-center"
+                        href="Food donation.html"
+                        ><i class="fa-solid fa-utensils me-3 text-warning"></i
+                        >បរិច្ចាគអាហារ</a
+                      >
+                    </li>
+                    <li><hr class="dropdown-divider" /></li>
+                    <li>
+                      <div class="dropdown-item-text text-muted small">
+                        <i class="fa-solid fa-circle-info me-2"></i
+                        >ស្វែងរកប្រភេទការបរិច្ចាគដែលសាកសម។
+                      </div>
+                    </li>
+                  </ul>
+                </li>
+
+                <li class="nav-item dropdown">
+                  <a
+                    class="nav-link fw-bold px-3 dropdown-toggle text-white"
+                    href="#"
+                    id="volunteerDropdown"
+                    role="button"
+                    data-bs-toggle="dropdown"
+                    aria-expanded="false"
+                  >
+                    ការស្ម័គ្រចិត្ត
+                  </a>
+                  <ul
+                    class="dropdown-menu shadow-sm rounded-4 border-0"
+                    aria-labelledby="volunteerDropdown"
+                  >
+                    <li>
+                      <h6 class="dropdown-header">កម្មវិធីស្ម័គ្រចិត្ត</h6>
+                    </li>
+                    <li>
+                      <a class="dropdown-item" href="#event-volunteer"
+                        ><i
+                          class="fa-solid fa-calendar-check me-2 text-primary"
+                        ></i
+                        >ស្ម័គ្រចិត្តតាមព្រឹត្តិការណ៍</a
+                      >
+                    </li>
+                    <li>
+                      <a class="dropdown-item" href="#community-teaching"
+                        ><i
+                          class="fa-solid fa-chalkboard-user me-2 text-success"
+                        ></i
+                        >ការបង្រៀនសហគមន៍</a
+                      >
+                    </li>
+                    <li>
+                      <a class="dropdown-item" href="#medical-volunteer"
+                        ><i class="fa-solid fa-user-doctor me-2 text-danger"></i
+                        >ក្រុមការងារសុខាភិបាល</a
+                      >
+                    </li>
+                    <li>
+                      <a class="dropdown-item" href="#digital-volunteer"
+                        ><i class="fa-solid fa-laptop-code me-2 text-info"></i
+                        >ស្ម័គ្រចិត្តផ្នែកឌីជីថល</a
+                      >
+                    </li>
+                    <li><hr class="dropdown-divider" /></li>
+                    <li>
+                      <a class="dropdown-item" href="#register-volunteer"
+                        ><i class="fa-solid fa-pen-to-square me-2"></i
+                        >ចុះឈ្មោះជាអ្នកស្ម័គ្រចិត្ត</a
+                      >
+                    </li>
+                  </ul>
+                </li>
+
+                <li class="nav-item">
+                  <a class="nav-link fw-bold px-3 text-white" href="contact.html"
+                    >ទំនាក់ទំនង</a
+                  >
                 </li>
                 <li class="nav-item">
-                    <a href="donate.html" class="btn-donate-nav">
-                        <i class="fas fa-heart"></i> បរិច្ចាគ
-                    </a>
+                  <a class="nav-link fw-bold px-3 text-white" href="about.us.html"
+                    >អំពីយើង</a
+                  >
                 </li>
-            </ul>
-        </div>
+              </ul>
+            </nav>
+          </div>
+
+          <div
+            class="col-lg-3 col-6 d-flex align-items-center justify-content-end gap-2"
+          >
+            <button
+              class="btn bg-white rounded-circle shadow-sm d-flex align-items-center justify-content-center"
+              style="width: 40px; height: 40px; border: none"
+             data-bs-toggle="modal" data-bs-target="#exampleModal"
+            >
+              <i
+                class="fa-solid fa-magnifying-glass"
+                style="color: var(--primary-blue)"
+              ></i>
+            </button>
+
+            <div
+              class="modal fade"
+             id="exampleModal"
+             tabindex="-1" 
+             aria-labelledby="exampleModalLabel" 
+             aria-hidden="true"
+             data-bs-backdrop="false"
+            >
+              <div class="modal-dialog modal-lg modal-dialog-centered">
+                <div class="modal-content border-0 shadow-lg">
+                  <div class="modal-body p-4">
+                    <div class="d-flex align-items-center mb-3">
+                      <i
+                        class="fa-solid fa-magnifying-glass me-3 fs-4 text-primary"
+                      ></i>
+                      <input
+                        type="text"
+                        id="searchInput"
+                        class="form-control form-control-lg border-0 shadow-none ps-0"
+                        placeholder="ស្វែងរកកម្មវិធីបរិច្ចាគ ឬការងារស្ម័គ្រចិត្ត..."
+                        autocomplete="off"
+                      />
+                      <button
+                        type="button"
+                        class="btn-close shadow-none"
+                        data-bs-dismiss="modal"
+                        aria-label="Close"
+                      ></button>
+                    </div>
+
+                    <hr class="mt-0 opacity-10" />
+
+                    <div id="searchSuggestions" class="mt-3">
+                      <h6
+                        class="text-uppercase text-muted small fw-bold mb-3"
+                        id="searchStatus"
+                      >
+                        តំណភ្ជាប់រហ័ស
+                      </h6>
+                      <div class="list-group list-group-flush" id="resultsList">
+                        <a
+                          href="#blood-donation"
+                          class="list-group-item list-group-item-action border-0 rounded-3 mb-1 py-2"
+                        >
+                          <i class="fa-solid fa-droplet me-2 text-danger"></i>
+                          ការបរិច្ចាគឈាម
+                        </a>
+                        <a
+                          href="#event-volunteer"
+                          class="list-group-item list-group-item-action border-0 rounded-3 mb-1 py-2"
+                        >
+                          <i
+                            class="fa-solid fa-calendar-check me-2 text-primary"
+                          ></i>
+                          ស្ម័គ្រចិត្តតាមព្រឹត្តិការណ៍
+                        </a>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+           <div class="dropdown">
+  <button
+    class="btn bg-white rounded-circle shadow-sm d-flex align-items-center justify-content-center position-relative"
+    style="width: 40px; height: 40px; border: none"
+    type="button"
+    id="notificationBell"
+    data-bs-toggle="dropdown"
+    data-bs-auto-close="outside" 
+    aria-expanded="false"
+  >
+    <i class="fa-solid fa-bell" style="color: var(--primary-blue)"></i>
+    <span class="position-absolute top-0 start-100 translate-middle p-1 bg-danger border border-2 border-light rounded-circle notification-badge">
+      <span class="visually-hidden">New notifications</span>
+    </span>
+  </button>
+
+  <ul class="dropdown-menu dropdown-menu-end shadow-lg border-0 rounded-4 mt-3 py-0 overflow-hidden" style="width: 350px">
+    <li class="px-3 py-3 bg-white border-bottom d-flex justify-content-between align-items-center">
+      <h6 class="fw-bold text-dark mb-0">ការជូនដំណឹង</h6>
+      <button class="btn btn-link btn-sm text-decoration-none p-0 text-primary small fw-bold">អានទាំងអស់</button>
+    </li>
+
+    <div class="notification-items" style="max-height: 380px; overflow-y: auto;">
+     <li>
+  <a class="dropdown-item unread-item d-flex align-items-start gap-3 py-3 px-3 border-bottom" href="#">
+    <div class="icon-circle bg-warning-subtle text-warning rounded-circle d-flex align-items-center justify-content-center" style="width: 45px; height: 45px; flex-shrink: 0;">
+      <i class="fa-solid fa-hand-holding-hand"></i>
     </div>
-</nav>
+    <div class="flex-grow-1">
+      <p class="mb-1 text-dark small"><b>ជំនួយដល់ជនភៀសខ្លួន៖</b> សម្ភារៈប្រើប្រាស់ចាំបាច់ត្រូវបានបញ្ជូនទៅដល់មជ្ឈមណ្ឌលហើយ។</p>
+      <span class="text-muted extra-small">៣០ នាទីមុន</span>
+    </div>
+    <div class="unread-dot"></div>
+  </a>
+</li>
 
-<!-- ============================================ -->
+<li>
+  <a class="dropdown-item d-flex align-items-start gap-3 py-3 px-3 border-bottom" href="#">
+    <div class="icon-circle bg-info-subtle text-info rounded-circle d-flex align-items-center justify-content-center" style="width: 45px; height: 45px; flex-shrink: 0;">
+      <i class="fa-solid fa-file-invoice-dollar"></i>
+    </div>
+    <div class="flex-grow-1">
+      <p class="mb-1 text-dark small"><b>របាយការណ៍ហិរញ្ញវត្ថុ៖</b> ការបរិច្ចាគប្រាក់ប្រចាំខែមីនា ត្រូវបានប្រើប្រាស់ក្នុងគម្រោងសាងសង់សាលារៀន។</p>
+      <span class="text-muted extra-small">៥ ម៉ោងមុន</span>
+    </div>
+  </a>
+</li>
 
-<!-- ============================================ -->
-<section class="blood-header">
-    <div class="container">
-        <div class="row justify-content-center text-center">
-            <div class="col-lg-8" data-aos="fade-up">
-                <div class="blood-icon">
-                    <i class="fas fa-droplet"></i>
-                </div>
-                <h1>បរិច្ចាគឈាម</h1>
-                <p>មួយដំណក់ឈាមរបស់អ្នកអាចសង្គ្រោះជីវិតមនុស្សបានដល់ទៅ ៣ នាក់</p>
-                <div class="breadcrumb-nav">
-                    <a href="index.html">ទំព័រដើម</a>
-                    <i class="fas fa-chevron-right"></i>
-                    <span>បរិច្ចាគឈាម</span>
-                </div>
+      <li>
+        <a class="dropdown-item d-flex align-items-start gap-3 py-3 px-3 border-bottom" href="#">
+          <div class="icon-circle bg-primary-subtle text-primary rounded-circle d-flex align-items-center justify-content-center" style="width: 45px; height: 45px; flex-shrink: 0;">
+            <i class="fa-solid fa-calendar-check"></i>
+          </div>
+          <div class="flex-grow-1">
+            <p class="mb-1 text-dark small"><b>ការស្ម័គ្រចិត្ត៖</b> កម្មវិធីសម្អាតឆ្នេរនឹងចាប់ផ្តើមនៅថ្ងៃស្អែកនេះ។</p>
+            <span class="text-muted extra-small">១ ម៉ោងមុន</span>
+          </div>
+        </a>
+      </li>
+    </div>
+
+    <li>
+      <a class="dropdown-item text-center py-2 text-primary fw-bold small border-top" href="#">មើលទាំងអស់</a>
+    </li>
+  </ul>
+</div>
+
+            <div class="dropdown">
+              <button
+                class="btn bg-white d-flex align-items-center gap-2 rounded-pill shadow-sm border-0 px-2 py-1"
+                type="button"
+                id="userProfileDropdown"
+                data-bs-toggle="dropdown"
+                aria-expanded="false"
+              >
+                <img
+                  src="assets/img/photoProfile.jpg"
+                  alt="Profile"
+                  class="rounded-circle border border-2 border-primary"
+                  style="width: 32px; height: 32px; object-fit: cover"
+                />
+                <i
+                  class="fa-solid fa-chevron-down small text-muted d-none d-md-block"
+                ></i>
+              </button>
+
+              <ul
+                class="dropdown-menu dropdown-menu-end shadow-lg border-0 rounded-4 mt-3 p-0 overflow-hidden"
+                aria-labelledby="userProfileDropdown"
+                style="width: 280px; background-color: #f8f9fa"
+              >
+                <li class="p-3 d-flex align-items-center gap-3 bg-white">
+                  <img
+                    src="assets/img/photoProfile.jpg"
+                    alt="User Avatar"
+                    class="rounded-circle shadow-sm"
+                    style="
+                      width: 60px;
+                      height: 60px;
+                      object-fit: cover;
+                      border: 2px solid #fff;
+                    "
+                  />
+                  <div class="lh-sm">
+                    <h6
+                      class="mb-1 fw-bold text-dark text-uppercase"
+                      style="letter-spacing: 0.5px"
+                    >
+                      ឡាយ​​​​ ឧស្សា
+                    </h6>
+                    <p class="mb-0 text-muted small">layusa07@gmail.com</p>
+                  </div>
+                </li>
+                <li><hr class="dropdown-divider m-0 opacity-10" /></li>
+                <li class="p-2">
+                  <a
+                    class="dropdown-item rounded-3 py-2 d-flex align-items-center"
+                    href="history.donation.html"
+                  >
+                    <i
+                      class="fa-solid fa-clock-rotate-left me-3 text-dark fs-5"
+                    ></i>
+                    <span class="fw-bold">ប្រវត្តិបរិច្ចាគ</span>
+                  </a>
+                  <a
+                    class="dropdown-item rounded-3 py-2 d-flex align-items-center"
+                    href="profile2.html"
+                  >
+                    <i class="fa-solid fa-gear me-3 text-dark fs-5"></i>
+                    <span class="fw-bold">ការកំណត់</span>
+                  </a>
+                  <hr class="dropdown-divider" />
+                  <a
+                    class="dropdown-item rounded-3 py-2 d-flex align-items-center text-danger"
+                    href="#"
+                    id="btnLogout"
+                  >
+                    <i class="fa-solid fa-right-from-bracket me-3 fs-5"></i>
+                    <span class="fw-bold">ចាកចេញ</span>
+                  </a>
+                </li>
+              </ul>
+            </div>
+          </div>
+        </div>
+</header>
+
+<main>
+
+
+    <section class="blood-header">
+        <div class="container" data-aos="fade-up">
+            <div class="blood-icon"><i class="fas fa-tint"></i></div>
+            <h1 class="display-5 fw-bold">បរិច្ចាគឈាម សង្គ្រោះជីវិត</h1>
+            <p class="fs-5">មួយកំប៉ុង = ជួយមនុស្ស ៣ នាក់</p>
+            <a href="#easyForm" class="btn btn-light btn-lg rounded-pill px-4 mt-3"><i class="fas fa-hand-holding-heart me-2"></i> ចុះឈ្មោះបរិច្ចាគឥឡូវ</a>
+        </div>
+    </section>
+
+
+    <section class="py-4">
+        <div class="container">
+            <div class="text-center mb-4">
+                <span class="section-badge-center bg-danger text-white">ងាយស្រួលតែ ៣ ជំហាន</span>
+                <h2>ចាប់ផ្ដើមបរិច្ចាគឈាមក្នុងរយៈពេលតែប៉ុន្មាននាទី</h2>
+            </div>
+            <div class="row g-4">
+                <div class="col-md-4" data-aos="fade-up"><div class="step-card"><div class="step-number">1</div><h4>បំពេញព័ត៌មាន</h4><p>ឈ្មោះ លេខទូរស័ព្ទ និងប្រភេទឈាម (បើមាន)</p></div></div>
+                <div class="col-md-4" data-aos="fade-up" data-aos-delay="100"><div class="step-card"><div class="step-number">2</div><h4>ជ្រើសរើសទីតាំងងាយស្រួល</h4><p>ជ្រើសមជ្ឈមណ្ឌលបរិច្ចាគឈាមដែលនៅជិតអ្នក</p></div></div>
+                <div class="col-md-4" data-aos="fade-up" data-aos-delay="200"><div class="step-card"><div class="step-number">3</div><h4>ទទួលការបញ្ជាក់</h4><p>ក្រុមការងារនឹងទាក់ទងដើម្បីបញ្ជាក់កាលបរិច្ឆេទ</p></div></div>
             </div>
         </div>
-    </div>
-</section>
+    </section>
 
-<!-- ============================================ -->
-<!-- BLOOD FACTS SECTION
-<!-- ============================================ -->
-<section class="blood-facts">
-    <div class="container">
-        <div class="row g-4">
-            <div class="col-md-3 col-6" data-aos="zoom-in">
-                <div class="fact-card">
-                    <i class="fas fa-heartbeat"></i>
-                    <h2 class="counter-fact" data-target="450">0</h2>
-                    <p>អ្នកត្រូវការឈាម/ថ្ងៃ</p>
-                </div>
-            </div>
-            <div class="col-md-3 col-6" data-aos="zoom-in" data-aos-delay="100">
-                <div class="fact-card">
-                    <i class="fas fa-clock"></i>
-                    <h2 class="counter-fact" data-target="90">0</h2>
-                    <p>វិនាទី/បរិច្ចាគម្តង</p>
-                </div>
-            </div>
-            <div class="col-md-3 col-6" data-aos="zoom-in" data-aos-delay="200">
-                <div class="fact-card">
-                    <i class="fas fa-tint"></i>
-                    <h2 class="counter-fact" data-target="350">0</h2>
-                    <p>មីលីលីត្រ/ម្តង</p>
-                </div>
-            </div>
-            <div class="col-md-3 col-6" data-aos="zoom-in" data-aos-delay="300">
-                <div class="fact-card">
-                    <i class="fas fa-calendar-alt"></i>
-                    <h2 class="counter-fact" data-target="90">0</h2>
-                    <p>ថ្ងៃ/បរិច្ចាគម្តងទៀត</p>
-                </div>
+   
+    <section class="py-3">
+        <div class="container">
+            <div class="row g-3">
+                <div class="col-4 col-md-3"><div class="stat-card"><i class="fas fa-tint"></i><h2 class="counter-fact" data-target="3250">0</h2><p>កំប៉ុង</p></div></div>
+                <div class="col-4 col-md-3"><div class="stat-card"><i class="fas fa-user-plus"></i><h2 class="counter-fact" data-target="1850">0</h2><p>អ្នកបរិច្ចាគ</p></div></div>
+                <div class="col-4 col-md-3"><div class="stat-card"><i class="fas fa-heartbeat"></i><h2 class="counter-fact" data-target="980">0</h2><p>ជីវិតបានសង្គ្រោះ</p></div></div>
+                <div class="col-12 col-md-3"><div class="stat-card"><i class="fas fa-map-marker-alt"></i><h2 class="counter-fact" data-target="12">0</h2><p>មជ្ឈមណ្ឌល</p></div></div>
             </div>
         </div>
-    </div>
-</section>
+    </section>
 
-<!-- ============================================ -->
-<!-- BLOOD ELIGIBILITY SECTION
-<!-- ============================================ -->
-<section class="blood-eligibility">
-    <div class="container">
-        <div class="row align-items-center">
-            <div class="col-lg-6" data-aos="fade-right">
-                <div class="section-badge">លក្ខខណ្ឌបរិច្ចាគឈាម</div>
-                <h2>តើអ្នកអាចបរិច្ចាគឈាមបានទេ?</h2>
-                <p>សូមពិនិត្យមើលលក្ខខណ្ឌខាងក្រោម មុនពេលចុះឈ្មោះបរិច្ចាគឈាម</p>
-                
-                <div class="eligibility-list">
-                    <div class="eligibility-item">
-                        <i class="fas fa-check-circle text-success"></i>
-                        <div>
-                            <h4>អាយុចន្លោះពី ១៨-៦០ ឆ្នាំ</h4>
-                            <p>អ្នកបរិច្ចាគឈាមត្រូវមានអាយុចន្លោះពី ១៨ ទៅ ៦០ ឆ្នាំ</p>
+ 
+    <section class="py-5 bg-light" id="easyForm">
+        <div class="container">
+            <div class="row justify-content-center">
+                <div class="col-lg-8" data-aos="zoom-in">
+                    <div class="form-card-simple">
+                        <div class="text-center mb-3">
+                            <i class="fas fa-hand-holding-heart fa-3x text-danger"></i>
+                            <h2 class="mt-2">ចុះឈ្មោះបរិច្ចាគឈាម</h2>
+                            <p>សូមបំពេញព័ត៌មានខាងក្រោម (ងាយស្រួល និងរហ័ស)</p>
                         </div>
-                    </div>
-                    <div class="eligibility-item">
-                        <i class="fas fa-check-circle text-success"></i>
-                        <div>
-                            <h4>ទម្ងន់យ៉ាងតិច ៤៥ គីឡូក្រាម</h4>
-                            <p>អ្នកបរិច្ចាគឈាមត្រូវមានទម្ងន់យ៉ាងតិច ៤៥ គីឡូក្រាម</p>
-                        </div>
-                    </div>
-                    <div class="eligibility-item">
-                        <i class="fas fa-check-circle text-success"></i>
-                        <div>
-                            <h4>សុខភាពល្អ គ្មានជំងឺឆ្លង</h4>
-                            <p>មិនមានជំងឺឆ្លងដូចជា រលាកថ្លើម អេដស៍ គ្រុនចាញ់</p>
-                        </div>
-                    </div>
-                    <div class="eligibility-item">
-                        <i class="fas fa-check-circle text-success"></i>
-                        <div>
-                            <h4>មិនប្រើប្រាស់គ្រឿងញៀន</h4>
-                            <p>មិនប្រើប្រាស់គ្រឿងញៀន ឬថ្នាំញៀន</p>
-                        </div>
-                    </div>
-                    <div class="eligibility-item">
-                        <i class="fas fa-check-circle text-success"></i>
-                        <div>
-                            <h4>មិនមានគ្រុនក្តៅ ២៤ ម៉ោងចុងក្រោយ</h4>
-                            <p>ត្រូវមានសុខភាពល្អ គ្មានគ្រុនក្តៅក្នុងរយៈពេល ២៤ ម៉ោង</p>
-                        </div>
-                    </div>
-                </div>
-            </div>
-            <div class="col-lg-6" data-aos="fade-left">
-                <div class="eligibility-image">
-                    <img src="https://images.unsplash.com/photo-1615461066841-6116e61058f4?w=600&h=500&fit=crop" 
-                         alt="Blood Donation" 
-                         class="img-fluid rounded-4 shadow-lg">
-                    <div class="image-caption">
-                        <i class="fas fa-quote-left"></i>
-                        បរិច្ចាគឈាម សង្គ្រោះជីវិត
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
-</section>
-
-<!-- ============================================ -->
-<!-- REGISTRATION FORM SECTION
-<!-- ============================================ -->
-<section class="registration-form">
-    <div class="container">
-        <div class="row justify-content-center">
-            <div class="col-lg-10" data-aos="fade-up">
-                <div class="form-card">
-                    <div class="form-header">
-                        <i class="fas fa-droplet"></i>
-                        <h3>ចុះឈ្មោះបរិច្ចាគឈាម</h3>
-                        <p>សូមបំពេញព័ត៌មានខាងក្រោមដើម្បីចុះឈ្មោះ</p>
-                    </div>
-                    
-                    <form id="bloodDonationForm">
-                        <div class="row">
-                            <div class="col-md-6">
-                                <div class="form-group">
-                                    <label><i class="fas fa-user"></i> នាមត្រកូល</label>
-                                    <input type="text" class="form-control" id="lastName" placeholder="ឧទាហរណ៍៖ សុខ" required>
+                        <form id="bloodDonationEasyForm">
+                            <div class="row g-3">
+                                <div class="col-md-6">
+                                    <label class="fw-semibold"><i class="fas fa-user me-1"></i> នាមខ្លួន</label>
+                                    <input type="text" class="form-control form-control-lg-custom" id="firstName" placeholder="ឧ: សុខា" required>
                                 </div>
-                            </div>
-                            <div class="col-md-6">
-                                <div class="form-group">
-                                    <label><i class="fas fa-user"></i> នាមខ្លួន</label>
-                                    <input type="text" class="form-control" id="firstName" placeholder="ឧទាហរណ៍៖ វិបុល" required>
+                                <div class="col-md-6">
+                                    <label class="fw-semibold"><i class="fas fa-user me-1"></i> នាមត្រកូល</label>
+                                    <input type="text" class="form-control form-control-lg-custom" id="lastName" placeholder="ឧ: ច័ន្ទ" required>
                                 </div>
-                            </div>
-                        </div>
-                        
-                        <div class="row">
-                            <div class="col-md-6">
-                                <div class="form-group">
-                                    <label><i class="fas fa-calendar-alt"></i> អាយុ</label>
-                                    <input type="number" class="form-control" id="age" placeholder="ឧទាហរណ៍៖ 25" required>
+                                <div class="col-md-6">
+                                    <label class="fw-semibold"><i class="fas fa-envelope me-1"></i> អ៊ីមែល</label>
+                                    <input type="email" class="form-control form-control-lg-custom" id="email" placeholder="example@email.com" required>
                                 </div>
-                            </div>
-                            <div class="col-md-6">
-                                <div class="form-group">
-                                    <label><i class="fas fa-weight-scale"></i> ទម្ងន់ (គីឡូក្រាម)</label>
-                                    <input type="number" class="form-control" id="weight" placeholder="ឧទាហរណ៍៖ 55" required>
+                                <div class="col-md-6">
+                                    <label class="fw-semibold"><i class="fas fa-phone me-1"></i> លេខទូរស័ព្ទ</label>
+                                    <input type="tel" class="form-control form-control-lg-custom" id="phone" placeholder="០១២ ៣៤៥ ៦៧៨" required>
                                 </div>
-                            </div>
-                        </div>
-                        
-                        <div class="row">
-                            <div class="col-md-6">
-                                <div class="form-group">
-                                    <label><i class="fas fa-tint"></i> ក្រុមឈាម</label>
-                                    <select class="form-control" id="bloodType" required>
-                                        <option value="">ជ្រើសរើសក្រុមឈាម</option>
-                                        <option value="A">A</option>
-                                        <option value="B">B</option>
-                                        <option value="AB">AB</option>
-                                        <option value="O">O</option>
+                                <div class="col-12">
+                                    <label class="fw-semibold"><i class="fas fa-tint me-1"></i> ប្រភេទឈាម (ជ្រើសរើស)</label>
+                                    <div class="blood-type-selector" id="bloodGroupSelector">
+                                        <div class="blood-option" data-blood="A+">A+</div>
+                                        <div class="blood-option" data-blood="A-">A-</div>
+                                        <div class="blood-option" data-blood="B+">B+</div>
+                                        <div class="blood-option" data-blood="B-">B-</div>
+                                        <div class="blood-option" data-blood="AB+">AB+</div>
+                                        <div class="blood-option" data-blood="AB-">AB-</div>
+                                        <div class="blood-option" data-blood="O+">O+</div>
+                                        <div class="blood-option" data-blood="O-">O-</div>
+                                        <div class="blood-option" data-blood="unknown">មិនច្បាស់</div>
+                                    </div>
+                                    <input type="hidden" id="selectedBloodType" value="">
+                                </div>
+                                <div class="col-12">
+                                    <label class="fw-semibold"><i class="fas fa-hospital me-1"></i> មជ្ឈមណ្ឌលដែលចង់ទៅ</label>
+                                    <select class="form-control form-control-lg-custom" id="centerSelect" required>
+                                        <option value="">-- សូមជ្រើសរើស --</option>
+                                        <option>មន្ទីរពេទ្យព្រះកេតុមាលា (ភ្នំពេញ)</option>
+                                        <option>មជ្ឈមណ្ឌលជាតិបរិច្ចាគឈាម (ផ្លូវ២១៧)</option>
+                                        <option>រថយន្តចល័ត (ថ្ងៃសៅរ៍ ទីលានប្រជាធិបតេយ្យ)</option>
+                                        <option>មន្ទីរពេទ្យបន្ទាយមានជ័យ</option>
                                     </select>
                                 </div>
-                            </div>
-                            <div class="col-md-6">
-                                <div class="form-group">
-                                    <label><i class="fas fa-phone"></i> លេខទូរស័ព្ទ</label>
-                                    <input type="tel" class="form-control" id="phone" placeholder="ឧទាហរណ៍៖ 012 345 678" required>
+                                <div class="col-12">
+                                    <div class="quick-info">
+                                        <i class="fas fa-info-circle text-danger"></i> <strong>មុនបរិច្ចាគ៖</strong> គេងឱ្យបានគ្រប់គ្រាន់, ញ៉ាំអាហារស្រាលៗ, ផឹកទឹកច្រើន។
+                                    </div>
+                                </div>
+                                <div class="col-12">
+                                    <div class="form-check">
+                                        <input class="form-check-input" type="checkbox" id="agreeCheck" required>
+                                        <label class="form-check-label">ខ្ញុំបញ្ជាក់ថាខ្ញុំមានសុខភាពល្អ និងយល់ព្រមបរិច្ចាគឈាម</label>
+                                    </div>
+                                </div>
+                                <div class="col-12">
+                                    <button type="submit" class="btn-easy"><i class="fas fa-droplet me-2" data-bs-target="#successModal" data-bs-toggle="modal"></i> បញ្ជូនពាក្យសុំបរិច្ចាគឈាម</button>
                                 </div>
                             </div>
-                        </div>
-                        
-                        <div class="row">
-                            <div class="col-md-6">
-                                <div class="form-group">
-                                    <label><i class="fas fa-envelope"></i> អ៊ីមែល</label>
-                                    <input type="email" class="form-control" id="email" placeholder="ឧទាហរណ៍៖ vipol@email.com" required>
-                                </div>
-                            </div>
-                            <div class="col-md-6">
-                                <div class="form-group">
-                                    <label><i class="fas fa-map-marker-alt"></i> ទីតាំងបរិច្ចាគ</label>
-                                    <select class="form-control" id="location" required>
-                                        <option value="">ជ្រើសរើសទីតាំង</option>
-                                        <option value="pp">មណ្ឌលបរិច្ចាគឈាមភ្នំពេញ</option>
-                                        <option value="bb">មណ្ឌលបរិច្ចាគឈាមបន្ទាយមានជ័យ</option>
-                                        <option value="od">មណ្ឌលបរិច្ចាគឈាមឧត្តរមានជ័យ</option>
-                                    </select>
-                                </div>
-                            </div>
-                        </div>
-                        
-                        <div class="row">
-                            <div class="col-md-6">
-                                <div class="form-group">
-                                    <label><i class="fas fa-calendar-day"></i> កាលបរិច្ឆេទដែលចង់បរិច្ចាគ</label>
-                                    <input type="date" class="form-control" id="donationDate" required>
-                                </div>
-                            </div>
-                            <div class="col-md-6">
-                                <div class="form-group">
-                                    <label><i class="fas fa-clock"></i> ម៉ោង</label>
-                                    <select class="form-control" id="time" required>
-                                        <option value="">ជ្រើសរើសម៉ោង</option>
-                                        <option value="08:00">08:00 - 09:00</option>
-                                        <option value="09:00">09:00 - 10:00</option>
-                                        <option value="10:00">10:00 - 11:00</option>
-                                        <option value="14:00">14:00 - 15:00</option>
-                                        <option value="15:00">15:00 - 16:00</option>
-                                    </select>
-                                </div>
-                            </div>
-                        </div>
-                        
-                        <div class="form-check">
-                            <input type="checkbox" class="form-check-input" id="termsCheck" required>
-                            <label class="form-check-label" for="termsCheck">
-                                ខ្ញុំបញ្ជាក់ថាព័ត៌មានខាងលើត្រឹមត្រូវ 
-                                ហើយខ្ញុំបានអានលក្ខខណ្ឌបរិច្ចាគឈាមរួចរាល់
-                            </label>
-                        </div>
-                        
-                        <button type="submit" class="btn-submit">
-                            <i class="fas fa-droplet me-2"></i>ចុះឈ្មោះបរិច្ចាគឈាម
-                        </button>
-                    </form>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <div class="modal fade" id="successModal" tabindex="-1" aria-hidden="true">
+        <div class="modal-dialog modal-dialog-centered">
+            <div class="modal-content border-0 shadow-lg" style="border-radius: 30px;">
+                <div class="modal-body text-center p-5">
+                    <div class="mb-4">
+                        <i class="fas fa-check-circle fa-5x text-success"></i>
+                    </div>
+                    <h2 class="fw-bold mb-3" style="color: var(--primary-blue);">ជោគជ័យ!</h2>
+                    <p class="text-muted mb-4">ការចុះឈ្មោះបរិច្ចាគឈាមរបស់អ្នកត្រូវបានបញ្ជូនរួចរាល់។ ក្រុមការងារយើងនឹងទាក់ទងទៅអ្នកក្នុងពេលឆាប់ៗនេះ។</p>
+                    <button type="button" class="btn-easy w-50" data-bs-dismiss="modal" style="background-color: var(--accent-blue);">បិទ</button>
                 </div>
             </div>
         </div>
     </div>
-</section>
 
-<!-- ============================================ -->
-<!-- BLOOD TYPES INFO SECTION
-<!-- ============================================ -->
-<section class="blood-types">
-    <div class="container">
-        <div class="section-header text-center" data-aos="fade-up">
-            <div class="section-badge-center">ប្រភេទឈាម</div>
-            <h2>ស្វែងយល់អំពីប្រភេទឈាម</h2>
-            <p>ក្រុមឈាមនីមួយៗអាចបរិច្ចាគទៅក្រុមឈាមណាខ្លះ?</p>
-        </div>
-        
-        <div class="row g-4">
-            <div class="col-md-3 col-6" data-aos="flip-left" data-aos-delay="100">
-                <div class="blood-type-card type-a">
-                    <div class="blood-type-icon">
-                        <span>A</span>
-                    </div>
-                    <h3>ក្រុមឈាម A</h3>
-                    <p>អាចបរិច្ចាគទៅ: A, AB</p>
-                    <p>អាចទទួលពី: A, O</p>
-                </div>
-            </div>
-            <div class="col-md-3 col-6" data-aos="flip-left" data-aos-delay="200">
-                <div class="blood-type-card type-b">
-                    <div class="blood-type-icon">
-                        <span>B</span>
-                    </div>
-                    <h3>ក្រុមឈាម B</h3>
-                    <p>អាចបរិច្ចាគទៅ: B, AB</p>
-                    <p>អាចទទួលពី: B, O</p>
-                </div>
-            </div>
-            <div class="col-md-3 col-6" data-aos="flip-left" data-aos-delay="300">
-                <div class="blood-type-card type-ab">
-                    <div class="blood-type-icon">
-                        <span>AB</span>
-                    </div>
-                    <h3>ក្រុមឈាម AB</h3>
-                    <p>អាចបរិច្ចាគទៅ: AB</p>
-                    <p>អាចទទួលពី: A, B, AB, O</p>
-                </div>
-            </div>
-            <div class="col-md-3 col-6" data-aos="flip-left" data-aos-delay="400">
-                <div class="blood-type-card type-o">
-                    <div class="blood-type-icon">
-                        <span>O</span>
-                    </div>
-                    <h3>ក្រុមឈាម O</h3>
-                    <p>អាចបរិច្ចាគទៅ: A, B, AB, O</p>
-                    <p>អាចទទួលពី: O</p>
-                </div>
-            </div>
-        </div>
-    </div>
-</section>
-
-<!-- ============================================ -->
-<!-- BLOOD CENTERS SECTION
-<!-- ============================================ -->
-<section class="blood-centers">
-    <div class="container">
-        <div class="section-header text-center" data-aos="fade-up">
-            <div class="section-badge-center">ទីតាំងបរិច្ចាគឈាម</div>
-            <h2>មណ្ឌលបរិច្ចាគឈាមនៅកម្ពុជា</h2>
-            <p>យើងមានមណ្ឌលបរិច្ចាគឈាមចំនួន ៣ កន្លែង</p>
-        </div>
-        
-        <div class="row g-4">
-            <div class="col-md-4" data-aos="fade-up" data-aos-delay="100">
-                <div class="center-card">
-                    <div class="center-icon">
-                        <i class="fas fa-building"></i>
-                    </div>
-                    <h3>មណ្ឌលបរិច្ចាគឈាមភ្នំពេញ</h3>
-                    <p><i class="fas fa-map-marker-alt"></i> ផ្លូវ ២៧១ រាជធានីភ្នំពេញ</p>
-                    <p><i class="fas fa-phone"></i> 012 345 678</p>
-                    <p><i class="fas fa-clock"></i> ចន្ទ-សុក្រ ៨:០០-១៧:០០</p>
-                </div>
-            </div>
-            <div class="col-md-4" data-aos="fade-up" data-aos-delay="200">
-                <div class="center-card">
-                    <div class="center-icon">
-                        <i class="fas fa-building"></i>
-                    </div>
-                    <h3>មណ្ឌលបរិច្ចាគឈាមបន្ទាយមានជ័យ</h3>
-                    <p><i class="fas fa-map-marker-alt"></i> ក្រុងសិរីសោភ័ណ ខេត្តបន្ទាយមានជ័យ</p>
-                    <p><i class="fas fa-phone"></i> 096 789 0123</p>
-                    <p><i class="fas fa-clock"></i> ចន្ទ-សុក្រ ៨:០០-១៦:០០</p>
-                </div>
-            </div>
-            <div class="col-md-4" data-aos="fade-up" data-aos-delay="300">
-                <div class="center-card">
-                    <div class="center-icon">
-                        <i class="fas fa-building"></i>
-                    </div>
-                    <h3>មណ្ឌលបរិច្ចាគឈាមឧត្តរមានជ័យ</h3>
-                    <p><i class="fas fa-map-marker-alt"></i> ក្រុងសំរោង ខេត្តឧត្តរមានជ័យ</p>
-                    <p><i class="fas fa-phone"></i> 097 890 1234</p>
-                    <p><i class="fas fa-clock"></i> ចន្ទ-សុក្រ ៨:០០-១៦:០០</p>
-                </div>
-            </div>
-        </div>
-    </div>
-</section>
-
-<!-- ============================================ -->
-<!-- FAQ SECTION
-<!-- ============================================ -->
-<section class="blood-faq">
-    <div class="container">
-        <div class="section-header text-center" data-aos="fade-up">
-            <div class="section-badge-center">សំណួរច្រើនសួរ</div>
-            <h2>សំណួរទូទៅអំពីការបរិច្ចាគឈាម</h2>
-        </div>
-        
-        <div class="row justify-content-center">
-            <div class="col-lg-10">
-                <div class="faq-container">
-                    <div class="faq-item">
-                        <div class="faq-question">
-                            <span>តើការបរិច្ចាគឈាមមានផលប៉ះពាល់ដល់សុខភាពទេ?</span>
-                            <i class="fas fa-chevron-down"></i>
-                        </div>
-                        <div class="faq-answer">
-                            ទេ។ ការបរិច្ចាគឈាមមានសុវត្ថិភាព ១០០% ។ រាងកាយរបស់យើងអាចបង្កើតឈាមថ្មីបានយ៉ាងឆាប់រហ័ស។ ក្រៅពីនេះ ការបរិច្ចាគឈាមក៏ល្អសម្រាប់សុខភាពផងដែរ។
-                        </div>
-                    </div>
-                    <div class="faq-item">
-                        <div class="faq-question">
-                            <span>តើត្រូវរង់ចាំប៉ុន្មានថ្ងៃទើបអាចបរិច្ចាគឈាមបានម្តងទៀត?</span>
-                            <i class="fas fa-chevron-down"></i>
-                        </div>
-                        <div class="faq-answer">
-                            អ្នកអាចបរិច្ចាគឈាមបានរៀងរាល់ ៩០ ថ្ងៃម្តង (៣ ខែ)។
-                        </div>
-                    </div>
-                    <div class="faq-item">
-                        <div class="faq-question">
-                            <span>តើត្រូវរៀបចំខ្លួនយ៉ាងដូចម្តេចមុនបរិច្ចាគឈាម?</span>
-                            <i class="fas fa-chevron-down"></i>
-                        </div>
-                        <div class="faq-answer">
-                            អ្នកគួរតែគេងឱ្យបានគ្រប់គ្រាន់ ញ៉ាំអាហារស្រាលៗ ផឹកទឹកឱ្យបានច្រើន និងជៀសវាងអាហារមានជាតិខ្លាញ់ច្រើនមុនបរិច្ចាគឈាម។
-                        </div>
-                    </div>
-                    <div class="faq-item">
-                        <div class="faq-question">
-                            <span>តើឈាមដែលបានបរិច្ចាគត្រូវបានប្រើប្រាស់ដើម្បីអ្វីខ្លះ?</span>
-                            <i class="fas fa-chevron-down"></i>
-                        </div>
-                        <div class="faq-answer">
-                            ឈាមដែលបានបរិច្ចាគត្រូវបានប្រើប្រាស់សម្រាប់អ្នកជំងឺដែលត្រូវការបន្ទាន់ ដូចជា អ្នករងគ្រោះថ្នាក់ចរាចរណ៍ អ្នកជំងឺកើតមហារីក អ្នកជំងឺគ្រោះថ្នាក់ដោយសារជម្លោះប្រដាប់អាវុធ។
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
-</section>
-
-<!-- ============================================ -->
-<!-- CTA SECTION
-<!-- ============================================ -->
-<section class="cta-section">
-    <div class="container">
-        <div class="cta-content" data-aos="zoom-in">
-            <h2>ចូលរួមបរិច្ចាគឈាមឥឡូវនេះ</h2>
-            <p>មួយដំណក់ឈាមរបស់អ្នកអាចផ្លាស់ប្តូរជីវិតមនុស្សបាន</p>
-            <div class="cta-buttons">
-                <a href="#registration-form" class="btn btn-light btn-lg">
-                    <i class="fas fa-droplet me-2"></i>ចុះឈ្មោះឥឡូវនេះ
-                </a>
-            </div>
-        </div>
-    </div>
-</section>
-
-<!-- ============================================ -->
-<!-- FOOTER SECTION
-<!-- ============================================ -->
-<footer class="footer">
-    <div class="container">
-        <div class="row">
-            <div class="col-lg-4 col-md-6">
-                <div class="footer-about">
-                    <h3><i class="fas fa-smile-wink"></i> ស្នាមញញឹមខ្មែរ</h3>
-                    <p>យើងជាអង្គការមិនរកប្រាក់ចំណេញ ដែលប្រមូលផ្តុំគ្នាដើម្បីជួយសង្គ្រោះបងប្អូនយើងដែលកំពុងរងគ្រោះនៅតាមព្រំដែន។</p>
-                    <div class="social-links">
-                        <a href="#"><i class="fab fa-facebook-f"></i></a>
-                        <a href="#"><i class="fab fa-telegram"></i></a>
-                        <a href="#"><i class="fab fa-youtube"></i></a>
-                        <a href="#"><i class="fab fa-tiktok"></i></a>
-                    </div>
-                </div>
-            </div>
-            <div class="col-lg-2 col-md-6">
-                <div class="footer-links">
-                    <h4>តំណភ្ជាប់</h4>
-                    <ul>
-                        <li><a href="index.html">ទំព័រដើម</a></li>
-                        <li><a href="about.html">អំពីយើង</a></li>
-                        <li><a href="donate.html">បរិច្ចាគ</a></li>
-                        <li><a href="volunteer.html">ស្ម័គ្រចិត្ត</a></li>
-                        <li><a href="impact.html">សមត្ថផល</a></li>
-                        <li><a href="news.html">ព័ត៌មាន</a></li>
+  
+    <section class="py-4">
+        <div class="container">
+            <div class="row align-items-center">
+                <div class="col-md-7" data-aos="fade-right">
+                    <h3><i class="fas fa-map-pin text-danger me-2"></i> ស្វែងរកមជ្ឈមណ្ឌលបរិច្ចាគឈាមក្បែរអ្នក</h3>
+                    <ul class="list-unstyled mt-3">
+                        <li><i class="fas fa-check-circle text-success me-2"></i> <strong>ភ្នំពេញ</strong> – មន្ទីរពេទ្យព្រះកេតុមាលា, មជ្ឈមណ្ឌលជាតិបរិច្ចាគឈាម</li>
+                        <li><i class="fas fa-check-circle text-success me-2"></i> <strong>សៀមរាប</strong> – មន្ទីរពេទ្យខេត្តសៀមរាប</li>
+                        <li><i class="fas fa-check-circle text-success me-2"></i> <strong>បន្ទាយមានជ័យ</strong> – មន្ទីរពេទ្យបង្អែកខេត្ត</li>
+                        <li><i class="fas fa-truck fa-flip-horizontal me-2 text-warning"></i> <strong>រថយន្តបរិច្ចាគឈាមចល័ត</strong> – រៀងរាល់ថ្ងៃសៅរ៍ វេលាម៉ោង ៨ព្រឹកដល់២រសៀល</li>
                     </ul>
                 </div>
-            </div>
-            <div class="col-lg-3 col-md-6">
-                <div class="footer-contact">
-                    <h4>ទំនាក់ទំនង</h4>
-                    <ul>
-                        <li><i class="fas fa-map-marker-alt"></i> ផ្ទះលេខ ១២៣ ផ្លូវ ២៧១ ភ្នំពេញ</li>
-                        <li><i class="fas fa-phone"></i> 012 345 678 / 098 765 432</li>
-                        <li><i class="fas fa-envelope"></i> info@khmersmile.org</li>
-                    </ul>
-                </div>
-            </div>
-            <div class="col-lg-3 col-md-6">
-                <div class="footer-newsletter">
-                    <h4>ជាវព័ត៌មាន</h4>
-                    <p>ទទួលព័ត៌មានថ្មីៗពីសកម្មភាពរបស់យើង</p>
-                    <form class="newsletter-form">
-                        <div class="input-group">
-                            <input type="email" placeholder="អ៊ីមែលរបស់អ្នក">
-                            <button type="submit"><i class="fas fa-paper-plane"></i></button>
-                        </div>
-                    </form>
-                    <p class="mt-3 small"><i class="fas fa-lock"></i> យើងមិនចែករំលែកព័ត៌មានរបស់អ្នកទេ</p>
+                <div class="col-md-5" data-aos="fade-left">
+                    <div class="bg-white p-4 rounded-4 shadow-sm text-center">
+                        <i class="fas fa-phone-alt fa-2x text-danger"></i>
+                        <h4>ត្រូវការជំនួយ?</h4>
+                        <p>ទូរស័ព្ទទៅកាន់ប្រតិបត្តិកររបស់យើង</p>
+                        <a href="tel:012345678" class="btn btn-outline-easy"><i class="fas fa-phone"></i> 012 345 678</a>
+                    </div>
                 </div>
             </div>
         </div>
-        <div class="footer-bottom">
-            <div class="row">
-                <div class="col-md-6"><p>&copy; ២០២៤ ស្នាមញញឹមខ្មែរ។ រក្សាសិទ្ធិគ្រប់យ៉ាង។</p></div>
-                <div class="col-md-6 text-md-end">
-                    <a href="#">គោលការណ៍ឯកជនភាព</a>
-                    <a href="#">លក្ខខណ្ឌប្រើប្រាស់</a>
+    </section>
+
+ 
+    <section class="py-5 bg-light">
+        <div class="container">
+            <div class="text-center mb-4"><span class="section-badge-center bg-danger text-white">សំណួរញឹកញាប់</span><h2>អ្វីដែលអ្នកគួរដឹង</h2></div>
+            <div class="row justify-content-center">
+                <div class="col-lg-10">
+                    <div class="faq-container">
+                        <div class="faq-item"><div class="faq-question">តើខ្ញុំអាចបរិច្ចាគឈាមបានទេបើខ្ញុំកំពុងប្រើថ្នាំ? <i class="fas fa-chevron-down"></i></div><div class="faq-answer">អាស្រ័យលើប្រភេទថ្នាំ។ គួរពិគ្រោះជាមួយពេទ្យមុន។</div></div>
+                        <div class="faq-item"><div class="faq-question">តើការបរិច្ចាគឈាមឈឺចាប់ទេ? <i class="fas fa-chevron-down"></i></div><div class="faq-answer">មានអារម្មណ៍ឈឺបន្តិចពេលចាក់ម្ជុល ប៉ុន្តែឆាប់បាត់ទៅវិញ។</div></div>
+                        <div class="faq-item"><div class="faq-question">តើត្រូវរង់ចាំប៉ុន្មានថ្ងៃទើបអាចបរិច្ចាគម្តងទៀត? <i class="fas fa-chevron-down"></i></div><div class="faq-answer">បុរសរៀងរាល់ ៣ ខែ ស្ត្រីរៀងរាល់ ៤ ខែ។</div></div>
+                    </div>
                 </div>
             </div>
+        </div>
+    </section>
+
+  
+    <section class="py-5 text-center" style="background: #fff2ef;">
+        <div class="container">
+            <h3 class="fw-bold">ឈាមរបស់អ្នក = អំណោយនៃជីវិត</h3>
+            <p class="mb-4">ចុះឈ្មោះឥឡូវនេះ យើងខ្ញុំនឹងទាក់ទងអ្នកក្នុងរយៈពេល ២៤ ម៉ោង</p>
+            <a href="#easyForm" class="btn btn-danger btn-lg rounded-pill px-5"><i class="fas fa-arrow-down"></i> ត្រឡប់ទៅកាន់ទម្រង់</a>
+        </div>
+    </section>
+</main>
+
+
+ <footer class="site-footer bg-dark text-white">
+      <div class="footer-top py-5">
+        <div class="container">
+          <div class="row gy-4">
+            <div class="col-lg-4">
+              <a
+                href="#"
+                class="footer-brand d-inline-flex align-items-center gap-3 mb-3"
+              >
+                <img
+                  src="assets/img/photo_2026-04-02_12-02-02.jpg"
+                  alt="Logo"
+                  class="footer-logo"
+                />
+                <div>
+                  <span class="d-block fw-bold fs-4" style="color: var(--gold)"
+                    >ស្នាមញញឹមខ្មែរ</span
+                  >
+                  <small class="text-white-50">ផ្តល់ក្តីសង្ឃឹមតាមរយៈការបរិច្ចាគ</small>
+                </div>
+              </a>
+              <p class="footer-text text-white-75">
+               ចូលរួមជាមួយយើងក្នុងការចែករំលែកក្ដីស្រឡាញ់ និងការជួយដល់អ្នកខ្វះខាតតាមរយៈសកម្មភាពបរិច្ចាគ។
+យើងផ្តោតលើការគាំទ្រសហគមន៍ ការអប់រំ សុខភាព និងការអភិវឌ្ឍជីវភាពរស់នៅឱ្យកាន់តែប្រសើរ។
+              </p>
+            </div>
+            <div class="col-lg-2 col-6">
+              <h5 class="footer-heading mb-3">ទំព័រ</h5>
+              <ul class="footer-links list-unstyled">
+                <li><a href="index.html">ទំព័រដើម</a></li>
+                <li><a href="donate.html">ការបរិច្ចាគ</a></li>
+                <li><a href="volunteering.html">ការស្ម័គ្រចិត្ត</a></li>
+                <li><a href="about.us.html">អំពីយើង</a></li>
+              </ul>
+            </div>
+            <div class="col-lg-2 col-6">
+              <h5 class="footer-heading mb-3">ចំណាត់ក្រុម</h5>
+              <ul class="footer-links list-unstyled">
+                <li><a href="profile.html">ប្រវត្តិរូប</a></li>
+                <li><a href="login.html">ចូលប្រើ</a></li>
+                <li><a href="register.html">ចុះឈ្មោះ</a></li>
+                <li><a href="contact.html">ទំនាក់ទំនង</a></li>
+              </ul>
+            </div>
+            <div class="col-lg-4">
+              <h5 class="footer-heading mb-3">ទំនាក់ទំនង</h5>
+              <p class="footer-text text-white-75 mb-3">
+                យើងសហការជាមួយសហគមន៍ក្នុងការចែករំលែកក្ដីស្រឡាញ់ និងការជួយគ្នាតាមរយៈសកម្មភាពបរិច្ចាគ ដើម្បីគាំទ្រអ្នកខ្វះខាត និងអភិវឌ្ឍសង្គមកម្ពុជា។ សូមទាក់ទងមកយើង ដើម្បីចូលរួមបរិច្ចាគ និងទទួលបានព័ត៌មានបន្ថែម។
+              </p>
+              <ul class="footer-contact list-unstyled mb-4">
+                <li>
+                  <i class="fa-solid fa-envelope me-2"></i
+                  ><a href="mailto:info@tourism.org">info@tourism.org</a>
+                </li>
+                <li>
+                  <i class="fa-solid fa-phone me-2"></i
+                  ><a href="tel:+85512345678">+855 12 345 678</a>
+                </li>
+                <li>
+                  <i class="fa-solid fa-location-dot me-2"></i
+                  ><span>ភ្នំពេញ, កម្ពុជា</span>
+                </li>
+              </ul>
+              <div class="footer-social d-flex gap-3">
+                <a href="#" aria-label="Facebook"
+                  ><i class="fa-brands fa-facebook-f"></i
+                ></a>
+                <a href="#" aria-label="Instagram"
+                  ><i class="fa-brands fa-instagram"></i
+                ></a>
+                <a href="#" aria-label="Twitter"
+                  ><i class="fa-brands fa-twitter"></i
+                ></a>
+                <a href="#" aria-label="YouTube"
+                  ><i class="fa-brands fa-youtube"></i
+                ></a>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="footer-bottom py-3 border-top border-white-25">
+        <div
+          class="container d-flex flex-column flex-md-row justify-content-between align-items-center gap-3"
+        >
+          <p class="mb-0 text-white-50 small">
+            © 2026 ស្នាមញញឹមខ្មែរ. រក្សាសិទ្ធិគ្រប់យ៉ាង។
+          </p>
+          <div class="footer-bottom-links d-flex gap-3">
+            <a href="#">គោលការណ៍ភាពឯកជន</a>
+            <a href="#">លក្ខខណ្ឌប្រើប្រាស់</a>
+            <a href="#">ជំនួយ</a>
+          </div>
+        </div>
+      </div>
+    </footer>
+
+
+<button id="backToTop" class="back-to-top"><i class="fas fa-arrow-up"></i></button>
+
+
+<div class="modal fade" id="successToastModal" tabindex="-1">
+    <div class="modal-dialog modal-dialog-centered">
+        <div class="modal-content text-center p-3">
+            <i class="fas fa-check-circle fa-4x text-success"></i>
+            <h3 class="mt-2">ចុះឈ្មោះបានជោគជ័យ!</h3>
+            <p>សូមអរគុណសម្រាប់បំណងបរិច្ចាគឈាម។ ក្រុមការងារនឹងទាក់ទងអ្នកក្នុងពេលឆាប់ៗ។</p>
+            <button class="btn btn-danger" data-bs-dismiss="modal">បិទ</button>
         </div>
     </div>
-</footer>
+</div>
 
-<!-- ============================================ -->
-<!-- BACK TO TOP BUTTON
-<!-- ============================================ -->
-<button id="backToTop" class="back-to-top">
-    <i class="fas fa-arrow-up"></i>
-</button>
-
-<!-- ============================================ -->
-<!-- SCRIPTS
-<!-- ============================================ -->
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
 <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
-<script src="/js/Blood donation.js"></script>
+<script>
+    (function() {
+        AOS.init({ duration: 600, once: true });
+        window.addEventListener('load', () => {
+            const preloader = document.getElementById('preloader');
+            preloader.style.opacity = '0';
+            setTimeout(() => preloader.style.display = 'none', 400);
+        });
+
+
+        const counters = document.querySelectorAll('.counter-fact');
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    const counter = entry.target;
+                    const target = +counter.getAttribute('data-target');
+                    let count = 0;
+                    const increment = target / 40;
+                    const update = () => {
+                        count += increment;
+                        if (count < target) { counter.innerText = Math.ceil(count); requestAnimationFrame(update); }
+                        else counter.innerText = target.toLocaleString();
+                    };
+                    update();
+                    observer.unobserve(counter);
+                }
+            });
+        }, { threshold: 0.4 });
+        counters.forEach(c => observer.observe(c));
+
+  
+        let selectedBlood = '';
+        const bloodOptions = document.querySelectorAll('.blood-option');
+        const hiddenBloodInput = document.getElementById('selectedBloodType');
+        bloodOptions.forEach(opt => {
+            opt.addEventListener('click', () => {
+                bloodOptions.forEach(o => o.classList.remove('selected'));
+                opt.classList.add('selected');
+                selectedBlood = opt.getAttribute('data-blood');
+                hiddenBloodInput.value = selectedBlood;
+            });
+        });
+
+    
+        document.querySelectorAll('.faq-question').forEach(q => {
+            q.addEventListener('click', () => {
+                const ans = q.nextElementSibling;
+                ans.style.display = ans.style.display === 'block' ? 'none' : 'block';
+            });
+        });
+
+  
+        const backBtn = document.getElementById('backToTop');
+        window.addEventListener('scroll', () => backBtn.style.display = window.scrollY > 300 ? 'flex' : 'none');
+        backBtn.addEventListener('click', () => window.scrollTo({ top: 0, behavior: 'smooth' }));
+
+   
+        const form = document.getElementById('bloodDonationEasyForm');
+        form.addEventListener('submit', (e) => {
+            e.preventDefault();
+        
+            const firstName = document.getElementById('firstName').value.trim();
+            const lastName = document.getElementById('lastName').value.trim();
+            const email = document.getElementById('email').value.trim();
+            const phone = document.getElementById('phone').value.trim();
+            const center = document.getElementById('centerSelect').value;
+            const agree = document.getElementById('agreeCheck').checked;
+            if (!firstName || !lastName || !email || !phone || !center) {
+                alert('សូមបំពេញព័ត៌មានឱ្យបានពេញលេញ');
+                return;
+            }
+            if (!agree) {
+                alert('សូមធីកបញ្ជាក់លក្ខខណ្ឌ');
+                return;
+            }
+       
+            const modal = new bootstrap.Modal(document.getElementById('successToastModal'));
+            modal.show();
+            form.reset();
+       
+            bloodOptions.forEach(o => o.classList.remove('selected'));
+            hiddenBloodInput.value = '';
+            document.getElementById('centerSelect').value = '';
+            document.getElementById('agreeCheck').checked = false;
+        });
+    })();
+</script>
 </body>
 </html>
