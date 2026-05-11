@@ -1,145 +1,99 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="km">
-
-<head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>បង្កើតគណនី</title>
-  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet" />
-  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.13.1/font/bootstrap-icons.min.css">
-
-  <style>
-    @font-face {
-      font-family: 'kantumruy';
-      src: url('assets/fonts/Kantumruy-Regular.ttf') format('truetype');
-    }
-    body {
-      background: linear-gradient(135deg, #6a8dff, #7f53ff);
-      min-height: 100vh;
-      font-family: 'kantumruy', sans-serif;
-    }
-
-    .card {
-      border-radius: 20px;
-      border: none;
-    }
-
-    .left-box {
-      background: linear-gradient(135deg, #315ceb, #7f53ff);
-      color: #6a8dff;
-      border-radius: 20px 0 0 20px;
-      padding: 40px;
-      height: 100%;
-    }
-
-    .left-box h3 {
-      font-weight: bold;
-    }
-
-    .form-control {
-      border-radius: 10px;
-      padding: 10px;
-    }
-
-    .btn-primary {
-      background: #6a8dff;
-      border: none;
-      border-radius: 25px;
-    }
-
-    .btn-primary:hover {
-      background: #5a7df0;
-    }
-
-    .card-container {
-      border-radius: 20px;
-      overflow: hidden;
-    }
-
-    .left-box img {
-      border-radius: 15px;
-    }
-  </style>
-</head>
-
-<body>
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>ចុះឈ្មោះ | ស្នាមញញឹមខ្មែរ</title>
 
 
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet" />
+    <link href="https://fonts.googleapis.com/css2?family=Kantumruy+Pro:wght@300;400;600;700&display=swap" rel="stylesheet" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" />
+    <link rel="stylesheet" href="assets/css/sign_in.css"> 
+  </head>
+  <body>
 
-  <!-- Register -->
-  <section class="py-5">
-    <div class="container">
-      <div class="row justify-content-center">
-        <div class="col-lg-12">
-          <div class="card shadow-lg card-container">
+    <div class="login-container">
+      
+   
+      <div class="login-sidebar">
+        <img src="assets/img/photo_2026-04-03_12-09-42-removebg-preview.png" alt="Logo" class="brand-logo" style="filter: brightness(0) invert(1);">
+        <h1 class="display-5 fw-bold mb-3" style="color: var(--gold);">បង្កើតគណនី</h1>
+        <p class="lead opacity-75">ក្លាយជាផ្នែកមួយនៃ "ស្នាមញញឹមខ្មែរ" ដើម្បីជួយដល់សង្គមជាតិយើង។</p>
+      </div>
 
-            <div class="row g-0">
+   
+      <div class="login-form-section">
+        <div class="form-wrapper">
+          <div class="text-center mb-5 d-lg-none">
+             <h2 class="fw-bold" style="color: var(--primary-blue);">ស្នាមញញឹមខ្មែរ</h2>
+          </div>
+          <h3 class="fw-bold mb-2">ចុះឈ្មោះគណនីថ្មី</h3>
+          <p class="text-muted mb-4">សូមបំពេញព័ត៌មានខាងក្រោមឱ្យបានត្រឹមត្រូវ</p>
 
-              <!-- LEFT DESIGN -->
-              <div class="col-md-6 left-side d-flex flex-column justify-content-center">
-                <img
-                  src="assets/img/volunteers-collecting-goods-charity-into-huge-donation-box-donating-coins-into-jar-donation-charity-donation-funds-gift-kind-concept-pinkish-coral-bluevector-isolated-illustration_335657-1387.jpg.avif"
-                  alt="Register Image" class="img-fluid">
+          <form action="verify.html">
+           
+            <div class="mb-3">
+              <label class="form-label small fw-bold">ឈ្មោះពេញ</label>
+              <div class="input-group">
+                <span class="input-group-text"><i class="fa-regular fa-user"></i></span>
+                <input type="text" class="form-control" placeholder="ឧទាហរណ៍៖ សុខ ជា" required>
               </div>
-              <!-- RIGHT -->
-              <div class="col-md-6 p-4">
-                <h2 class="text-center mb-4">បង្កើតគណនី</h2>
-
-                <form class="row g-3" method="POST">
-
-                  <div class="col-md-6">
-                    <label class="form-label">នាមខ្លួន</label>
-                    <input type="text" name="first_name" class="form-control" required>
-                  </div>
-
-                  <div class="col-md-6">
-                    <label class="form-label">នាមត្រកូល</label>
-                    <input type="text" name="last_name" class="form-control" required>
-                  </div>
-
-                  <div class="col-12">
-                    <label class="form-label">អ៊ីមែល</label>
-                    <input type="email" name="email" class="form-control" required>
-                  </div>
-
-                  <div class="col-12">
-                    <label class="form-label">ពាក្យសម្ងាត់</label>
-                    <input type="password" name="password" class="form-control" required>
-                  </div>
-
-                  <div class="col-12">
-                    <label class="form-label">បញ្ជាក់ពាក្យសម្ងាត់</label>
-                    <input type="password" name="confirm_password" class="form-control" required>
-                  </div>
-
-                  <div class="col-12">
-                    <div class="form-check">
-                      <input class="form-check-input" type="checkbox" required>
-                      <label class="form-check-label">
-                        ខ្ញុំយល់ព្រមលើលក្ខខណ្ឌ
-                      </label>
-                    </div>
-                  </div>
-
-                  <div class="col-12">
-                    <button type="submit" class="btn btn-primary w-100">
-                      ចុះឈ្មោះ
-                    </button>
-                  </div>
-
-                </form>
-              </div>
-
             </div>
 
+           
+            <div class="mb-3">
+              <label class="form-label small fw-bold">អ៊ីមែល ឬ លេខទូរស័ព្ទ</label>
+              <div class="input-group">
+                <span class="input-group-text"><i class="fa-regular fa-envelope"></i></span>
+                <input type="text" class="form-control" placeholder="ឧទាហរណ៍៖ example@gmail.com" required>
+              </div>
+            </div>
+
+            
+            <div class="mb-3">
+              <label class="form-label small fw-bold">លេខសម្ងាត់</label>
+              <div class="input-group">
+                <span class="input-group-text"><i class="fa-solid fa-lock"></i></span>
+                <input type="password" class="form-control" placeholder="បង្កើតលេខសម្ងាត់ថ្មី" required>
+              </div>
+            </div>
+
+           
+            <div class="mb-3">
+              <label class="form-label small fw-bold">បញ្ជាក់លេខសម្ងាត់</label>
+              <div class="input-group">
+                <span class="input-group-text"><i class="fa-solid fa-shield-halved"></i></span>
+                <input type="password" class="form-control" placeholder="វាយលេខសម្ងាត់ម្តងទៀត" required>
+              </div>
+            </div>
+
+           
+            <div class="mb-4 form-check">
+              <input type="checkbox" class="form-check-input" id="terms" required>
+              <label class="form-check-label small" for="terms">
+                ខ្ញុំយល់ព្រមតាម <a href="#" class="text-decoration-none" style="color: var(--accent-blue);">លក្ខខណ្ឌប្រើប្រាស់</a>
+              </label>
+            </div>
+
+           <a href="sign_in.html" class="btn btn-login mb-4">
+  ចុះឈ្មោះឥឡូវនេះ
+</a>
+
+            <p class="text-center mt-3 small">
+              មានគណនីរួចហើយ? <a href="sign_in.html" class="fw-bold text-decoration-none" style="color: var(--primary-blue);">ចូលប្រើនៅទីនេះ</a>
+            </p>
+          </form>
+
+          <div class="mt-4 text-center">
+             <a href="index.html" class="text-muted text-decoration-none small">
+               <i class="fa-solid fa-arrow-left me-1"></i> ត្រឡប់ទៅទំព័រដើម
+             </a>
           </div>
         </div>
-
       </div>
     </div>
-  </section>
 
-  <script src="assets/vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
-</body>
-
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+  </body>
 </html>
