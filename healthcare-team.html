@@ -3,121 +3,21 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
-    <title>បរិច្ចាគប្រាក់ - ស្នាមញញឹមខ្មែរ</title>
+    <title>ក្រុមការងារសុខាភិបាល - ស្នាមញញឹមខ្មែរ</title>
 
+    
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <link href="https://fonts.googleapis.com/css2?family=Kantumruy+Pro:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
     <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
-    <link rel="stylesheet" href="assets/css/Money donation.css">
+    <link rel="stylesheet" href="assets/css/health-team.css">
     <link rel="stylesheet" href="assets/css/Footer.css">
     <link rel="stylesheet" href="assets/css/style2.css">
-
-    <style>
-        :root {
-            --primary-blue: #0b5c8e;
-            --accent-blue: #0099cc;
-            --gold: #f5b042;
-            --soft-bg: #f4f9fe;
-        }
-
-        body {
-            font-family: 'Kantumruy Pro', sans-serif;
-            background: var(--soft-bg);
-            color: #1a2c3e;
-        }
-
-        .money-header {
-            background: linear-gradient(135deg, #0a5a88 0%, #033b57 100%);
-            padding: 80px 0 100px;
-            border-radius: 0 0 50px 50px;
-            color: white;
-        }
-
-        .card-modern {
-            background: white;
-            border-radius: 30px;
-            border: none;
-            box-shadow: 0 15px 45px rgba(0,0,0,0.08);
-            margin-top: -80px;
-            position: relative;
-            z-index: 10;
-        }
-
-        .step-number {
-            width: 35px; height: 35px;
-            background: var(--primary-blue);
-            color: white;
-            border-radius: 50%;
-            display: inline-flex;
-            align-items: center;
-            justify-content: center;
-            margin-right: 10px;
-        }
-
-        .amount-badge {
-            background: #f8fafc;
-            border: 2px solid #e2e8f0;
-            border-radius: 15px;
-            padding: 15px 25px;
-            font-weight: 700;
-            transition: 0.3s;
-            flex: 1;
-            min-width: 100px;
-            color: var(--primary-blue);
-        }
-
-        .amount-badge.active {
-            background: var(--primary-blue);
-            color: white;
-            border-color: var(--primary-blue);
-        }
-
-        .payment-method-card {
-            border: 2px solid #edf2f7;
-            border-radius: 20px;
-            padding: 20px;
-            transition: 0.3s;
-            cursor: pointer;
-            background: white;
-        }
-
-        .payment-method-card:hover {
-            border-color: var(--accent-blue);
-            background: #f0f9ff;
-            transform: translateY(-5px);
-        }
-
-        .upload-area {
-            border: 2px dashed #cbd5e0;
-            border-radius: 20px;
-            padding: 30px;
-            cursor: pointer;
-            background: #fafbfc;
-            transition: 0.3s;
-        }
-
-        .btn-submit {
-            background: linear-gradient(90deg, var(--primary-blue), var(--accent-blue));
-            color: white;
-            border-radius: 50px;
-            padding: 18px;
-            font-weight: 700;
-            width: 100%;
-            border: none;
-        }
-
-        /* Modal Customization */
-        .modal-content { border-radius: 30px; border: none; }
-        .qr-frame { border: 8px solid #f0f4f8; border-radius: 20px; }
-    </style>
 </head>
 <body>
 
 
-<div id="preloader"><div class="loader"></div></div>
-
- <header class="container-fluid py-4 sticky-top main-header">
+   <header class="container-fluid py-4 sticky-top main-header">
         <div class="row align-items-center px-lg-5">
           <div class="col-lg-2 col-6">
             <div class="d-flex align-items-center">
@@ -491,131 +391,221 @@
         </div>
       </header>
 
-
 <main>
-    <section class="money-header text-center">
+   
+    <section class="medical-header text-center">
         <div class="container" data-aos="fade-up">
-            <h1 class="fw-bold mb-3">ការបរិច្ចាគរបស់លោកអ្នក</h1>
-            <p class="opacity-75">រាល់ទឹកប្រាក់របស់លោកអ្នក នឹងជួយដល់កុមារ និងជនងាយរងគ្រោះ</p>
+            <span class="badge mb-3 px-3 py-2 text-dark" style="background-color: var(--gold); border-radius: 30px; font-weight: 600;">សកម្មភាពមនុស្សធម៌ និងសុខភាពសហគមន៍</span>
+            <h1 class="fw-bold mb-3 display-5">ក្រុមការងារសុខាភិបាលស្ម័គ្រចិត្ត</h1>
+            <p class="opacity-75 max-w-600 mx-auto">ចូលរួមជាមួយយើងដើម្បីនាំយកសេវាពិនិត្យ ព្យាបាល និងថែទាំសុខភាពដោយឥតគិតថ្លៃ ជូនដល់បងប្អូនប្រជាពលរដ្ឋនៅតាមមូលដ្ឋានដាច់ស្រយាល</p>
         </div>
     </section>
 
+  
+    <section class="container stat-section mb-5">
+        <div class="row g-4 justify-content-center">
+            <div class="col-md-4 col-sm-6" data-aos="zoom-in" data-aos-delay="100">
+                <div class="card stat-card p-4 text-center">
+                    <div class="d-inline-flex align-items-center justify-content-center rounded-circle mb-3 mx-auto text-danger bg-danger-subtle" style="width: 60px; height: 60px;">
+                        <i class="fa-solid fa-heart-pulse fs-3"></i>
+                    </div>
+                    <h3 class="fw-bold text-dark mb-1">១,២០០+ នាក់</h3>
+                    <p class="text-muted small mb-0">ប្រជាពលរដ្ឋទទួលបានការពិនិត្យ</p>
+                </div>
+            </div>
+            <div class="col-md-4 col-sm-6" data-aos="zoom-in" data-aos-delay="200">
+                <div class="card stat-card p-4 text-center">
+                    <div class="d-inline-flex align-items-center justify-content-center rounded-circle mb-3 mx-auto text-primary bg-primary-subtle" style="width: 60px; height: 60px;">
+                        <i class="fa-solid fa-user-md fs-3"></i>
+                    </div>
+                    <h3 class="fw-bold text-dark mb-1">៣០+ នាក់</h3>
+                    <p class="text-muted small mb-0">គ្រូពេទ្យ និងឱសថការីស្ម័គ្រចិត្ត</p>
+                </div>
+            </div>
+            <div class="col-md-4 col-sm-12" data-aos="zoom-in" data-aos-delay="300">
+                <div class="card stat-card p-4 text-center">
+                    <div class="d-inline-flex align-items-center justify-content-center rounded-circle mb-3 mx-auto text-success bg-success-subtle" style="width: 60px; height: 60px;">
+                        <i class="fa-solid fa-truck-medical fs-3"></i>
+                    </div>
+                    <h3 class="fw-bold text-dark mb-1">៨ លើក</h3>
+                    <p class="text-muted small mb-0">យុទ្ធនាការចុះតាមភូមិ-ឃុំ</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+  
     <section class="container mb-5">
         <div class="row justify-content-center">
             <div class="col-lg-10 col-xl-8">
                 <div class="card-modern p-4 p-md-5" data-aos="fade-up" data-aos-delay="100">
+                    <div class="text-center mb-5">
+                        <h3 class="fw-bold text-primary">ចុះឈ្មោះចូលរួមក្នុងក្រុមការងារពេទ្យ</h3>
+                        <p class="text-muted">សូមជ្រើសរើសជំនាញឯកទេស និងបំពេញព័ត៌មានបច្ចេកទេសរបស់អ្នក</p>
+                    </div>
+
+                    <form id="medicalForm">
+                        
                     
-                    <form id="donationForm">
-                        <!-- Step 1: User Info -->
                         <div class="mb-5">
-                            <h5 class="fw-bold mb-4"><span class="step-number">១</span>ព័ត៌មានរបស់អ្នក</h5>
+                            <h5 class="form-step-title mb-3">ជំហានទី ១: ជ្រើសរើសតួនាទី/ជំនាញឯកទេសរបស់អ្នក</h5>
                             <div class="row g-3">
-                                <div class="col-md-6"><input type="text" class="form-control form-control-lg rounded-pill" placeholder="នាមត្រកូល" required></div>
-                                <div class="col-md-6"><input type="text" class="form-control form-control-lg rounded-pill" placeholder="នាមខ្លួន" required></div>
-                                <div class="col-md-6"><input type="tel" class="form-control form-control-lg rounded-pill" placeholder="លេខទូរស័ព្ទ" required></div>
-                                <div class="col-md-6"><input type="email" class="form-control form-control-lg rounded-pill" placeholder="អ៊ីមែល" required></div>
+                                <div class="col-6 col-md-3">
+                                    <div class="spec-badge active" data-spec="គ្រូពេទ្យទូទៅ">
+                                        <i class="fa-solid fa-user-doctor"></i>
+                                        <span>គ្រូពេទ្យទូទៅ/ឯកទេស</span>
+                                    </div>
+                                </div>
+                                <div class="col-6 col-md-3">
+                                    <div class="spec-badge" data-spec="ទន្តបណ្ឌិត">
+                                        <i class="fa-solid fa-tooth"></i>
+                                        <span>ទន្តបណ្ឌិត (ធ្មេញ)</span>
+                                    </div>
+                                </div>
+                                <div class="col-6 col-md-3">
+                                    <div class="spec-badge" data-spec="ឱសថការី">
+                                        <i class="fa-solid fa-pills"></i>
+                                        <span>ឱសថការី / គិលានុបដ្ឋាក</span>
+                                    </div>
+                                </div>
+                                <div class="col-6 col-md-3" id="btnCustomSpec">
+                                    <div class="spec-badge" data-spec="custom">
+                                        <i class="fa-solid fa-hand-holding-hand"></i>
+                                        <span>ជំនួយការ/និស្សិតពេទ្យ</span>
+                                    </div>
+                                </div>
+                            </div>
+
+                           
+                            <div class="mt-3 d-none" id="customSpecWrapper">
+                                <label class="form-label small fw-bold">សូមបញ្ជាក់តួនាទី ឬឆ្នាំសិក្សារបស់អ្នក៖</label>
+                                <input type="text" id="inputCustomSpec" class="form-control rounded-pill" placeholder="ឧ. និស្សិតវេជ្ជសាស្ត្រ ឆ្នាំទី៥ ឬ ជំនួយការទូទៅ...">
                             </div>
                         </div>
 
-                        <!-- Step 2: Amount -->
+                       
                         <div class="mb-5">
-                            <h5 class="fw-bold mb-4"><span class="step-number">២</span>ជ្រើសរើសទឹកប្រាក់ (USD)</h5>
-                            <div class="d-flex flex-wrap gap-2 mb-3">
-                                <button type="button" class="amount-badge btn" data-val="10">$10</button>
-                                <button type="button" class="amount-badge btn active" data-val="20">$20</button>
-                                <button type="button" class="amount-badge btn" data-val="50">$50</button>
-                                <button type="button" class="amount-badge btn" id="btnCustom">ផ្សេងៗ</button>
+                            <h5 class="form-step-title mb-3">ជំហានទី ២: ព័ត៌មានផ្ទាល់ខ្លួន និងទំនាក់ទំនង</h5>
+                            <div class="row g-3">
+                                <div class="col-md-6">
+                                    <label class="form-label small fw-bold">នាមត្រកូល</label>
+                                    <input type="text" class="form-control rounded-pill" placeholder="ឧ. ចាន់" required>
+                                </div>
+                                <div class="col-md-6">
+                                    <label class="form-label small fw-bold">នាមខ្លួន</label>
+                                    <input type="text" class="form-control rounded-pill" placeholder="ឧ. សុខា" required>
+                                </div>
+                                <div class="col-md-6">
+                                    <label class="form-label small fw-bold">លេខទូរស័ព្ទ (មាន Telegram)</label>
+                                    <input type="tel" class="form-control rounded-pill" placeholder="ឧ. 012345678" required>
+                                </div>
+                                <div class="col-md-6">
+                                    <label class="form-label small fw-bold">កន្លែងបម្រើការងារ / សាកលវិទ្យាល័យបច្ចុប្បន្ន</label>
+                                    <input type="text" class="form-control rounded-pill" placeholder="ឧ. មន្ទីរពេទ្យកាល់ម៉ែត" required>
+                                </div>
+                                <div class="col-md-10 col-12">
+                                    <label class="form-label small fw-bold">ភាពញឹកញាប់នៃការចូលរួមបេសកកម្ម</label>
+                                    <select class="form-select rounded-pill" style="font-size: 0.95rem;" required>
+                                        <option value="" selected disabled>--- ជ្រើសរើសជម្រើស ---</option>
+                                        <option value="គ្រប់យុទ្ធនាការ">អាចចូលរួមបានគ្រប់យុទ្ធនាការ (រាល់ចុងសប្តាហ៍)</option>
+                                        <option value="តាមយុទ្ធនាការជាក់ស្តែង">ចូលរួមតាមពេលវេលាទំនេរជាក់ស្តែង</option>
+                                        <option value="ប្រឹក្សាយោបល់អនឡាញ">ជួយផ្នែកប្រឹក្សាយោបល់ ឬផ្គត់ផ្គង់ឱសថពីចម្ងាយ</option>
+                                    </select>
+                                </div>
                             </div>
-                            <input type="number" id="inputCustom" class="form-control form-control-lg rounded-pill d-none" placeholder="បញ្ចូលទឹកប្រាក់">
                         </div>
 
-                        <!-- Step 3: Bank Selection -->
-                          <div class="mb-5">
-                            <h5 class="fw-bold mb-4"><span class="step-number">៣</span>បញ្ជាក់ការបង់ប្រាក់</h5>
-                            <div class="upload-area text-center" id="dropZone">
-                                <input type="file" id="fileInput" class="d-none" accept="image/*" required>
+                        
+                        <div class="mb-5">
+                            <h5 class="form-step-title mb-3">ជំហានទី ៣: ភ្ជាប់កាតសម្គាល់ខ្លួន ឬលិខិតអនុញ្ញាតប្រកបរបរ (បើមាន)</h5>
+                            <p class="text-muted small">សូមភ្ជាប់រូបភាពកាតការងារ កាតនិស្សិត ឬវិញ្ញាបនបត្រដើម្បីឱ្យក្រុមការងារងាយស្រួលរៀបចំតួនាទីក្នុងប្រព័ន្ធវេជ្ជសាស្ត្រ។</p>
+                            
+                            <div class="upload-dropzone" id="dropZone">
+                                <input type="file" id="fileInput" class="d-none" accept="image/*,application/pdf">
+                                
                                 <div id="uploadPlaceholder">
-                                    <i class="fas fa-cloud-upload-alt fa-3x text-muted mb-3"></i>
-                                    <p class="fw-bold mb-1">ភ្ជាប់រូបភាពវិក្កយបត្រ (Screenshot)</p>
+                                    <i class="fa-solid fa-id-card fa-3x text-muted mb-3" style="color: var(--accent-blue) !important;"></i>
+                                    <p class="fw-bold mb-1">ចុចទីនេះដើម្បីបញ្ចូលរូបភាព ឬឯកសារ PDF</p>
+                                    <span class="text-muted small">ទំហំឯកសារអតិបរមា: 5MB</span>
                                 </div>
+
                                 <div id="previewContainer" class="d-none">
-                                    <img id="filePreview" src="" class="rounded-3 mb-2" style="max-height: 150px;">
-                                    <p class="text-success small fw-bold">រូបភាពត្រូវបានជ្រើសរើស!</p>
-                                </div>
-                            </div>
-                        </div>
-
-                        <!-- Step 4: Receipt Upload -->
-                        <div class="mb-5">
-                            <h5 class="fw-bold mb-4"><span class="step-number">៤</span>ជ្រើសរើសធនាគារដើម្បីស្កេន</h5>
-                            <div class="row g-3">
-                                <div class="col-4">
-                                    <div class="payment-method-card text-center" data-bs-toggle="modal" data-bs-target="#qrModal" data-bank="ABA Bank" data-acc="001 234 567" data-qr="https://api.qrserver.com/v1/create-qr-code/?size=300x300&data=ABA_001234567">
-                                        <i class="fas fa-university fa-2x mb-2 text-primary"></i>
-                                        <div class="small fw-bold">ABA</div>
-                                    </div>
-                                </div>
-                                <div class="col-4">
-                                    <div class="payment-method-card text-center" data-bs-toggle="modal" data-bs-target="#qrModal" data-bank="ACLEDA Bank" data-acc="3456 7890" data-qr="https://api.qrserver.com/v1/create-qr-code/?size=300x300&data=ACLEDA_34567890">
-                                        <i class="fas fa-landmark fa-2x mb-2 text-info"></i>
-                                        <div class="small fw-bold">ACLEDA</div>
-                                    </div>
-                                </div>
-                                <div class="col-4">
-                                    <div class="payment-method-card text-center" data-bs-toggle="modal" data-bs-target="#qrModal" data-bank="Wing Bank" data-acc="012 345 678" data-qr="https://api.qrserver.com/v1/create-qr-code/?size=300x300&data=WING_012345678">
-                                        <i class="fas fa-wallet fa-2x mb-2 text-warning"></i>
-                                        <div class="small fw-bold">Wing</div>
+                                    <div class="d-flex align-items-center justify-content-center bg-light p-3 rounded-3 position-relative">
+                                        <i class="fa-solid fa-file-medical fa-2x text-success me-3"></i>
+                                        <span id="fileNameDisplay" class="fw-bold text-dark text-truncate" style="max-width: 250px;">medical_id.png</span>
+                                        <button type="button" id="btnRemoveFile" class="btn btn-sm btn-danger rounded-circle position-absolute top-0 end-0 translate-middle">
+                                            <i class="fa-solid fa-xmark"></i>
+                                        </button>
                                     </div>
                                 </div>
                             </div>
                         </div>
 
-                        <button type="submit" class="btn-submit">ផ្ញើព័ត៌មានបរិច្ចាគ</button>
+                      
+                        <button type="submit" class="btn-submit" data-bs-toggle="modal" data-bs-target="#successModal">ចុះឈ្មោះចូលរួមក្រុមការងារសុខាភិបាល</button>
                     </form>
                 </div>
             </div>
         </div>
     </section>
+     <div
+                        class="modal fade"
+                        id="successModal"
+                        tabindex="-1"
+                        aria-hidden="true"
+                      >
+                        <div class="modal-dialog modal-dialog-centered">
+                          <div
+                            class="modal-content text-center p-4 border-0 "
+                            style="border-radius: 28px"
+                          >
+                            <div class="modal-body">
+                              <div class="mb-3">
+                                <i
+                                  class="fas fa-check-circle text-success"
+                                  style="font-size: 5rem"
+                                ></i>
+                              </div>
+                              <h2 class="fw-bold text-success mb-3">ជោគជ័យ!</h2>
+                              <p class="text-muted mb-4">
+                                ព័ត៌មានបរិច្ចាគរបស់អ្នកត្រូវបានបញ្ជូនដោយជោគជ័យ។
+                                ក្រុមការងារនឹងទាក់ទងទៅលោកអ្នកក្នុងពេលឆាប់ៗ។
+                              </p>
+                              <button
+                                type="button"
+                                class="btn btn-primary rounded-pill px-5 py-2"
+                                data-bs-dismiss="modal"
+                                style="
+                                  background-color: var(--primary-blue);
+                                  border: none;
+                                "
+                              >
+                                យល់ព្រម
+                              </button>
+                            </div>
+                          </div>
+                        </div>
+        </div>
 </main>
 
-<!-- QR Modal -->
-<!-- QR Modal -->
-<div class="modal fade" id="qrModal" tabindex="-1" aria-hidden="true">
-    <div class="modal-dialog modal-dialog-centered">
-        <div class="modal-content shadow-lg">
-            <div class="modal-header border-0 pb-0">
-                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-            </div>
-            <div class="modal-body text-center p-4 pt-0">
-                <h5 class="fw-bold mb-1" id="modalBankName">Bank Name</h5>
-                <p class="text-muted small mb-4">សូមស្កេន QR កូដខាងក្រោមដើម្បីទូទាត់</p>
-                
-                <div class="qr-frame d-inline-block p-3 mb-4 bg-white shadow-sm">
-                    <img id="modalQrImg" src="" alt="QR Code" class="img-fluid" style="width: 220px; height: 220px;">
-                </div>
 
-                <div class="bg-light p-3 rounded-4 mb-4">
-                    <span class="d-block small text-muted mb-1">លេខគណនី</span>
-                    <h4 class="fw-bold text-primary mb-2" id="modalBankAcc">000 000 000</h4>
-                    <button type="button" class="btn btn-outline-primary btn-sm rounded-pill px-3" onclick="copyAcc()">
-                        <i class="far fa-copy me-1"></i> ចម្លងលេខ
-                    </button>
-                </div>
-                
-                <!-- ប៊ូតុង រួចរាល់ -->
-                <button type="button" class="btn btn-primary w-100 rounded-pill py-3 fw-bold" data-bs-dismiss="modal">
-                    រួចរាល់
-                </button>
-                
-                <p class="small text-muted mt-3 mb-0">
-                    <i class="fas fa-check-circle me-1 text-success"></i> កុំភ្លេចភ្ជាប់រូបភាពវិក្កយបត្រនៅជំហានទី៤
-                </p>
+<div class="modal fade" id="medicalSuccessModal" tabindex="-1" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered">
+        <div class="modal-content text-center p-5" style="border-radius: 25px; border: none;">
+            <div class="modal-body">
+                <i class="fas fa-check-circle fa-4x mb-3" style="color: var(--green-success);"></i>
+                <h3 class="fw-bold text-dark mb-2">ការចុះឈ្មោះជោគជ័យ!</h3>
+                <p class="text-muted small mb-4">សូមគោរពថ្លែងអំណរគុណយ៉ាងជ្រាលជ្រៅចំពោះ លោកគ្រូ/អ្នកគ្រូពេទ្យ ដែលបានបរិច្ចាគពេលវេលា និងវិជ្ជាជីវៈដ៏មានតម្លៃ។ ក្រុមការងារយើងខ្ញុំនឹងទាក់ទងទៅវិញតាមរយៈ Telegram ឱ្យបានឆាប់បំផុត។</p>
+                <button class="btn btn-primary w-100 rounded-pill py-2 fw-bold" style="background: var(--primary-blue); border: none;" data-bs-dismiss="modal">យល់ព្រម</button>
             </div>
         </div>
     </div>
 </div>
 
+<!-- Back to Top Button -->
+<div id="backToTop"><i class="fa-solid fa-arrow-up"></i></div>
 
+<!-- Footer -->
  <footer class="site-footer bg-dark text-white">
       <div class="footer-top py-5">
         <div class="container">
@@ -714,62 +704,127 @@
     </footer>
 
 
-<button id="backToTop" class="back-to-top"><i class="fas fa-arrow-up"></i></button>
-
-
-<div class="modal fade" id="successModal" tabindex="-1"><div class="modal-dialog modal-dialog-centered"><div class="modal-content"><div class="modal-body text-center"><i class="fas fa-check-circle fa-4x text-success"></i><h3>អរគុណសម្រាប់ការបរិច្ចាគ!</h3><p>វិញ្ញាបនបត្របរិច្ចាគត្រូវបានផ្ញើទៅកាន់អ៊ីមែលរបស់អ្នកហើយ</p><button class="btn btn-primary" data-bs-dismiss="modal">បិទ</button></div></div></div></div>
-
+<!-- JavaScript CDN -->
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
 <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
-<script>
-    document.addEventListener('DOMContentLoaded', () => {
-        AOS.init();
 
-        // Amount Badges
-        const badges = document.querySelectorAll('.amount-badge');
-        badges.forEach(badge => {
-            badge.addEventListener('click', () => {
-                badges.forEach(b => b.classList.remove('active'));
-                badge.classList.add('active');
-                document.getElementById('inputCustom').classList.toggle('d-none', badge.id !== 'btnCustom');
+<script>
+    document.addEventListener("DOMContentLoaded", function () {
+        // ១. AOS Init
+        if (typeof AOS !== 'undefined') {
+            AOS.init({
+                duration: 800,
+                once: true
+            });
+        }
+
+        // ២. Dynamic Specialist Badge Selector
+        const specBadges = document.querySelectorAll('.spec-badge');
+        const btnCustomSpec = document.getElementById('btnCustomSpec');
+        const customSpecWrapper = document.getElementById('customSpecWrapper');
+        const inputCustomSpec = document.getElementById('inputCustomSpec');
+        let selectedSpec = "គ្រូពេទ្យទូទៅ";
+
+        specBadges.forEach(badge => {
+            badge.parentNode.addEventListener('click', function () {
+                specBadges.forEach(b => b.classList.remove('active'));
+                
+                const targetBadge = this.querySelector('.spec-badge');
+                targetBadge.classList.add('active');
+
+                if (targetBadge.getAttribute('data-spec') === 'custom') {
+                    customSpecWrapper.classList.remove('d-none');
+                    inputCustomSpec.setAttribute('required', 'true');
+                    inputCustomSpec.focus();
+                    selectedSpec = inputCustomSpec.value;
+                } else {
+                    customSpecWrapper.classList.add('d-none');
+                    inputCustomSpec.removeAttribute('required');
+                    inputCustomSpec.value = '';
+                    selectedSpec = targetBadge.getAttribute('data-spec');
+                }
             });
         });
 
-        // Modal Logic
-        const qrModal = document.getElementById('qrModal');
-        qrModal.addEventListener('show.bs.modal', function (event) {
-            const button = event.relatedTarget; // The bank card clicked
-            const bank = button.getAttribute('data-bank');
-            const acc = button.getAttribute('data-acc');
-            const qr = button.getAttribute('data-qr');
+        if (inputCustomSpec) {
+            inputCustomSpec.addEventListener('input', function() {
+                selectedSpec = this.value;
+            });
+        }
 
-            document.getElementById('modalBankName').innerText = bank;
-            document.getElementById('modalBankAcc').innerText = acc;
-            document.getElementById('modalQrImg').src = qr;
-        });
-
-
+        // ៣. File Upload Handling
+        const dropZone = document.getElementById('dropZone');
         const fileInput = document.getElementById('fileInput');
-        document.getElementById('dropZone').addEventListener('click', () => fileInput.click());
-        fileInput.addEventListener('change', (e) => {
-            const file = e.target.files[0];
-            if (file) {
-                const reader = new FileReader();
-                reader.onload = (ev) => {
-                    document.getElementById('filePreview').src = ev.target.result;
-                    document.getElementById('previewContainer').classList.remove('d-none');
-                    document.getElementById('uploadPlaceholder').classList.add('d-none');
-                };
-                reader.readAsDataURL(file);
-            }
-        });
+        const uploadPlaceholder = document.getElementById('uploadPlaceholder');
+        const previewContainer = document.getElementById('previewContainer');
+        const fileNameDisplay = document.getElementById('fileNameDisplay');
+        const btnRemoveFile = document.getElementById('btnRemoveFile');
+
+        if (dropZone && fileInput) {
+            dropZone.addEventListener('click', function(e) {
+                if(e.target !== btnRemoveFile && !btnRemoveFile.contains(e.target)) {
+                    fileInput.click();
+                }
+            });
+
+            fileInput.addEventListener('change', function () {
+                const file = this.files[0];
+                if (file) {
+                    fileNameDisplay.textContent = file.name;
+                    uploadPlaceholder.classList.add('d-none');
+                    previewContainer.classList.remove('d-none');
+                }
+            });
+
+            btnRemoveFile.addEventListener('click', function (e) {
+                e.stopPropagation();
+                fileInput.value = '';
+                uploadPlaceholder.classList.remove('d-none');
+                previewContainer.classList.add('d-none');
+                fileNameDisplay.textContent = '';
+            });
+        }
+
+        // ៤. Form Submit & Validation
+        const medicalForm = document.getElementById('medicalForm');
+        const successModalElement = document.getElementById('medicalSuccessModal');
+
+        if (medicalForm) {
+            medicalForm.addEventListener('submit', function (e) {
+                e.preventDefault();
+
+                if (successModalElement) {
+                    const successModal = new bootstrap.Modal(successModalElement);
+                    successModal.show();
+                    
+                    medicalForm.reset();
+                    if (uploadPlaceholder && previewContainer) {
+                        uploadPlaceholder.classList.remove('d-none');
+                        previewContainer.classList.add('d-none');
+                    }
+                    specBadges.forEach(b => b.classList.remove('active'));
+                    specBadges[0].classList.add('active');
+                    if (customSpecWrapper) customSpecWrapper.classList.add('d-none');
+                }
+            });
+        }
+
+        // ៥. Back to Top Button
+        const backToTopBtn = document.getElementById('backToTop');
+        if (backToTopBtn) {
+            window.addEventListener('scroll', () => {
+                if (window.scrollY > 300) {
+                    backToTopBtn.classList.add('show');
+                } else {
+                    backToTopBtn.classList.remove('show');
+                }
+            });
+
+            backToTopBtn.addEventListener('click', () => {
+                window.scrollTo({ top: 0, behavior: 'smooth' });
+            });
+        }
     });
-
-    function copyAcc() {
-        const acc = document.getElementById('modalBankAcc').innerText;
-        navigator.clipboard.writeText(acc).then(() => alert("ចម្លងបានជោគជ័យ!"));
-    }
 </script>
-
 </body>
 </html>

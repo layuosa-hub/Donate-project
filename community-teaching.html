@@ -3,22 +3,24 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
-    <title>បរិច្ចាគប្រាក់ - ស្នាមញញឹមខ្មែរ</title>
+    <title>ការបង្រៀនសហគមន៍ - ស្នាមញញឹមខ្មែរ</title>
 
+   
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <link href="https://fonts.googleapis.com/css2?family=Kantumruy+Pro:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
     <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
-    <link rel="stylesheet" href="assets/css/Money donation.css">
     <link rel="stylesheet" href="assets/css/Footer.css">
     <link rel="stylesheet" href="assets/css/style2.css">
-
+    
+    
     <style>
         :root {
             --primary-blue: #0b5c8e;
             --accent-blue: #0099cc;
             --gold: #f5b042;
             --soft-bg: #f4f9fe;
+            --green-success: #2ec4b6;
         }
 
         body {
@@ -27,21 +29,78 @@
             color: #1a2c3e;
         }
 
-        .money-header {
+       
+        .teaching-header {
             background: linear-gradient(135deg, #0a5a88 0%, #033b57 100%);
-            padding: 80px 0 100px;
+            padding: 80px 0 120px;
             border-radius: 0 0 50px 50px;
             color: white;
         }
 
+        /* Stat Cards */
+        .stat-section {
+            margin-top: -60px;
+            position: relative;
+            z-index: 10;
+        }
+
+        .stat-card {
+            background: white;
+            border-radius: 20px;
+            border: none;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.05);
+            transition: 0.3s;
+        }
+        .stat-card:hover {
+            transform: translateY(-5px);
+        }
+
+        /* Project & Course Cards */
+        .course-card {
+            background: white;
+            border-radius: 25px;
+            border: none;
+            overflow: hidden;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.04);
+            transition: 0.3s ease;
+            height: 100%;
+        }
+
+        .course-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 15px 40px rgba(0,0,0,0.08);
+        }
+
+        .course-img-wrapper {
+            position: relative;
+            height: 200px;
+            background: #e2e8f0;
+        }
+
+        .course-img-wrapper img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+
+        .course-badge {
+            position: absolute;
+            top: 20px;
+            left: 20px;
+            background: rgba(11, 92, 142, 0.9);
+            color: white;
+            padding: 6px 15px;
+            border-radius: 50px;
+            font-size: 0.8rem;
+            font-weight: 600;
+        }
+
+        /* Modern Form Card */
         .card-modern {
             background: white;
             border-radius: 30px;
             border: none;
-            box-shadow: 0 15px 45px rgba(0,0,0,0.08);
-            margin-top: -80px;
-            position: relative;
-            z-index: 10;
+            box-shadow: 0 15px 45px rgba(0,0,0,0.06);
         }
 
         .step-number {
@@ -55,69 +114,36 @@
             margin-right: 10px;
         }
 
-        .amount-badge {
-            background: #f8fafc;
-            border: 2px solid #e2e8f0;
-            border-radius: 15px;
-            padding: 15px 25px;
-            font-weight: 700;
-            transition: 0.3s;
-            flex: 1;
-            min-width: 100px;
-            color: var(--primary-blue);
-        }
-
-        .amount-badge.active {
-            background: var(--primary-blue);
-            color: white;
-            border-color: var(--primary-blue);
-        }
-
-        .payment-method-card {
-            border: 2px solid #edf2f7;
-            border-radius: 20px;
-            padding: 20px;
-            transition: 0.3s;
-            cursor: pointer;
-            background: white;
-        }
-
-        .payment-method-card:hover {
+        /* Form Inputs Custom */
+        .form-control:focus, .form-select:focus {
             border-color: var(--accent-blue);
-            background: #f0f9ff;
-            transform: translateY(-5px);
-        }
-
-        .upload-area {
-            border: 2px dashed #cbd5e0;
-            border-radius: 20px;
-            padding: 30px;
-            cursor: pointer;
-            background: #fafbfc;
-            transition: 0.3s;
+            box-shadow: 0 0 0 0.25rem rgba(0, 153, 204, 0.15);
         }
 
         .btn-submit {
             background: linear-gradient(90deg, var(--primary-blue), var(--accent-blue));
             color: white;
             border-radius: 50px;
-            padding: 18px;
+            padding: 15px;
             font-weight: 700;
             width: 100%;
             border: none;
+            transition: 0.3s;
         }
 
-        /* Modal Customization */
-        .modal-content { border-radius: 30px; border: none; }
-        .qr-frame { border: 8px solid #f0f4f8; border-radius: 20px; }
+        .btn-submit:hover {
+            opacity: 0.9;
+            transform: translateY(-2px);
+        }
     </style>
 </head>
 <body>
 
+<!-- Preloader -->
+<div id="preloader" class="d-none"><div class="spinner-border text-primary"></div></div>
 
-<div id="preloader"><div class="loader"></div></div>
-
- <header class="container-fluid py-4 sticky-top main-header">
+<!-- Header / Navbar (រក្សារចនាបថដូចគម្រោងចាស់របស់អ្នក) -->
+  <header class="container-fluid py-4 sticky-top main-header">
         <div class="row align-items-center px-lg-5">
           <div class="col-lg-2 col-6">
             <div class="d-flex align-items-center">
@@ -491,125 +517,242 @@
         </div>
       </header>
 
-
 <main>
-    <section class="money-header text-center">
+   
+    <section class="teaching-header text-center">
         <div class="container" data-aos="fade-up">
-            <h1 class="fw-bold mb-3">ការបរិច្ចាគរបស់លោកអ្នក</h1>
-            <p class="opacity-75">រាល់ទឹកប្រាក់របស់លោកអ្នក នឹងជួយដល់កុមារ និងជនងាយរងគ្រោះ</p>
+            <span class="badge mb-3 px-3 py-2 text-dark" style="background-color: var(--gold); border-radius: 30px; font-weight: 600;">កម្មវិធីអប់រំ និងអនាគតកុមារ</span>
+            <h1 class="fw-bold mb-3 display-5">ការបង្រៀនសហគមន៍</h1>
+            <p class="opacity-75 max-w-600 mx-auto">ចែករំលែកចំណេះដឹង និងបង្កើតឱកាសសិក្សាដល់កុមារនៅតាមតំបន់ដាច់ស្រយាល និងសហគមន៍ខ្វះខាត</p>
         </div>
     </section>
+
+ 
+    <section class="container stat-section mb-5">
+        <div class="row g-4 justify-content-center">
+            <div class="col-md-4 col-sm-6" data-aos="zoom-in" data-aos-delay="100">
+                <div class="card stat-card p-4 text-center">
+                    <div class="d-inline-flex align-items-center justify-content-center rounded-circle mb-3 mx-auto text-primary bg-primary-subtle" style="width: 60px; height: 60px;">
+                        <i class="fa-solid fa-children fs-3"></i>
+                    </div>
+                    <h3 class="fw-bold text-dark mb-1">៥០០+ នាក់</h3>
+                    <p class="text-muted small mb-0">កុមារទទួលបានការអប់រំ</p>
+                </div>
+            </div>
+            <div class="col-md-4 col-sm-6" data-aos="zoom-in" data-aos-delay="200">
+                <div class="card stat-card p-4 text-center">
+                    <div class="d-inline-flex align-items-center justify-content-center rounded-circle mb-3 mx-auto text-success bg-success-subtle" style="width: 60px; height: 60px;">
+                        <i class="fa-solid fa-user-chalkboard fs-3"></i>
+                    </div>
+                    <h3 class="fw-bold text-dark mb-1">៤៥ នាក់</h3>
+                    <p class="text-muted small mb-0">គ្រូស្ម័គ្រចិត្តសរុប</p>
+                </div>
+            </div>
+            <div class="col-md-4 col-sm-12" data-aos="zoom-in" data-aos-delay="300">
+                <div class="card stat-card p-4 text-center">
+                    <div class="d-inline-flex align-items-center justify-content-center rounded-circle mb-3 mx-auto text-warning bg-warning-subtle" style="width: 60px; height: 60px;">
+                        <i class="fa-solid fa-school fs-3"></i>
+                    </div>
+                    <h3 class="fw-bold text-dark mb-1">១២ សហគមន៍</h3>
+                    <p class="text-muted small mb-0">ភូមិ-ឃុំ ធ្លាប់បានចុះជួយ</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+  
+    <section class="container mb-5 py-3">
+        <div class="text-center mb-5" data-aos="fade-up">
+            <h2 class="fw-bold">វគ្គសិក្សាកំពុងត្រូវការអ្នកស្ម័គ្រចិត្ត</h2>
+            <p class="text-muted">លោកអ្នកអាចចូលរួមដើរតួជាគ្រូបង្រៀន ឬជំនួយការគ្រូទៅតាមជំនាញច្បាស់លាស់</p>
+        </div>
+
+        <div class="row g-4">
+          
+            <div class="col-lg-4 col-md-6" data-aos="fade-up" data-aos-delay="100">
+                <div class="card course-card">
+                    <div class="course-img-wrapper">
+                        <span class="course-badge">ភាសាបរទេស</span>
+                       
+                        <div class="w-100 h-100 d-flex align-items-center justify-content-center bg-secondary-subtle text-muted">
+                            <i class="fa-solid fa-language fa-3x"></i>
+                        </div>
+                    </div>
+                    <div class="card-body p-4">
+                        <h5 class="fw-bold text-dark mb-2">ថ្នាក់ភាសាអង់គ្លេសកម្រិតមូលដ្ឋាន</h5>
+                        <p class="text-muted small mb-4">បង្រៀនកុមារតូចៗឱ្យចេះបញ្ចេញសំឡេង អាន អក្សរ និងការសន្ទនាប្រចាំថ្ងៃងាយៗ។</p>
+                        <hr class="opacity-10 my-3">
+                        <div class="d-flex justify-content-between text-muted small">
+                            <span><i class="fa-solid fa-location-dot me-1 text-danger"></i> ខេត្តកំពង់ស្ពឺ</span>
+                            <span><i class="fa-solid fa-calendar-days me-1 text-primary"></i> រាល់ចុងសប្តាហ៍</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+           
+            <div class="col-lg-4 col-md-6" data-aos="fade-up" data-aos-delay="200">
+                <div class="card course-card">
+                    <div class="course-img-wrapper">
+                        <span class="course-badge" style="background: var(--green-success);">បច្ចេកវិទ្យា</span>
+                        <div class="w-100 h-100 d-flex align-items-center justify-content-center bg-secondary-subtle text-muted">
+                            <i class="fa-solid fa-laptop-code fa-3x"></i>
+                        </div>
+                    </div>
+                    <div class="card-body p-4">
+                        <h5 class="fw-bold text-dark mb-2">ចំណេះដឹងកុំព្យូទ័រ និងឌីជីថល</h5>
+                        <p class="text-muted small mb-4">ណែនាំសិស្សានុសិស្សវិទ្យាល័យឱ្យយល់ដឹងពីការប្រើប្រាស់ Word, Excel និងប្រព័ន្ធអ៊ីនធឺណិត។</p>
+                        <hr class="opacity-10 my-3">
+                        <div class="d-flex justify-content-between text-muted small">
+                            <span><i class="fa-solid fa-location-dot me-1 text-danger"></i> ភ្នំពេញ (ជាយក្រុង)</span>
+                            <span><i class="fa-solid fa-clock me-1 text-primary"></i> ២ដង/សប្តាហ៍</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+        
+            <div class="col-lg-4 col-md-12" data-aos="fade-up" data-aos-delay="300">
+                <div class="card course-card">
+                    <div class="course-img-wrapper">
+                        <span class="course-badge" style="background: var(--gold); color: #000;">សិល្បៈ & កីឡា</span>
+                        <div class="w-100 h-100 d-flex align-items-center justify-content-center bg-secondary-subtle text-muted">
+                            <i class="fa-solid fa-palette fa-3x"></i>
+                        </div>
+                    </div>
+                    <div class="card-body p-4">
+                        <h5 class="fw-bold text-dark mb-2">ថ្នាក់គំនូរ និងការបង្កើតគំនិតច្នៃប្រឌិត</h5>
+                        <p class="text-muted small mb-4">បង្កើតកម្មវិធីកម្សាន្ត បង្រៀនគូររូប ផាត់ពណ៌ និងបណ្តុះស្មារតីស្រឡាញ់បរិស្ថានតាមសិល្បៈ។</p>
+                        <hr class="opacity-10 my-3">
+                        <div class="d-flex justify-content-between text-muted small">
+                            <span><i class="fa-solid fa-location-dot me-1 text-danger"></i> ខេត្តតាកែវ</span>
+                            <span><i class="fa-solid fa-calendar-days me-1 text-primary"></i> យុទ្ធនាការ ១សប្តាហ៍</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
 
     <section class="container mb-5">
         <div class="row justify-content-center">
             <div class="col-lg-10 col-xl-8">
                 <div class="card-modern p-4 p-md-5" data-aos="fade-up" data-aos-delay="100">
-                    
-                    <form id="donationForm">
-                        <!-- Step 1: User Info -->
-                        <div class="mb-5">
-                            <h5 class="fw-bold mb-4"><span class="step-number">១</span>ព័ត៌មានរបស់អ្នក</h5>
+                    <div class="text-center mb-5">
+                        <h3 class="fw-bold text-primary">ចុះឈ្មោះជាគ្រូស្ម័គ្រចិត្ត</h3>
+                        <p class="text-muted">សូមបំពេញព័ត៌មានខាងក្រោម ក្រុមការងារយើងនឹងទាក់ទងទៅលោកអ្នកក្នុងពេលឆាប់ៗ</p>
+                    </div>
+
+                    <form id="teachingForm">
+                      
+                        <div class="mb-4">
+                            <h5 class="fw-bold mb-3"><span class="step-number">១</span>ព័ត៌មានផ្ទាល់ខ្លួន</h5>
                             <div class="row g-3">
-                                <div class="col-md-6"><input type="text" class="form-control form-control-lg rounded-pill" placeholder="នាមត្រកូល" required></div>
-                                <div class="col-md-6"><input type="text" class="form-control form-control-lg rounded-pill" placeholder="នាមខ្លួន" required></div>
-                                <div class="col-md-6"><input type="tel" class="form-control form-control-lg rounded-pill" placeholder="លេខទូរស័ព្ទ" required></div>
-                                <div class="col-md-6"><input type="email" class="form-control form-control-lg rounded-pill" placeholder="អ៊ីមែល" required></div>
-                            </div>
-                        </div>
-
-                        <!-- Step 2: Amount -->
-                        <div class="mb-5">
-                            <h5 class="fw-bold mb-4"><span class="step-number">២</span>ជ្រើសរើសទឹកប្រាក់ (USD)</h5>
-                            <div class="d-flex flex-wrap gap-2 mb-3">
-                                <button type="button" class="amount-badge btn" data-val="10">$10</button>
-                                <button type="button" class="amount-badge btn active" data-val="20">$20</button>
-                                <button type="button" class="amount-badge btn" data-val="50">$50</button>
-                                <button type="button" class="amount-badge btn" id="btnCustom">ផ្សេងៗ</button>
-                            </div>
-                            <input type="number" id="inputCustom" class="form-control form-control-lg rounded-pill d-none" placeholder="បញ្ចូលទឹកប្រាក់">
-                        </div>
-
-                        <!-- Step 3: Bank Selection -->
-                          <div class="mb-5">
-                            <h5 class="fw-bold mb-4"><span class="step-number">៣</span>បញ្ជាក់ការបង់ប្រាក់</h5>
-                            <div class="upload-area text-center" id="dropZone">
-                                <input type="file" id="fileInput" class="d-none" accept="image/*" required>
-                                <div id="uploadPlaceholder">
-                                    <i class="fas fa-cloud-upload-alt fa-3x text-muted mb-3"></i>
-                                    <p class="fw-bold mb-1">ភ្ជាប់រូបភាពវិក្កយបត្រ (Screenshot)</p>
+                                <div class="col-md-6">
+                                    <label class="form-label small fw-bold">នាមត្រកូល</label>
+                                    <input type="text" class="form-control form-control-lg rounded-pill" placeholder="ឧ. ឡាយ" required>
                                 </div>
-                                <div id="previewContainer" class="d-none">
-                                    <img id="filePreview" src="" class="rounded-3 mb-2" style="max-height: 150px;">
-                                    <p class="text-success small fw-bold">រូបភាពត្រូវបានជ្រើសរើស!</p>
+                                <div class="col-md-6">
+                                    <label class="form-label small fw-bold">នាមខ្លួន</label>
+                                    <input type="text" class="form-control form-control-lg rounded-pill" placeholder="ឧ. ឧស្សា" required>
+                                </div>
+                                <div class="col-md-6">
+                                    <label class="form-label small fw-bold">លេខទូរស័ព្ទ</label>
+                                    <input type="tel" class="form-control form-control-lg rounded-pill" placeholder="ឧ. 012345678" required>
+                                </div>
+                                <div class="col-md-6">
+                                    <label class="form-label small fw-bold">អ៊ីមែល</label>
+                                    <input type="email" class="form-control form-control-lg rounded-pill" placeholder="ឧ. name@example.com" required>
                                 </div>
                             </div>
                         </div>
 
-                        <!-- Step 4: Receipt Upload -->
+                      
                         <div class="mb-5">
-                            <h5 class="fw-bold mb-4"><span class="step-number">៤</span>ជ្រើសរើសធនាគារដើម្បីស្កេន</h5>
+                            <h5 class="fw-bold mb-3"><span class="step-number">២</span>ជំនាញ និងជម្រើសបង្រៀន</h5>
                             <div class="row g-3">
-                                <div class="col-4">
-                                    <div class="payment-method-card text-center" data-bs-toggle="modal" data-bs-target="#qrModal" data-bank="ABA Bank" data-acc="001 234 567" data-qr="https://api.qrserver.com/v1/create-qr-code/?size=300x300&data=ABA_001234567">
-                                        <i class="fas fa-university fa-2x mb-2 text-primary"></i>
-                                        <div class="small fw-bold">ABA</div>
-                                    </div>
+                                <div class="col-md-6">
+                                    <label class="form-label small fw-bold">មុខវិជ្ជាដែលចង់ចូលរួមបង្រៀន</label>
+                                    <select class="form-select form-select-lg rounded-pill" style="font-size: 1rem;" required>
+                                        <option value="" selected disabled>--- ជ្រើសរើសមុខវិជ្ជា ---</option>
+                                        <option value="english">ភាសាអង់គ្លេស</option>
+                                        <option value="computer">កុំព្យូទ័រ/ឌីជីថល</option>
+                                        <option value="art">សិល្បៈ/គំនូរ/តន្ត្រី</option>
+                                        <option value="math">គណិតវិទ្យា/វិទ្យាសាស្ត្រ</option>
+                                    </select>
                                 </div>
-                                <div class="col-4">
-                                    <div class="payment-method-card text-center" data-bs-toggle="modal" data-bs-target="#qrModal" data-bank="ACLEDA Bank" data-acc="3456 7890" data-qr="https://api.qrserver.com/v1/create-qr-code/?size=300x300&data=ACLEDA_34567890">
-                                        <i class="fas fa-landmark fa-2x mb-2 text-info"></i>
-                                        <div class="small fw-bold">ACLEDA</div>
-                                    </div>
+                                <div class="col-md-6">
+                                    <label class="form-label small fw-bold">ពេលវេលាអាចចូលរួមបាន</label>
+                                    <select class="form-select form-select-lg rounded-pill" style="font-size: 1rem;" required>
+                                        <option value="" selected disabled>--- ជ្រើសរើសពេលវេលា ---</option>
+                                        <option value="weekend">តែថ្ងៃចុងសប្តាហ៍ (សៅរ៍-អាទិត្យ)</option>
+                                        <option value="weekday">ថ្ងៃធម្មតា (ចន្ទ-សុក្រ)</option>
+                                        <option value="flexible">ពេលវេលាបត់បែនបាន</option>
+                                    </select>
                                 </div>
-                                <div class="col-4">
-                                    <div class="payment-method-card text-center" data-bs-toggle="modal" data-bs-target="#qrModal" data-bank="Wing Bank" data-acc="012 345 678" data-qr="https://api.qrserver.com/v1/create-qr-code/?size=300x300&data=WING_012345678">
-                                        <i class="fas fa-wallet fa-2x mb-2 text-warning"></i>
-                                        <div class="small fw-bold">Wing</div>
-                                    </div>
+                                <div class="col-12">
+                                    <label class="form-label small fw-bold">រៀបរាប់សង្ខេបពីបទពិសោធន៍ ឬមូលហេតុចង់ចូលរួម (បើមាន)</label>
+                                    <textarea class="form-control rounded-4" rows="4" placeholder="សរសេរព័ត៌មានបន្ថែមនៅទីនេះ..."></textarea>
                                 </div>
                             </div>
                         </div>
 
-                        <button type="submit" class="btn-submit">ផ្ញើព័ត៌មានបរិច្ចាគ</button>
+                        <button type="submit" class="btn-submit" data-bs-toggle="modal" data-bs-target="#successModal">បញ្ជូនពាក្យសុំចុះឈ្មោះ</button>
                     </form>
                 </div>
             </div>
         </div>
     </section>
+     <div
+                        class="modal fade"
+                        id="successModal"
+                        tabindex="-1"
+                        aria-hidden="true"
+                      >
+                        <div class="modal-dialog modal-dialog-centered">
+                          <div
+                            class="modal-content text-center p-4 border-0 "
+                            style="border-radius: 28px"
+                          >
+                            <div class="modal-body">
+                              <div class="mb-3">
+                                <i
+                                  class="fas fa-check-circle text-success"
+                                  style="font-size: 5rem"
+                                ></i>
+                              </div>
+                              <h2 class="fw-bold text-success mb-3">ជោគជ័យ!</h2>
+                              <p class="text-muted mb-4">
+                                ព័ត៌មានបរិច្ចាគរបស់អ្នកត្រូវបានបញ្ជូនដោយជោគជ័យ។
+                                ក្រុមការងារនឹងទាក់ទងទៅលោកអ្នកក្នុងពេលឆាប់ៗ។
+                              </p>
+                              <button
+                                type="button"
+                                class="btn btn-primary rounded-pill px-5 py-2"
+                                data-bs-dismiss="modal"
+                                style="
+                                  background-color: var(--primary-blue);
+                                  border: none;
+                                "
+                              >
+                                យល់ព្រម
+                              </button>
+                            </div>
+                          </div>
+                        </div>
+        </div>
 </main>
 
-<!-- QR Modal -->
-<!-- QR Modal -->
-<div class="modal fade" id="qrModal" tabindex="-1" aria-hidden="true">
-    <div class="modal-dialog modal-dialog-centered">
-        <div class="modal-content shadow-lg">
-            <div class="modal-header border-0 pb-0">
-                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-            </div>
-            <div class="modal-body text-center p-4 pt-0">
-                <h5 class="fw-bold mb-1" id="modalBankName">Bank Name</h5>
-                <p class="text-muted small mb-4">សូមស្កេន QR កូដខាងក្រោមដើម្បីទូទាត់</p>
-                
-                <div class="qr-frame d-inline-block p-3 mb-4 bg-white shadow-sm">
-                    <img id="modalQrImg" src="" alt="QR Code" class="img-fluid" style="width: 220px; height: 220px;">
-                </div>
 
-                <div class="bg-light p-3 rounded-4 mb-4">
-                    <span class="d-block small text-muted mb-1">លេខគណនី</span>
-                    <h4 class="fw-bold text-primary mb-2" id="modalBankAcc">000 000 000</h4>
-                    <button type="button" class="btn btn-outline-primary btn-sm rounded-pill px-3" onclick="copyAcc()">
-                        <i class="far fa-copy me-1"></i> ចម្លងលេខ
-                    </button>
-                </div>
-                
-                <!-- ប៊ូតុង រួចរាល់ -->
-                <button type="button" class="btn btn-primary w-100 rounded-pill py-3 fw-bold" data-bs-dismiss="modal">
-                    រួចរាល់
-                </button>
-                
-                <p class="small text-muted mt-3 mb-0">
-                    <i class="fas fa-check-circle me-1 text-success"></i> កុំភ្លេចភ្ជាប់រូបភាពវិក្កយបត្រនៅជំហានទី៤
-                </p>
+<div class="modal fade" id="teachingSuccessModal" tabindex="-1" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered">
+        <div class="modal-content style="border-radius: 25px; border: none; class="shadow-lg">
+            <div class="modal-body text-center p-5">
+                <i class="fas fa-check-circle fa-4x mb-3" style="color: var(--green-success);"></i>
+                <h3 class="fw-bold text-dark mb-2">ចុះឈ្មោះបានជោគជ័យ!</h3>
+                <p class="text-muted small mb-4">សូមអរគុណលោកអ្នកសម្រាប់ទឹកចិត្តសប្បុរសធម៌ចង់ចែករំលែកចំណេះដឹង។ ក្រុមការងារយើងខ្ញុំនឹងពិនិត្យពាក្យសុំ និងទាក់ទងទៅវិញក្នុងពេលឆាប់ៗ។</p>
+                <button class="btn btn-primary w-100 rounded-pill py-2 fw-bold" data-bs-dismiss="modal">យល់ព្រម</button>
             </div>
         </div>
     </div>
@@ -714,62 +857,38 @@
     </footer>
 
 
-<button id="backToTop" class="back-to-top"><i class="fas fa-arrow-up"></i></button>
-
-
-<div class="modal fade" id="successModal" tabindex="-1"><div class="modal-dialog modal-dialog-centered"><div class="modal-content"><div class="modal-body text-center"><i class="fas fa-check-circle fa-4x text-success"></i><h3>អរគុណសម្រាប់ការបរិច្ចាគ!</h3><p>វិញ្ញាបនបត្របរិច្ចាគត្រូវបានផ្ញើទៅកាន់អ៊ីមែលរបស់អ្នកហើយ</p><button class="btn btn-primary" data-bs-dismiss="modal">បិទ</button></div></div></div></div>
-
+<!-- JavaScript Bundle with Popper & AOS JS -->
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
 <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
 <script>
-    document.addEventListener('DOMContentLoaded', () => {
-        AOS.init();
-
-        // Amount Badges
-        const badges = document.querySelectorAll('.amount-badge');
-        badges.forEach(badge => {
-            badge.addEventListener('click', () => {
-                badges.forEach(b => b.classList.remove('active'));
-                badge.classList.add('active');
-                document.getElementById('inputCustom').classList.toggle('d-none', badge.id !== 'btnCustom');
+    document.addEventListener("DOMContentLoaded", function () {
+        // ចាប់ផ្តើម AOS Animation
+        if (typeof AOS !== 'undefined') {
+            AOS.init({
+                duration: 800,
+                once: true
             });
-        });
+        }
 
-        // Modal Logic
-        const qrModal = document.getElementById('qrModal');
-        qrModal.addEventListener('show.bs.modal', function (event) {
-            const button = event.relatedTarget; // The bank card clicked
-            const bank = button.getAttribute('data-bank');
-            const acc = button.getAttribute('data-acc');
-            const qr = button.getAttribute('data-qr');
+        // គ្រប់គ្រង Form Submission
+        const teachingForm = document.getElementById('teachingForm');
+        const successModalElement = document.getElementById('teachingSuccessModal');
 
-            document.getElementById('modalBankName').innerText = bank;
-            document.getElementById('modalBankAcc').innerText = acc;
-            document.getElementById('modalQrImg').src = qr;
-        });
+        if (teachingForm) {
+            teachingForm.addEventListener('submit', function (e) {
+                e.preventDefault(); // ទប់ស្កាត់ការ Refresh ទំព័រ
 
-
-        const fileInput = document.getElementById('fileInput');
-        document.getElementById('dropZone').addEventListener('click', () => fileInput.click());
-        fileInput.addEventListener('change', (e) => {
-            const file = e.target.files[0];
-            if (file) {
-                const reader = new FileReader();
-                reader.onload = (ev) => {
-                    document.getElementById('filePreview').src = ev.target.result;
-                    document.getElementById('previewContainer').classList.remove('d-none');
-                    document.getElementById('uploadPlaceholder').classList.add('d-none');
-                };
-                reader.readAsDataURL(file);
-            }
-        });
+                // បង្ហាញ Success Modal
+                if (successModalElement) {
+                    const successModal = new bootstrap.Modal(successModalElement);
+                    successModal.show();
+                    
+                    // Reset ទម្រង់បែបបទឡើងវិញ
+                    teachingForm.reset();
+                }
+            });
+        }
     });
-
-    function copyAcc() {
-        const acc = document.getElementById('modalBankAcc').innerText;
-        navigator.clipboard.writeText(acc).then(() => alert("ចម្លងបានជោគជ័យ!"));
-    }
 </script>
-
 </body>
 </html>
