@@ -1,0 +1,178 @@
+
+        :root {
+            --primary-blue: #0b5c8e;
+            --accent-blue: #00adef;
+            --gold: #f5b042;
+            --soft-bg: #f4f9fe;
+            --green-success: #2ec4b6;
+            --gray-text: #6c757d;
+            --red-heart: #e63946;
+        }
+
+        body {
+            font-family: 'Kantumruy Pro', sans-serif;
+            background: var(--soft-bg);
+            color: #1a2c3e;
+        }
+
+       
+        .medical-header {
+            background: linear-gradient(135deg, #0a5a88 0%, #022f46 100%);
+            padding: 80px 0 120px;
+            border-radius: 0 0 50px 50px;
+            color: white;
+        }
+
+     
+        .stat-section {
+            margin-top: -60px;
+            position: relative;
+            z-index: 10;
+        }
+
+        .stat-card {
+            background: white;
+            border-radius: 20px;
+            border: none;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.05);
+            transition: 0.3s;
+        }
+        .stat-card:hover {
+            transform: translateY(-5px);
+        }
+
+    
+        .spec-badge {
+            background: #fff;
+            border: 2px solid #e2e8f0;
+            color: #4a5568;
+            padding: 15px 20px;
+            border-radius: 15px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            text-align: center;
+            font-weight: 600;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            gap: 8px;
+            height: 100%;
+        }
+
+        .spec-badge i {
+            font-size: 1.6rem;
+            color: var(--gray-text);
+            transition: 0.3s;
+        }
+
+        .spec-badge:hover {
+            border-color: var(--accent-blue);
+            background-color: rgba(0, 173, 239, 0.02);
+        }
+
+        .spec-badge.active {
+            border-color: var(--accent-blue);
+            background-color: rgba(0, 173, 239, 0.08);
+            color: var(--primary-blue);
+        }
+
+        .spec-badge.active i {
+            color: var(--accent-blue);
+        }
+
+     
+        .card-modern {
+            background: white;
+            border-radius: 30px;
+            border: none;
+            box-shadow: 0 15px 45px rgba(0,0,0,0.06);
+        }
+
+        .form-step-title {
+            color: var(--primary-blue);
+            font-weight: 700;
+            position: relative;
+            padding-left: 15px;
+        }
+
+        .form-step-title::before {
+            content: '';
+            position: absolute;
+            left: 0;
+            top: 15%;
+            height: 70%;
+            width: 4px;
+            background: var(--accent-blue);
+            border-radius: 2px;
+        }
+
+        .form-control, .form-select {
+            border: 1.5px solid #e2e8f0;
+            padding: 12px 20px;
+            font-size: 0.95rem;
+            transition: 0.3s;
+        }
+
+        .form-control:focus, .form-select:focus {
+            border-color: var(--accent-blue);
+            box-shadow: 0 0 0 0.25rem rgba(0, 173, 239, 0.15);
+        }
+
+        
+        .upload-dropzone {
+            border: 2px dashed #cbd5e1;
+            border-radius: 20px;
+            padding: 30px;
+            text-align: center;
+            background: #f8fafc;
+            cursor: pointer;
+            transition: 0.3s;
+        }
+
+        .upload-dropzone:hover {
+            border-color: var(--accent-blue);
+            background: rgba(0, 173, 239, 0.02);
+        }
+
+        .btn-submit {
+            background: linear-gradient(90deg, var(--primary-blue), var(--accent-blue));
+            color: white;
+            border-radius: 50px;
+            padding: 15px;
+            font-weight: 700;
+            width: 100%;
+            border: none;
+            transition: 0.3s ease;
+        }
+
+        .btn-submit:hover {
+            opacity: 0.95;
+            transform: translateY(-2px);
+            box-shadow: 0 8px 20px rgba(0, 173, 239, 0.3);
+        }
+
+      
+        #backToTop {
+            position: fixed;
+            bottom: 30px;
+            right: -60px;
+            width: 45px;
+            height: 45px;
+            background: var(--primary-blue);
+            color: white;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            cursor: pointer;
+            transition: 0.3s ease;
+            z-index: 1000;
+        }
+
+        #backToTop.show {
+            right: 30px;
+        }
+        #backToTop:hover {
+            background: var(--accent-blue);
+        }

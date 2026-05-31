@@ -3,121 +3,21 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
-    <title>បរិច្ចាគប្រាក់ - ស្នាមញញឹមខ្មែរ</title>
+    <title>ស្ម័គ្រចិត្តតាមព្រឹត្តិការណ៍ - ស្នាមញញឹមខ្មែរ</title>
 
+    <!-- Bootstrap 5, Font Awesome 6, Kantumruy Pro, AOS -->
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <link href="https://fonts.googleapis.com/css2?family=Kantumruy+Pro:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
     <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
-    <link rel="stylesheet" href="assets/css/Money donation.css">
+    <link rel="stylesheet" href="assets/css/event-volunteer.css">
     <link rel="stylesheet" href="assets/css/Footer.css">
     <link rel="stylesheet" href="assets/css/style2.css">
-
-    <style>
-        :root {
-            --primary-blue: #0b5c8e;
-            --accent-blue: #0099cc;
-            --gold: #f5b042;
-            --soft-bg: #f4f9fe;
-        }
-
-        body {
-            font-family: 'Kantumruy Pro', sans-serif;
-            background: var(--soft-bg);
-            color: #1a2c3e;
-        }
-
-        .money-header {
-            background: linear-gradient(135deg, #0a5a88 0%, #033b57 100%);
-            padding: 80px 0 100px;
-            border-radius: 0 0 50px 50px;
-            color: white;
-        }
-
-        .card-modern {
-            background: white;
-            border-radius: 30px;
-            border: none;
-            box-shadow: 0 15px 45px rgba(0,0,0,0.08);
-            margin-top: -80px;
-            position: relative;
-            z-index: 10;
-        }
-
-        .step-number {
-            width: 35px; height: 35px;
-            background: var(--primary-blue);
-            color: white;
-            border-radius: 50%;
-            display: inline-flex;
-            align-items: center;
-            justify-content: center;
-            margin-right: 10px;
-        }
-
-        .amount-badge {
-            background: #f8fafc;
-            border: 2px solid #e2e8f0;
-            border-radius: 15px;
-            padding: 15px 25px;
-            font-weight: 700;
-            transition: 0.3s;
-            flex: 1;
-            min-width: 100px;
-            color: var(--primary-blue);
-        }
-
-        .amount-badge.active {
-            background: var(--primary-blue);
-            color: white;
-            border-color: var(--primary-blue);
-        }
-
-        .payment-method-card {
-            border: 2px solid #edf2f7;
-            border-radius: 20px;
-            padding: 20px;
-            transition: 0.3s;
-            cursor: pointer;
-            background: white;
-        }
-
-        .payment-method-card:hover {
-            border-color: var(--accent-blue);
-            background: #f0f9ff;
-            transform: translateY(-5px);
-        }
-
-        .upload-area {
-            border: 2px dashed #cbd5e0;
-            border-radius: 20px;
-            padding: 30px;
-            cursor: pointer;
-            background: #fafbfc;
-            transition: 0.3s;
-        }
-
-        .btn-submit {
-            background: linear-gradient(90deg, var(--primary-blue), var(--accent-blue));
-            color: white;
-            border-radius: 50px;
-            padding: 18px;
-            font-weight: 700;
-            width: 100%;
-            border: none;
-        }
-
-        /* Modal Customization */
-        .modal-content { border-radius: 30px; border: none; }
-        .qr-frame { border: 8px solid #f0f4f8; border-radius: 20px; }
-    </style>
 </head>
 <body>
 
-
-<div id="preloader"><div class="loader"></div></div>
-
- <header class="container-fluid py-4 sticky-top main-header">
+<!-- Header/Navbar -->
+  <header class="container-fluid py-4 sticky-top main-header">
         <div class="row align-items-center px-lg-5">
           <div class="col-lg-2 col-6">
             <div class="d-flex align-items-center">
@@ -491,131 +391,218 @@
         </div>
       </header>
 
-
 <main>
-    <section class="money-header text-center">
+    
+    <section class="volunteer-header text-center">
         <div class="container" data-aos="fade-up">
-            <h1 class="fw-bold mb-3">ការបរិច្ចាគរបស់លោកអ្នក</h1>
-            <p class="opacity-75">រាល់ទឹកប្រាក់របស់លោកអ្នក នឹងជួយដល់កុមារ និងជនងាយរងគ្រោះ</p>
+            <span class="badge mb-3 px-3 py-2 text-dark" style="background-color: var(--gold); border-radius: 30px; font-weight: 600;">Event-Based Volunteer</span>
+            <h1 class="fw-bold mb-3 display-5">រួមគ្នាបង្កើតស្នាមញញឹម</h1>
+            <p class="opacity-75 max-w-600 mx-auto">ជ្រើសរើសព្រឹត្តិការណ៍មនុស្សធម៌ណាមួយដែលអ្នកពេញចិត្ត រួចប្រើប្រាស់ពេលវេលា និងថាមពលរបស់អ្នកដើម្បីជួយសង្គមជាតិយើង</p>
         </div>
     </section>
 
+   
+    <section class="container event-section mb-5">
+        <div class="text-center mb-4 text-white d-md-none">
+            <p class="small bg-secondary d-inline-block px-3 py-1 rounded-pill">សូមចុចជ្រើសរើសព្រឹត្តិការណ៍ខាងក្រោម៖</p>
+        </div>
+        <div class="row g-4 justify-content-center">
+          
+            <div class="col-md-5" data-aos="zoom-in" data-aos-delay="100">
+                <div class="card event-card p-4 selected" data-event="យុទ្ធនាការចុះចែកសម្ភារៈសិក្សា នៅខេត្តពោធិ៍សាត់">
+                    <div class="d-flex justify-content-between align-items-start mb-3">
+                        <span class="badge bg-danger rounded-pill px-3 py-1 small">ត្រូវការបន្ទាន់</span>
+                        <div class="text-muted small"><i class="fa-regular fa-calendar-days me-1"></i> ២៥ មិថុនា ២០២៦</div>
+                    </div>
+                    <h5 class="fw-bold text-dark mb-2">យុទ្ធនាការចុះចែកសម្ភារៈសិក្សា និងអាហារូបត្ថម្ភ</h5>
+                    <p class="text-muted small mb-3"><i class="fa-solid fa-location-dot me-1 text-danger"></i> ស្រុកវាលវែង ខេត្តពោធិ៍សាត់</p>
+                    <hr class="my-2 opacity-50">
+                    <div class="d-flex justify-content-between align-items-center small text-secondary">
+                        <span>លក្ខខណ្ឌ៖ អាចចុះខេត្ត ២ថ្ងៃបាន</span>
+                        <span class="text-primary fw-bold">បានជ្រើសរើស <i class="fa-solid fa-circle-check text-success ms-1"></i></span>
+                    </div>
+                </div>
+            </div>
+           
+            <div class="col-md-5" data-aos="zoom-in" data-aos-delay="200">
+                <div class="card event-card p-4" data-event="កម្មវិធីដាំកូនឈើ និងសម្អាតបរិស្ថានសហគមន៍">
+                    <div class="d-flex justify-content-between align-items-start mb-3">
+                        <span class="badge bg-primary rounded-pill px-3 py-1 small">បើកទទួលសន្លឹក</span>
+                        <div class="text-muted small"><i class="fa-regular fa-calendar-days me-1"></i> ១២ កក្កដា ២០២៦</div>
+                    </div>
+                    <h5 class="fw-bold text-dark mb-2">កម្មវិធីដាំកូនឈើ និងសម្អាតបរិស្ថានសហគមន៍</h5>
+                    <p class="text-muted small mb-3"><i class="fa-solid fa-location-dot me-1 text-danger"></i> ភ្នំគិរីរម្យ ខេត្តកំពង់ស្ពឺ</p>
+                    <hr class="my-2 opacity-50">
+                    <div class="d-flex justify-content-between align-items-center small text-secondary">
+                        <span>លក្ខខណ្ឌ៖ ស្រឡាញ់បរិស្ថាន និងធម្មជាតិ</span>
+                        <span class="select-status">ចុចដើម្បីជ្រើសរើស</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+   
     <section class="container mb-5">
         <div class="row justify-content-center">
             <div class="col-lg-10 col-xl-8">
                 <div class="card-modern p-4 p-md-5" data-aos="fade-up" data-aos-delay="100">
                     
-                    <form id="donationForm">
-                        <!-- Step 1: User Info -->
+                    <div class="text-center mb-5">
+                        <h3 class="fw-bold text-primary">ទម្រង់ចុះឈ្មោះអ្នកស្ម័គ្រចិត្ត</h3>
+                        <p class="text-muted">ព្រឹត្តិការណ៍ដែលបានជ្រើសរើស៖ <span id="selectedEventTitle" class="fw-bold text-dark bg-warning-subtle px-2 py-1 rounded">យុទ្ធនាការចុះចែកសម្ភារៈសិក្សា នៅខេត្តពោធិ៍សាត់</span></p>
+                    </div>
+
+                    <form id="volunteerForm">
+                        
+                     
                         <div class="mb-5">
-                            <h5 class="fw-bold mb-4"><span class="step-number">១</span>ព័ត៌មានរបស់អ្នក</h5>
+                            <h5 class="form-step-title mb-3">ជំហានទី ១: ជ្រើសរើសផ្នែក/តួនាទី ដែលអ្នកចង់ជួយ</h5>
                             <div class="row g-3">
-                                <div class="col-md-6"><input type="text" class="form-control form-control-lg rounded-pill" placeholder="នាមត្រកូល" required></div>
-                                <div class="col-md-6"><input type="text" class="form-control form-control-lg rounded-pill" placeholder="នាមខ្លួន" required></div>
-                                <div class="col-md-6"><input type="tel" class="form-control form-control-lg rounded-pill" placeholder="លេខទូរស័ព្ទ" required></div>
-                                <div class="col-md-6"><input type="email" class="form-control form-control-lg rounded-pill" placeholder="អ៊ីមែល" required></div>
-                            </div>
-                        </div>
-
-                        <!-- Step 2: Amount -->
-                        <div class="mb-5">
-                            <h5 class="fw-bold mb-4"><span class="step-number">២</span>ជ្រើសរើសទឹកប្រាក់ (USD)</h5>
-                            <div class="d-flex flex-wrap gap-2 mb-3">
-                                <button type="button" class="amount-badge btn" data-val="10">$10</button>
-                                <button type="button" class="amount-badge btn active" data-val="20">$20</button>
-                                <button type="button" class="amount-badge btn" data-val="50">$50</button>
-                                <button type="button" class="amount-badge btn" id="btnCustom">ផ្សេងៗ</button>
-                            </div>
-                            <input type="number" id="inputCustom" class="form-control form-control-lg rounded-pill d-none" placeholder="បញ្ចូលទឹកប្រាក់">
-                        </div>
-
-                        <!-- Step 3: Bank Selection -->
-                          <div class="mb-5">
-                            <h5 class="fw-bold mb-4"><span class="step-number">៣</span>បញ្ជាក់ការបង់ប្រាក់</h5>
-                            <div class="upload-area text-center" id="dropZone">
-                                <input type="file" id="fileInput" class="d-none" accept="image/*" required>
-                                <div id="uploadPlaceholder">
-                                    <i class="fas fa-cloud-upload-alt fa-3x text-muted mb-3"></i>
-                                    <p class="fw-bold mb-1">ភ្ជាប់រូបភាពវិក្កយបត្រ (Screenshot)</p>
+                                <div class="col-6 col-md-3">
+                                    <div class="role-badge active" data-role="សម្របសម្រួលទូទៅ">
+                                        <i class="fa-solid fa-people-roof"></i>
+                                        <span>សម្របសម្រួលទូទៅ</span>
+                                    </div>
                                 </div>
-                                <div id="previewContainer" class="d-none">
-                                    <img id="filePreview" src="" class="rounded-3 mb-2" style="max-height: 150px;">
-                                    <p class="text-success small fw-bold">រូបភាពត្រូវបានជ្រើសរើស!</p>
+                                <div class="col-6 col-md-3">
+                                    <div class="role-badge" data-role="ក្រុមថតរូប និងមាតិកា">
+                                        <i class="fa-solid fa-camera-retro"></i>
+                                        <span>ថតរូប និងមាតិកា</span>
+                                    </div>
+                                </div>
+                                <div class="col-6 col-md-3">
+                                    <div class="role-badge" data-role="ក្រុមដឹកជញ្ជូន និងរៀបចំ">
+                                        <i class="fa-solid fa-box-open"></i>
+                                        <span>ដឹកជញ្ជូន និងរៀបចំ</span>
+                                    </div>
+                                </div>
+                                <div class="col-6 col-md-3">
+                                    <div class="role-badge" data-role="custom">
+                                        <i class="fa-solid fa-ellipsis"></i>
+                                        <span>ផ្សេងៗ/តាមការចាត់ចែង</span>
+                                    </div>
                                 </div>
                             </div>
+
+                            <div class="mt-3 d-none" id="customRoleWrapper">
+                                <label class="form-label small fw-bold">សូមបញ្ជាក់សមត្ថភាព ឬតួនាទីជាក់លាក់របស់អ្នក៖</label>
+                                <input type="text" id="inputCustomRole" class="form-control rounded-pill" placeholder="ឧ. បែកខាងអប់រំកុមារតូច ឬ ក្រុមសិល្បៈកម្សាន្ត...">
+                            </div>
                         </div>
 
-                        <!-- Step 4: Receipt Upload -->
+                      
                         <div class="mb-5">
-                            <h5 class="fw-bold mb-4"><span class="step-number">៤</span>ជ្រើសរើសធនាគារដើម្បីស្កេន</h5>
+                            <h5 class="form-step-title mb-3">ជំហានទី ២: ព័ត៌មានផ្ទាល់ខ្លួន និងទំនាក់ទំនង</h5>
                             <div class="row g-3">
-                                <div class="col-4">
-                                    <div class="payment-method-card text-center" data-bs-toggle="modal" data-bs-target="#qrModal" data-bank="ABA Bank" data-acc="001 234 567" data-qr="https://api.qrserver.com/v1/create-qr-code/?size=300x300&data=ABA_001234567">
-                                        <i class="fas fa-university fa-2x mb-2 text-primary"></i>
-                                        <div class="small fw-bold">ABA</div>
-                                    </div>
+                                <div class="col-md-6">
+                                    <label class="form-label small fw-bold">នាមត្រកូល</label>
+                                    <input type="text" class="form-control rounded-pill" placeholder="ឧ. មាស" required>
                                 </div>
-                                <div class="col-4">
-                                    <div class="payment-method-card text-center" data-bs-toggle="modal" data-bs-target="#qrModal" data-bank="ACLEDA Bank" data-acc="3456 7890" data-qr="https://api.qrserver.com/v1/create-qr-code/?size=300x300&data=ACLEDA_34567890">
-                                        <i class="fas fa-landmark fa-2x mb-2 text-info"></i>
-                                        <div class="small fw-bold">ACLEDA</div>
-                                    </div>
+                                <div class="col-md-6">
+                                    <label class="form-label small fw-bold">នាមខ្លួន</label>
+                                    <input type="text" class="form-control rounded-pill" placeholder="ឧ. វិសាល" required>
                                 </div>
-                                <div class="col-4">
-                                    <div class="payment-method-card text-center" data-bs-toggle="modal" data-bs-target="#qrModal" data-bank="Wing Bank" data-acc="012 345 678" data-qr="https://api.qrserver.com/v1/create-qr-code/?size=300x300&data=WING_012345678">
-                                        <i class="fas fa-wallet fa-2x mb-2 text-warning"></i>
-                                        <div class="small fw-bold">Wing</div>
-                                    </div>
+                                <div class="col-md-6">
+                                    <label class="form-label small fw-bold">ភេទ</label>
+                                    <select class="form-select rounded-pill" required>
+                                        <option value="" selected disabled>--- ជ្រើសរើសភេទ ---</option>
+                                        <option value="ប្រុស">ប្រុស</option>
+                                        <option value="ស្រី">ស្រី</option>
+                                    </select>
+                                </div>
+                                <div class="col-md-6">
+                                    <label class="form-label small fw-bold">លេខទូរស័ព្ទ (មាន Telegram)</label>
+                                    <input type="tel" class="form-control rounded-pill" placeholder="ឧ. 098765432" required>
+                                </div>
+                                <div class="col-12">
+                                    <label class="form-label small fw-bold">តើអ្នកធ្លាប់មានបទពិសោធន៍ការងារស្ម័គ្រចិត្តពីមុនមកដែរឬទេ?</label>
+                                    <textarea class="form-control" rows="3" style="border-radius: 15px;" placeholder="រៀបរាប់សង្ខេប (បើមាន)"></textarea>
                                 </div>
                             </div>
                         </div>
 
-                        <button type="submit" class="btn-submit">ផ្ញើព័ត៌មានបរិច្ចាគ</button>
+                      
+                        <div class="mb-5">
+                            <h5 class="form-step-title mb-3">ជំហានទី ៣: ជ្រើសរើសទំហំអាវយឺត (T-Shirt Size)</h5>
+                            <p class="text-muted small">អាវយឺតក្រុមការងារនឹងត្រូវផ្តល់ជូនដោយឥតគិតថ្លៃសម្រាប់ការស្លៀកក្នុងថ្ងៃយុទ្ធនាការ។</p>
+                            
+                            <div class="d-flex flex-wrap gap-2 pt-2">
+                                <div class="size-btn active" data-size="S">S</div>
+                                <div class="size-btn" data-size="M">M</div>
+                                <div class="size-btn" data-size="L">L</div>
+                                <div class="size-btn" data-size="XL">XL</div>
+                                <div class="size-btn" data-size="XXL">XXL</div>
+                            </div>
+                            <input type="hidden" id="selectedShirtSize" value="S">
+                        </div>
+
+                     
+                        <button type="submit" class="btn-submit"  data-bs-toggle="modal" data-bs-target="#successModal">ដាក់ពាក្យចូលរួមព្រឹត្តិការណ៍នេះ</button>
                     </form>
+
                 </div>
             </div>
         </div>
     </section>
+    <div
+                        class="modal fade"
+                        id="successModal"
+                        tabindex="-1"
+                        aria-hidden="true"
+                      >
+                        <div class="modal-dialog modal-dialog-centered">
+                          <div
+                            class="modal-content text-center p-4 border-0 "
+                            style="border-radius: 28px"
+                          >
+                            <div class="modal-body">
+                              <div class="mb-3">
+                                <i
+                                  class="fas fa-check-circle text-success"
+                                  style="font-size: 5rem"
+                                ></i>
+                              </div>
+                              <h2 class="fw-bold text-success mb-3">ជោគជ័យ!</h2>
+                              <p class="text-muted mb-4">
+                                ព័ត៌មានបរិច្ចាគរបស់អ្នកត្រូវបានបញ្ជូនដោយជោគជ័យ។
+                                ក្រុមការងារនឹងទាក់ទងទៅលោកអ្នកក្នុងពេលឆាប់ៗ។
+                              </p>
+                              <button
+                                type="button"
+                                class="btn btn-primary rounded-pill px-5 py-2"
+                                data-bs-dismiss="modal"
+                                style="
+                                  background-color: var(--primary-blue);
+                                  border: none;
+                                "
+                              >
+                                យល់ព្រម
+                              </button>
+                            </div>
+                          </div>
+                        </div>
+        </div>
 </main>
 
-<!-- QR Modal -->
-<!-- QR Modal -->
-<div class="modal fade" id="qrModal" tabindex="-1" aria-hidden="true">
-    <div class="modal-dialog modal-dialog-centered">
-        <div class="modal-content shadow-lg">
-            <div class="modal-header border-0 pb-0">
-                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-            </div>
-            <div class="modal-body text-center p-4 pt-0">
-                <h5 class="fw-bold mb-1" id="modalBankName">Bank Name</h5>
-                <p class="text-muted small mb-4">សូមស្កេន QR កូដខាងក្រោមដើម្បីទូទាត់</p>
-                
-                <div class="qr-frame d-inline-block p-3 mb-4 bg-white shadow-sm">
-                    <img id="modalQrImg" src="" alt="QR Code" class="img-fluid" style="width: 220px; height: 220px;">
-                </div>
 
-                <div class="bg-light p-3 rounded-4 mb-4">
-                    <span class="d-block small text-muted mb-1">លេខគណនី</span>
-                    <h4 class="fw-bold text-primary mb-2" id="modalBankAcc">000 000 000</h4>
-                    <button type="button" class="btn btn-outline-primary btn-sm rounded-pill px-3" onclick="copyAcc()">
-                        <i class="far fa-copy me-1"></i> ចម្លងលេខ
-                    </button>
-                </div>
-                
-                <!-- ប៊ូតុង រួចរាល់ -->
-                <button type="button" class="btn btn-primary w-100 rounded-pill py-3 fw-bold" data-bs-dismiss="modal">
-                    រួចរាល់
-                </button>
-                
-                <p class="small text-muted mt-3 mb-0">
-                    <i class="fas fa-check-circle me-1 text-success"></i> កុំភ្លេចភ្ជាប់រូបភាពវិក្កយបត្រនៅជំហានទី៤
-                </p>
+<div class="modal fade" id="volunteerSuccessModal" tabindex="-1" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered">
+        <div class="modal-content text-center p-5" style="border-radius: 25px; border: none;">
+            <div class="modal-body">
+                <i class="fas fa-heart fa-4x mb-3 text-danger animate__animated animate__pulse animate__infinite"></i>
+                <h3 class="fw-bold text-dark mb-2">ចុះឈ្មោះបានជោគជ័យ!</h3>
+                <p class="text-muted small mb-4">ទឹកចិត្តដ៏សប្បុរសរបស់អ្នក គឺជាកម្លាំងចលករដ៏ធំធេងសម្រាប់យើងខ្ញុំ។ ក្រុមការងារសម្របសម្រួលព្រឹត្តិការណ៍ នឹងទាក់ទងទៅលោកអ្នកតាមរយៈ Telegram ដើម្បីបញ្ចូលទៅក្នុងគ្រុបពិភាក្សាការងារ។</p>
+                <button class="btn btn-primary w-100 rounded-pill py-2 fw-bold" style="background: var(--primary-blue); border: none;" data-bs-dismiss="modal">យល់ព្រម</button>
             </div>
         </div>
     </div>
 </div>
 
+<!-- Back to Top Button -->
+<div id="backToTop"><i class="fa-solid fa-arrow-up"></i></div>
 
+<!-- Footer -->
  <footer class="site-footer bg-dark text-white">
       <div class="footer-top py-5">
         <div class="container">
@@ -713,63 +700,129 @@
       </div>
     </footer>
 
-
-<button id="backToTop" class="back-to-top"><i class="fas fa-arrow-up"></i></button>
-
-
-<div class="modal fade" id="successModal" tabindex="-1"><div class="modal-dialog modal-dialog-centered"><div class="modal-content"><div class="modal-body text-center"><i class="fas fa-check-circle fa-4x text-success"></i><h3>អរគុណសម្រាប់ការបរិច្ចាគ!</h3><p>វិញ្ញាបនបត្របរិច្ចាគត្រូវបានផ្ញើទៅកាន់អ៊ីមែលរបស់អ្នកហើយ</p><button class="btn btn-primary" data-bs-dismiss="modal">បិទ</button></div></div></div></div>
-
+<!-- JavaScript CDN -->
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
 <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
-<script>
-    document.addEventListener('DOMContentLoaded', () => {
-        AOS.init();
 
-        // Amount Badges
-        const badges = document.querySelectorAll('.amount-badge');
-        badges.forEach(badge => {
-            badge.addEventListener('click', () => {
-                badges.forEach(b => b.classList.remove('active'));
-                badge.classList.add('active');
-                document.getElementById('inputCustom').classList.toggle('d-none', badge.id !== 'btnCustom');
+<script>
+    document.addEventListener("DOMContentLoaded", function () {
+        // ១. AOS Animation Init
+        if (typeof AOS !== 'undefined') {
+            AOS.init({
+                duration: 800,
+                once: true
+            });
+        }
+
+        // ២. Event Card Selector logic
+        const eventCards = document.querySelectorAll('.event-card');
+        const selectedEventTitle = document.getElementById('selectedEventTitle');
+
+        eventCards.forEach(card => {
+            card.addEventListener('click', function() {
+                eventCards.forEach(c => {
+                    c.classList.remove('selected');
+                    const statusText = c.querySelector('.select-status') || c.querySelector('.text-primary');
+                    if (statusText) {
+                        statusText.outerHTML = '<span class="select-status">ចុចដើម្បីជ្រើសរើស</span>';
+                    }
+                });
+
+                this.classList.add('selected');
+                const badgeContainer = this.querySelector('.d-flex.justify-content-between.align-items-center');
+                const lastSpan = badgeContainer.querySelector('span:last-child');
+                if (lastSpan) {
+                    lastSpan.outerHTML = '<span class="text-primary fw-bold">បានជ្រើសរើស <i class="fa-solid fa-circle-check text-success ms-1"></i></span>';
+                }
+
+                const eventName = this.getAttribute('data-event');
+                selectedEventTitle.textContent = eventName;
+                
+                // Scroll ថ្នមៗទៅកាន់ទម្រង់ហ្វម
+                document.getElementById('volunteerForm').scrollIntoView({ behavior: 'smooth', block: 'center' });
             });
         });
 
-        // Modal Logic
-        const qrModal = document.getElementById('qrModal');
-        qrModal.addEventListener('show.bs.modal', function (event) {
-            const button = event.relatedTarget; // The bank card clicked
-            const bank = button.getAttribute('data-bank');
-            const acc = button.getAttribute('data-acc');
-            const qr = button.getAttribute('data-qr');
+        // ៣. Role Badge Selector
+        const roleBadges = document.querySelectorAll('.role-badge');
+        const customRoleWrapper = document.getElementById('customRoleWrapper');
+        const inputCustomRole = document.getElementById('inputCustomRole');
 
-            document.getElementById('modalBankName').innerText = bank;
-            document.getElementById('modalBankAcc').innerText = acc;
-            document.getElementById('modalQrImg').src = qr;
+        roleBadges.forEach(badge => {
+            badge.parentNode.addEventListener('click', function () {
+                roleBadges.forEach(b => b.classList.remove('active'));
+                
+                const targetBadge = this.querySelector('.role-badge');
+                targetBadge.classList.add('active');
+
+                if (targetBadge.getAttribute('data-role') === 'custom') {
+                    customRoleWrapper.classList.remove('d-none');
+                    inputCustomRole.setAttribute('required', 'true');
+                    inputCustomRole.focus();
+                } else {
+                    customRoleWrapper.classList.add('d-none');
+                    inputCustomRole.removeAttribute('required');
+                    inputCustomRole.value = '';
+                }
+            });
         });
 
+        // ៤. T-Shirt Size Selector
+        const sizeBtns = document.querySelectorAll('.size-btn');
+        const selectedShirtSize = document.getElementById('selectedShirtSize');
 
-        const fileInput = document.getElementById('fileInput');
-        document.getElementById('dropZone').addEventListener('click', () => fileInput.click());
-        fileInput.addEventListener('change', (e) => {
-            const file = e.target.files[0];
-            if (file) {
-                const reader = new FileReader();
-                reader.onload = (ev) => {
-                    document.getElementById('filePreview').src = ev.target.result;
-                    document.getElementById('previewContainer').classList.remove('d-none');
-                    document.getElementById('uploadPlaceholder').classList.add('d-none');
-                };
-                reader.readAsDataURL(file);
-            }
+        sizeBtns.forEach(btn => {
+            btn.addEventListener('click', function() {
+                sizeBtns.forEach(b => b.classList.remove('active'));
+                this.classList.add('active');
+                selectedShirtSize.value = this.getAttribute('data-size');
+            });
         });
+
+        // ៥. Form Submit Validation
+        const volunteerForm = document.getElementById('volunteerForm');
+        const successModalElement = document.getElementById('volunteerSuccessModal');
+
+        if (volunteerForm) {
+            volunteerForm.addEventListener('submit', function (e) {
+                e.preventDefault();
+
+                if (successModalElement) {
+                    const successModal = new bootstrap.Modal(successModalElement);
+                    successModal.show();
+                    
+                    // Reset Form
+                    volunteerForm.reset();
+                    
+                    // Reset Badges to default
+                    roleBadges.forEach(b => b.classList.remove('active'));
+                    roleBadges[0].classList.add('active');
+                    if (customRoleWrapper) customRoleWrapper.classList.add('d-none');
+                    
+                    // Reset Sizes to default
+                    sizeBtns.forEach(b => b.classList.remove('active'));
+                    sizeBtns[0].classList.add('active');
+                    selectedShirtSize.value = 'S';
+                }
+            });
+        }
+
+        // ៦. Back to Top Button
+        const backToTopBtn = document.getElementById('backToTop');
+        if (backToTopBtn) {
+            window.addEventListener('scroll', () => {
+                if (window.scrollY > 300) {
+                    backToTopBtn.classList.add('show');
+                } else {
+                    backToTopBtn.classList.remove('show');
+                }
+            });
+
+            backToTopBtn.addEventListener('click', () => {
+                window.scrollTo({ top: 0, behavior: 'smooth' });
+            });
+        }
     });
-
-    function copyAcc() {
-        const acc = document.getElementById('modalBankAcc').innerText;
-        navigator.clipboard.writeText(acc).then(() => alert("ចម្លងបានជោគជ័យ!"));
-    }
 </script>
-
 </body>
 </html>

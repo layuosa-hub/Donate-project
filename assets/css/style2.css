@@ -353,5 +353,201 @@ body {
 .gallery-card:hover img {
     transform: scale(1.1);
 }
+.testimonial-card {
+    border-radius: 15px;
+    border: none;
+    transition: transform 0.3s ease;
+}
+
+.testimonial-card:hover {
+    transform: translateY(-5px);
+}
+
+.testimonial-img {
+    width: 100px;
+    height: 100px;
+    object-fit: cover;
+    border: 3px solid var(--primary-blue);
+    padding: 3px;
+}
+
+.testimonial-text {
+    line-height: 1.8;
+    text-align: center;
+}
+
+.quote-icon-left, .quote-icon-right {
+    position: absolute;
+    font-size: 1.2rem;
+    color: #dee2e6;
+}
+
+.quote-icon-left {
+    top: 20px;
+    left: 20px;
+}
+
+.quote-icon-right {
+    top: 20px;
+    right: 20px;
+}
+
+
+
+.custom-faq-accordion .accordion-item {
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.03);
+  transition: all 0.3s ease;
+}
+
+.custom-faq-accordion .accordion-button {
+  background-color: #ffffff;
+  padding: 1.2rem 1.25rem;
+  border: none;
+  font-family: 'Kantumruy Pro', sans-serif;
+}
+
+.custom-faq-accordion .accordion-button:not(.collapsed) {
+  color: var(--accent-blue) !important;
+  background-color: #ffffff;
+  box-shadow: none;
+}
+
+.custom-faq-accordion .accordion-button::after {
+  background-size: 1.1rem;
+  transition: transform 0.2s ease-in-out;
+}
+
+.custom-faq-accordion .accordion-button:focus {
+  box-shadow: none;
+  border-color: transparent;
+}
+
+.custom-faq-accordion .accordion-body {
+  font-family: 'Kantumruy Pro', sans-serif;
+  font-size: 0.92rem;
+  color: #555;
+  line-height: 1.7;
+}
+
+/* --- Feedback Form Custom Styling --- */
+.form-feedback-card {
+  border-radius: 16px;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.04);
+}
+
+.feedback-input, 
+.feedback-textarea {
+  border: 1.5px solid #e2e8f0;
+  border-radius: 10px;
+  font-family: 'Kantumruy Pro', sans-serif;
+  font-size: 0.9rem;
+  transition: all 0.2s ease-in-out;
+}
+
+.feedback-input:focus, 
+.feedback-textarea:focus {
+  border-color: var(--accent-blue);
+  box-shadow: 0 0 0 3px rgba(0, 173, 239, 0.15);
+}
+
+/* Form Action Buttons */
+.btn-submit-feedback {
+  background-color: var(--accent-blue);
+  border: 1px solid var(--accent-blue);
+  font-family: 'Kantumruy Pro', sans-serif;
+  font-size: 0.9rem;
+  transition: all 0.2s ease;
+}
+
+.btn-submit-feedback:hover {
+  background-color: #0096d2;
+  border-color: #0096d2;
+  color: #fff;
+  transform: translateY(-1px);
+}
+
+.btn-reset-feedback {
+  background-color: #f1f5f9;
+  border: 1px solid #e2e8f0;
+  color: #64748b;
+  font-family: 'Kantumruy Pro', sans-serif;
+  font-size: 0.9rem;
+  transition: all 0.2s ease;
+}
+
+.btn-reset-feedback:hover {
+  background-color: #cbd5e1;
+  color: #334155;
+  transform: translateY(-1px);
+}
+
+/* Achievements Section Styling */
+.achievements-section {
+  font-family: 'Kantumruy Pro', sans-serif;
+  overflow: hidden;
+}
+
+.achievements-section h2 {
+  font-family: 'Oswald', 'Kantumruy Pro', sans-serif;
+  letter-spacing: 1px;
+  text-shadow: 0 2px 10px rgba(0, 0, 0, 0.3);
+}
+
+.achievements-section p {
+  font-size: 1rem !important;
+  letter-spacing: 0.5px;
+}
+
+/* បន្ថែម Effect ពណ៌ប្រផេះស្រាលពេល Hover លើប្រអប់លេខ */
+.counter-box {
+  transition: transform 0.3s ease;
+}
+
+.counter-box:hover {
+  transform: translateY(-5px);
+}
+
+@media (max-width: 767.98px) {
+  .achievements-section h2 {
+    font-size: 2.5rem;
+  }
+}
+
+
+/* Donation Plans Section Styling */
+.donation-plans-section {
+  font-family: 'Kantumruy Pro', sans-serif;
+}
+
+.plan-card {
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+/* Hover Effect លើ Card នីមួយៗ */
+.plan-card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 10px 20px rgba(0, 0, 0, 0.08) !important;
+}
+
+/* ពណ៌អក្សរ "អានបន្ថែម" ដើរតាម Accent Blue */
+.read-more-link {
+  color: #00adef;
+  transition: color 0.2s ease;
+}
+
+.read-more-link:hover {
+  color: #1a2a6c; /* ប្តូរទៅពណ៌ក្រម៉ៅពេល Hover */
+}
+
+/* កែសម្រួលគម្លាតបន្ទាត់អត្ថបទឱ្យស្រដៀងនឹងរូបភាព image_5837de.png */
+.plan-card p {
+  text-align: justify;
+  text-justify: inter-word;
+}
+
+
+
+
+
 
 
